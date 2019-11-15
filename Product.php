@@ -22,7 +22,7 @@ $product = ProductOphalen($con);
             <aside class="col-sm-5 border-right">
                 <article class="gallery-wrap">
                     <div class="img-big-wrap">
-                        <div> <a href="#"><img src="imgs/usb_missile_launcher.jpg"></a></div>
+                        <div> <a href="#"><img src="imgs/USB-Thunder-Missile-Launcher.jpg"></a></div>
                     </div> <!-- slider-product.// -->
                 </article> <!-- gallery-wrap .end// -->
             </aside>
