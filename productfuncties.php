@@ -10,6 +10,14 @@ function MaakVerbinding()
     return $connection;
 }
 
+function SluitVerbinding($connection) {
+    mysqli_close($connection);
+}
+
+function numberOfRecords($result) {
+    return mysqli_num_rows($result);
+}
+
 function ProductOphalen($connection)
 {
     $id = $_GET["id"];
@@ -24,4 +32,14 @@ function ProductOphalen($connection)
         return $result;
     }
 }
+
+$vraag = $_GET["search"];
+function ZoekProduct($vraag){
+    MaakVerbinding();
+    $zoekresultaten = mysqli_fetch_array("SELECT Photo, StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE %($vraag)%");
+    SluitVerbinding($connection);
+
+    return $zoekresultaten;
+}
+
 ?>
