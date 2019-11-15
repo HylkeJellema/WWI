@@ -35,10 +35,12 @@ function ProductOphalen($connection)
 
 function ZoekProduct($vraag){
     $connection = MaakVerbinding();
-    $zoekresultaten = mysqli_fetch_array("SELECT Photo, StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE %($vraag)%");
+    $sql = "SELECT Photo, StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE '%($vraag)%'";
+    $zoekresultaten = mysqli_query($connection, $sql);
+    $row = mssql_fetch_array($zoekresultaten,MYSQLI_NUM);
     SluitVerbinding($connection);
 
-    return $zoekresultaten;
+    return $row;
 }
 
 ?>
