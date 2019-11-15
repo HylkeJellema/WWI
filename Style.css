@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+}
+
+.foto {
+    width: 100px;
+    height: 50px
+}
+
+.kortingsbanner {
+    text-align: center;
+    padding: 30px;
+}
+
+.logo {
+    float: left;
+}
+
+.winkelmand {
+    float: right;
+    padding-top: 23px;
+    padding-right: 8px;
+
+}
+
+.home {
+    font-weight: bold;  
+}
