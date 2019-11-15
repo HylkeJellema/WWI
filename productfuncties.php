@@ -33,9 +33,8 @@ function ProductOphalen($connection)
     }
 }
 
-$vraag = $_GET["search"];
 function ZoekProduct($vraag){
-    MaakVerbinding();
+    $connection = MaakVerbinding();
     $zoekresultaten = mysqli_fetch_array("SELECT Photo, StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE %($vraag)%");
     SluitVerbinding($connection);
 
