@@ -13,7 +13,7 @@
 <body>
     <?php
         include "lijstpaginafuncties.php";
-        $vraag = "launcher";  //$_GET["search"];
+        $vraag = "mug";  //$_GET["search"];
         $resultaten = ZoekProduct($vraag);
         print_r($resultaten);
     ?>
