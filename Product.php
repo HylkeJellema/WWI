@@ -22,7 +22,8 @@ $product = ProductOphalen($con);
             <aside class="col-sm-5 border-right">
                 <article class="gallery-wrap">
                     <div class="img-big-wrap">
-                        <div> <a href="#"><img src="imgs/USB-Thunder-Missile-Launcher.jpg"></a></div>
+                        <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $product['Photo'] ).'"/>'; ?>
+                        <div> <a href="#"><img src=""></a></div>
                     </div> <!-- slider-product.// -->
                 </article> <!-- gallery-wrap .end// -->
             </aside>
@@ -32,35 +33,32 @@ $product = ProductOphalen($con);
 
                     <p class="price-detail-wrap">
 	<span class="price h3 text-warning">
-		<span class="currency">EU €</span><span class="num"><?php echo $product['price'] ?></span>
+		<span class="currency">€</span><span class="num"><?php echo $product['price'] ?></span>
 	</span>
 
                     </p>
                     <dl class="item-property">
-                        <dt>Description</dt>
-                        <dd><p>Hier komt een mooie beschrijving </p></dd>
+                        <dt>Beschrijving</dt>
+                        <dd><p><?php echo $product['beschrijving'] ?></p></dd>
                     </dl>
 
                     <dl class="param param-feature">
-                        <dt>Delivery</dt>
-                        <dd>Nederland, Europe</dd>
+                        <dt>Verzending</dt>
+                        <dd>Nederland, Europa</dd>
                     </dl>
+
+                    <div class="alert alert-success">
+                        <strong>Gratis verzending!</strong> voor 23:59 besteld, morgen in huis
+                    </div>
 
                     <hr>
                     <div class="row">
                         <div class="col-sm-5">
                             <dl class="param param-inline">
-                                <dt>Quantity: </dt>
-                                <dd>
-                                    <select class="form-control form-control-sm" style="width:70px;">
-                                        <option> 1 </option>
-                                        <option> 2 </option>
-                                        <option> 3 </option>
-                                    </select>
-                                </dd>
-                            </dl>  <!-- item-property .// -->
-                        </div> <!-- col.// -->
-                        <div class="col-sm-7">
+                                <dt>Aantal: </dt>
+                                <div class="box">
+                                    <input type="number">
+                                </div>
 
                         </div>
                     </div>

@@ -22,12 +22,12 @@ function ProductOphalen($connection)
 {
     $id = $_GET["id"];
     if (isset($id)) {
-        $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, UnitPrice FROM stockitems WHERE StockItemID = ?");
+        $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, UnitPrice, CustomFields, Photo FROM stockitems WHERE StockItemID = ?");
         mysqli_stmt_bind_param($statement, 'i', $id);
         mysqli_stmt_execute($statement);
-        mysqli_stmt_bind_result($statement, $StockItemId, $StockItemName, $price);
+        mysqli_stmt_bind_result($statement, $StockItemId, $StockItemName, $price, $CustomFields, $Photo);
         mysqli_stmt_fetch($statement);
-        $result = array("nummer" => $StockItemId, "naam" => $StockItemName, "price" => $price);
+        $result = array("nummer" => $StockItemId, "naam" => $StockItemName, "price" => $price, "beschrijving" => $CustomFields, "Photo" => $Photo);
         mysqli_stmt_close($statement);
         return $result;
     }
@@ -42,5 +42,6 @@ function ZoekProduct($vraag){
 
     return $row;
 }
+
 
 ?>
