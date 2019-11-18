@@ -12,7 +12,7 @@
 </nav>
 <body>
     <?php
-        include "productfuncties.php";
+        include "lijstpaginafuncties.php";
         $vraag = "launcher";  //$_GET["search"];
         $resultaten = ZoekProduct($vraag);
         print_r($resultaten);
