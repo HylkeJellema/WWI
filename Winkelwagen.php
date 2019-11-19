@@ -15,6 +15,8 @@ include "productfuncties.php";
 $conn=MaakVerbinding();
 $product= ProductOphalen($conn);
 
+
+
 ?>
 
 <br><br><br>
@@ -30,7 +32,7 @@ $product= ProductOphalen($conn);
     <div class="row">
         <div class="card offset-sm-1">
         <div class="col-sm-3">
-        <a href="#"><img src="imgs/USB-Thunder-Missile-Launcher.jpg" width="160" height="100"></a>
+        <a href="#"><img src="imgs/USB-Thunder-Missile-Launcher.jpg" width="207" height="150"></a>
         </div>
         </div>
         <div class="col-sm-3">
@@ -45,18 +47,22 @@ $product= ProductOphalen($conn);
 
     </div>
 
-    <hr><br>
+    <hr>
     <div class="row">
-        <div class="col-sm-2 offset-sm-9">
+        <div class="card offset-sm-1">
+        <div class="col-sm-12">
             <label for="exampleInputEmail1">Kortingscode</label>
             <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Voeg toe">
             <small id="geldig" class="form-text text-muted">Kortingscode is niet geldig</small>
-            <br>
-            <button type="button" class="btn btn-primary">Afrekenen</button>
-            <br><br>
         </div>
-    </div>
+        </div>
+        <div class="col-sm-1 offset-sm-7">
+            <br><br><br>
+            <button type="button" class="btn btn-secondary">Afrekenen</button>
+        </div>
 
+    </div>
+    <br>
 </div>
 
 </div>
