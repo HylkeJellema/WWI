@@ -1,27 +1,25 @@
 <html>
 <head>
     <title>World Wide Imports</title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<link rel="stylesheet" type="text/css" href="Style.css">
+
+
+<div> <!-- NAVBAR -->
 <form method="get" action="Index.php">
     <a href="Homepagina.php">
         <img class="logo" src="imgs/wide-world-importers-logo-small.png" height="80">
     </a>
     <!--
-            <input type="text" name="Search">
-            <input type="submit" name="Zoeken" value="Zoeken">
-
             <a href="Login.php">
                 Login
             </a>
     -->
 
-
-
     <a href="Homepagina.php">
-        <img class="winkelmand" src="imgs/winkelmandje.png" height="50" width="50">
+        <img class="winkelmand" src="imgs/winkelmandje.png" height="75" width="60">
     </a>
     <br>
 
@@ -54,10 +52,9 @@
                 <li><a href="#">prod3</a></li>
                 <li><a href="#">prod4</a></li>
             </ul></li>
-        <li>
 
-            <a class="Login" href="Login.php">Login</a>
-        </li>
+        <li><a class="Login" href="Login.php">Login</a></li>
+
 
         <li>
 
@@ -65,11 +62,12 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+
         </li>
     </ul>
 </nav>
     <br>
-
+<div>
 
 </body>
 </html>
