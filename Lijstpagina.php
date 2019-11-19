@@ -16,11 +16,16 @@
         include "lijstpaginafuncties.php";
         $vraag = $_GET["search"]; 
         $conn = MaakVerbinding();
-        $sql = "SELECT Photo, StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE '%" . $vraag . "%'";
+        $sql = "SELECT StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE '%" . $vraag . "%'";
         $zoekresultaten = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_array($zoekresultaten,MYSQLI_NUM);
+        while($row = mysqli_fetch_array($zoekresultaten)){
+            echo "<tr>";
+    echo "<td>" . $row['StockItemName'] . "</td>";
+    echo "<td>" . $row['RecommendedRetailPrice'] . "</td>";
+    echo "</tr>";
+        };
         SluitVerbinding($conn);
-        print_r($row);
     ?>
+</table>
 </body>
 </html>
