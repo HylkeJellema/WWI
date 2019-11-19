@@ -10,6 +10,8 @@
 .kortingsbanner {
     text-align: center;
     padding: 30px;
+    width: 1280px;
+    height: 300px;
 }
 
 .logo {
@@ -21,8 +23,6 @@
     padding-top: 25px;
     padding-right: 8px;
     margin-top: 3px;
-
-
 }
 
 .home {

@@ -12,6 +12,6 @@
 
 ?>
 
-
+<img src="imgs/kortingsbanner.jpg" href="#" class="kortingsbanner">
 </body>
 </html>
