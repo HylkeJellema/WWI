@@ -63,3 +63,8 @@ nav ul li ul li a {
 nav ul li ul li a:hover {
     background-color: whitesmoke;
 }
+
+.form-inline {
+    padding: 8px;
+    padding-top: 12px;
+}

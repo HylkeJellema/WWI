@@ -55,12 +55,17 @@
                 <li><a href="#">prod4</a></li>
             </ul></li>
         <li>
+
+            <a class="Login" href="Login.php">Login</a>
+        </li>
+
+        <li>
+
         <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
         </li>
-        <li><a class="Login" href="Login.php">Login</a></li>
     </ul>
 </nav>
     <br>
