@@ -2,11 +2,11 @@
 include "productfuncties.php";
 
 function ZoekProduct($vraag){
-    $connection = MaakVerbinding();
+    $conn = MaakVerbinding();
     $sql = "SELECT Photo, StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE '%" . $vraag . "%'";
-    $zoekresultaten = mysqli_query($connection, $sql);
+    $zoekresultaten = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($zoekresultaten,MYSQLI_NUM);
-    SluitVerbinding($connection);
+    SluitVerbinding($conn);
 
     return $row;
 }
