@@ -14,8 +14,12 @@
     <?php
         include "lijstpaginafuncties.php";
         $vraag = "mug";  //$_GET["search"];
-        $resultaten = ZoekProduct($vraag);
-        print_r($resultaten);
+        $conn = MaakVerbinding();
+        $sql = "SELECT Photo, StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE '%" . $vraag . "%'";
+        $zoekresultaten = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($zoekresultaten,MYSQLI_NUM);
+        SluitVerbinding($conn);
+        print_r($row);
     ?>
 </body>
 </html>
