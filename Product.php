@@ -14,6 +14,7 @@
 include "productfuncties.php";
 $con = MaakVerbinding();
 $product = ProductOphalen($con);
+$voorraad = VoorraadOphalen($con);
 ?>
 
 <div class="container">
@@ -23,8 +24,8 @@ $product = ProductOphalen($con);
                 <article class="gallery-wrap">
                     <div class="img-big-wrap">
                         <div> <a href="#"><img src="imgs/USB-Thunder-Missile-Launcher.jpg"></a></div>
-                    </div> <!-- slider-product.// -->
-                </article> <!-- gallery-wrap .end// -->
+                    </div>
+                </article>
             </aside>
             <aside class="col-sm-7">
                 <article class="card-body p-5">
@@ -32,45 +33,52 @@ $product = ProductOphalen($con);
 
                     <p class="price-detail-wrap">
 	<span class="price h3 text-warning">
-		<span class="currency">EU €</span><span class="num"><?php echo $product['price'] ?></span>
+		<span class="currency">€</span><span class="num"><?php echo $product['price'] ?></span>
 	</span>
 
                     </p>
                     <dl class="item-property">
-                        <dt>Description</dt>
+                        <dt>Beschrijving</dt>
                         <dd><p>Hier komt een mooie beschrijving </p></dd>
                     </dl>
 
                     <dl class="param param-feature">
-                        <dt>Delivery</dt>
-                        <dd>Nederland, Europe</dd>
+                        <dt>Levering</dt>
+                        <dd>Nederland, Europa</dd>
+                        <div class="alert alert-success">
+                            <strong>Gratis bezorging!</strong> voor 23:59 besteld, morgen in huis.
+                        </div>
                     </dl>
 
                     <hr>
                     <div class="row">
                         <div class="col-sm-5">
                             <dl class="param param-inline">
-                                <dt>Quantity: </dt>
+                                <dt>Aantal: </dt>
                                 <dd>
-                                    <select class="form-control form-control-sm" style="width:70px;">
-                                        <option> 1 </option>
-                                        <option> 2 </option>
-                                        <option> 3 </option>
-                                    </select>
+                                    <div class="box">
+                                        <input type="number">
+                                    </div>
                                 </dd>
-                            </dl>  <!-- item-property .// -->
-                        </div> <!-- col.// -->
+                                <div class="alert alert-success">
+                                    <strong>direct leverbaar ✔</strong>
+                                </div>
+                        </div>
+                        <div class="col-sm-6"><br>
+                                    <strong><?php echo ($voorraad['voorraad'] . " "); ?></strong> stuks op voorraad
+                            </dl>
+                        </div>
                         <div class="col-sm-7">
 
                         </div>
                     </div>
                     <hr>
-                    <a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a>
-                    <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
-                </article> <!-- card-body.// -->
-            </aside> <!-- col.// -->
-        </div> <!-- row.// -->
-    </div> <!-- card.// -->
+                    <a href="#" class="btn btn-lg btn-primary text-uppercase"> Koop nu </a>
+                    <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Aan mand toevoegen </a>
+                </article>
+            </aside>
+        </div>
+    </div>
 
 
 </div>
