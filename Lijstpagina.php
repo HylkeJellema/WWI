@@ -11,9 +11,10 @@
     </form>
 </nav>
 <body>
+<table id="Producten">
     <?php
         include "lijstpaginafuncties.php";
-        $vraag = "mug";  //$_GET["search"];
+        $vraag = $_GET["search"]; 
         $conn = MaakVerbinding();
         $sql = "SELECT Photo, StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE '%" . $vraag . "%'";
         $zoekresultaten = mysqli_query($conn, $sql);
