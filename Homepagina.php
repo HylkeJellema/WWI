@@ -64,9 +64,6 @@
 
     <br>
 
-    <a href="Homepagina.php">
-        <img class = kortingsbanner src="imgs/kortingsbanner.jpg" width="1200" height="200px">
-    </a>
 
 </body>
 </html>

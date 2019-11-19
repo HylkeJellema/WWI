@@ -22,7 +22,7 @@ function ProductOphalen($connection)
 {
     $id = $_GET["id"];
     if (isset($id)) {
-        $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, UnitPrice FROM stockitems WHERE StockItemID = ?");
+        $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemID = ?");
         mysqli_stmt_bind_param($statement, 'i', $id);
         mysqli_stmt_execute($statement);
         mysqli_stmt_bind_result($statement, $StockItemId, $StockItemName, $price);
@@ -32,3 +32,31 @@ function ProductOphalen($connection)
         return $result;
     }
 }
+
+function ZoekProduct($vraag){
+    $connection = MaakVerbinding();
+    $sql = "SELECT Photo, StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE '%($vraag)%'";
+    $zoekresultaten = mysqli_query($connection, $sql);
+    $row = mssql_fetch_array($zoekresultaten,MYSQLI_NUM);
+    SluitVerbinding($connection);
+
+    return $row;
+}
+
+function VoorraadOphalen($connection)
+{
+    $id = $_GET["id"];
+    if (isset($id)) {
+        $statement = mysqli_prepare($connection, "SELECT QuantityOnHand FROM stockitemholdings WHERE StockItemID = ?");
+        mysqli_stmt_bind_param($statement, 'i', $id);
+        mysqli_stmt_execute($statement);
+        mysqli_stmt_bind_result($statement, $StockItemHoldings);
+        mysqli_stmt_fetch($statement);
+        $result = array("voorraad" => $StockItemHoldings);
+        mysqli_stmt_close($statement);
+        return $result;
+    }
+}
+
+?>
+
