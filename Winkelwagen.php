@@ -21,30 +21,44 @@ $product= ProductOphalen($conn);
 <div class="container">
 <div class="card">
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-7 offset-sm-3">
+            <br>
         <h6>Artikel</h6>
         </div>
-        <div class="col-sm-6">
-            <h6>Prijs per stuk</h6>
-        </div>
+
     </div>
     <div class="row">
+        <div class="card offset-sm-1">
         <div class="col-sm-3">
-        <a href="#"><img src="imgs/USB-Thunder-Missile-Launcher.jpg" width="320" height="200"></a>
+        <a href="#"><img src="imgs/USB-Thunder-Missile-Launcher.jpg" width="160" height="100"></a>
         </div>
-        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-3">
             <br><br>
             <h5 class="title mb-3"><?php echo $product['naam']; ?></h5>
             <span class="currency">Prijs per stuk €</span><span class="num"><?php echo $product['price'] ?></span>
-
         </div>
         <div class="col-sm-4">
             <br><br>
             <h5 class="title mb-3">Prijsopgave</h5>
+        </div>
+
+    </div>
+
+    <hr><br>
+    <div class="row">
+        <div class="col-sm-2 offset-sm-9">
+            <label for="exampleInputEmail1">Kortingscode</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Voeg toe">
+            <small id="geldig" class="form-text text-muted">Kortingscode is niet geldig</small>
+            <br>
             <button type="button" class="btn btn-primary">Afrekenen</button>
+            <br><br>
         </div>
     </div>
+
 </div>
+
 </div>
 
 
