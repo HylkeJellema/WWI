@@ -15,6 +15,8 @@ include "productfuncties.php";
 $conn=MaakVerbinding();
 $product= ProductOphalen($conn);
 
+
+
 ?>
 
 <br><br><br>

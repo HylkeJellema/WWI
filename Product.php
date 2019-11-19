@@ -39,14 +39,12 @@ $voorraad = VoorraadOphalen($con);
                     </p>
                     <dl class="item-property">
                         <dt>Beschrijving</dt>
-                        <dd><p>Hier komt een mooie beschrijving </p></dd>
+                        <dd><p><?php echo $product['beschrijving'] ?> </p></dd>
                     </dl>
 
                     <dl class="param param-feature">
-                        <dt>Levering</dt>
-                        <dd>Nederland, Europa</dd>
                         <div class="alert alert-success">
-                            <strong>Gratis bezorging!</strong> voor 23:59 besteld, morgen in huis.
+                            <strong>Gratis levering in heel Europa!</strong> voor 23:59 besteld, morgen in huis.
                         </div>
                     </dl>
 
@@ -60,12 +58,13 @@ $voorraad = VoorraadOphalen($con);
                                         <input type="number">
                                     </div>
                                 </dd>
-                                <div class="alert alert-success">
-                                    <strong>direct leverbaar ✔</strong>
-                                </div>
+
                         </div>
                         <div class="col-sm-6"><br>
-                                    <strong><?php echo ($voorraad['voorraad'] . " "); ?></strong> stuks op voorraad
+                                    <strong><?php ($voorraad['voorraad'] . " "); ?></strong>
+                            <div class="alert alert-success">
+                                <strong>direct leverbaar ✔</strong>
+                            </div>
                             </dl>
                         </div>
                         <div class="col-sm-7">
@@ -74,7 +73,7 @@ $voorraad = VoorraadOphalen($con);
                     </div>
                     <hr>
                     <a href="#" class="btn btn-lg btn-primary text-uppercase"> Koop nu </a>
-                    <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Aan mand toevoegen </a>
+                    <a href="Winkelwagen.php?id=<?php $_GET['id'] ?>" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Aan mand toevoegen </a>
                 </article>
             </aside>
         </div>
