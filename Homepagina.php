@@ -14,5 +14,13 @@
 ?>
 
 <img src="imgs/kortingsbanner.jpg" href="#" class="kortingsbanner">
+
+<!-- producten komen nog bradda -->
+
+<br><br><br>
+    <input type="submit" value="Over ons" name="OverOns" class="knopHomepagina">
+    <input type="submit" value="Contact" name="Contact" class="knopHomepagina">
+
+
 </body>
 </html>
