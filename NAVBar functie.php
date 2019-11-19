@@ -1,9 +1,8 @@
 <?php
     function navigatiebalkje(){
         ?>
-
         <div> <!-- NAVBAR -->
-            <form method="get" action="Index.php">
+
                 <a href="Homepagina.php">
                     <img class="logo" src="imgs/wide-world-importers-logo-small.png" height="80">
                 </a>
@@ -19,7 +18,7 @@
                 </a>
                 <br>
 
-            </form>
+            
 
             <link rel="stylesheet" type="text/css" href="dropdownStyles.css">
             <nav>
