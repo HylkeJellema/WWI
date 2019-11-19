@@ -19,7 +19,7 @@
         $sql = "SELECT StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE '%" . $vraag . "%'";
         $zoekresultaten = mysqli_query($conn, $sql);
         while($row = mysqli_fetch_array($zoekresultaten)){
-            echo "<tr>";
+    echo "<tr>";
     echo "<td>" . $row['StockItemName'] . "</td>";
     echo "<td>" . $row['RecommendedRetailPrice'] . "</td>";
     echo "</tr>";
