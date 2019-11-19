@@ -15,15 +15,11 @@
 
 <img src="imgs/kortingsbanner.jpg" href="#" class="kortingsbanner">
 
-<<<<<<< Updated upstream
 <!-- producten komen nog bradda -->
 
 <br><br><br>
     <a href="OverOns.php"><input type="button" value="Over ons" class="knopHomepagina"></a>
     <input type="submit" value="Contact" name="Contact" class="knopHomepagina">
-
-=======
->>>>>>> Stashed changes
 
 </body>
 </html>
