@@ -8,19 +8,14 @@
 <body>
 
 <?php
-    include 'NAVBar functie.php';
-    navigatiebalkje();
+include 'NAVBar functie.php';
+navigatiebalkje();
 
 ?>
 
-<img src="imgs/kortingsbanner.jpg" href="#" class="kortingsbanner">
 
-<!-- producten komen nog bradda -->
-
-<br><br><br>
-    <a href="OverOns.php"><input type="button" value="Over ons" class="knopHomepagina"></a>
-    <input type="submit" value="Contact" name="Contact" class="knopHomepagina">
-
+    Hallo op deze klote pagina <br>
+    Colin
 
 </body>
 </html>
