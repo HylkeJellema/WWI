@@ -17,9 +17,12 @@
 
 <!-- producten komen nog bradda -->
 
-<br><br><br>
-    <a href="OverOns.php"><input type="button" value="Over ons" class="knopHomepagina"></a>
-    <input type="submit" value="Contact" name="Contact" class="knopHomepagina">
+<br><br>
+<div style="text-align: center;" class="bottomNAValles">
+    <link rel="stylesheet" type="text/css" href="bottomNAV.css">
 
+    <a href="OverOns.php"><input type="button" value="Over ons" class="bottomNAV"></a>
+    <a href="#"><input type="button" value="Contact" name="Contact" class="bottomNAV"></a>
+</div>
 </body>
 </html>

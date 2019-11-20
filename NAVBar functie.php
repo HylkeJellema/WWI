@@ -18,10 +18,6 @@
                 </a>
                 <br>
 
-<<<<<<< HEAD
-=======
-            
->>>>>>> master
 
             <link rel="stylesheet" type="text/css" href="dropdownStyles.css">
             <nav>
