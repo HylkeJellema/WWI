@@ -21,7 +21,7 @@
         $zoekresultaten = mysqli_query($conn, $sql);
         while($row = mysqli_fetch_array($zoekresultaten)){                                                                  //
     echo "<tr>";
-    echo "<td><img src='imgs/ImageComingSoon.png'></td>";
+    echo "<td><img src='imgs/ImageComingSoon.png' width='120' height='80'></td>";
     echo "<td>" . $row['StockItemName'] . "</td>";
     echo "<td>" . $row['RecommendedRetailPrice'] . "</td>";
     echo "</tr>";
