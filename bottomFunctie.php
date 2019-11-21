@@ -54,12 +54,8 @@ function bottomFunctie()
 
                 <!-- Grid column -->
                 <div class="col-md-8 col-12 mt-5">
-                    <p style="line-height: 1.7rem">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        accusantium doloremque laudantium, totam rem
-                        aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                        explicabo.
-                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                        consequuntur.</p>
+                    <p style="line-height: 1.7rem">Door verder te klikken op onze website, accepteer je cookies en vergelijkbare technieken. Hiermee verzamelen we persoonsgegevens en volgen wij en derden je internetgedrag. Op onze website en die van derden. Waarom? Zodat wij en derden je advertenties kunnen laten zien die bij jouw interesses passen, en
+                        zodat je informatie kunt delen op social media. lees onze volledige cookieverklaring</p>
                 </div>
                 <!-- Grid column -->
 
@@ -110,13 +106,7 @@ function bottomFunctie()
 
         </div>
         <!-- Footer Links -->
-
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2018 Copyright:
-            <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
-        </div>
-        <!-- Copyright -->
-
+        
     </footer>
     <!-- Footer -->
     <?php
