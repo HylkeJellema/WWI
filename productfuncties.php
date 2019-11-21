@@ -22,24 +22,40 @@ function ProductOphalen($connection)
 {
     $id = $_GET["id"];
     if (isset($id)) {
-<<<<<<< HEAD
-        $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, UnitPrice, CustomFields, Photo FROM stockitems WHERE StockItemID = ?");
-        mysqli_stmt_bind_param($statement, 'i', $id);
-        mysqli_stmt_execute($statement);
-        mysqli_stmt_bind_result($statement, $StockItemId, $StockItemName, $price, $CustomFields, $Photo);
-        mysqli_stmt_fetch($statement);
-        $result = array("nummer" => $StockItemId, "naam" => $StockItemName, "price" => $price, "beschrijving" => $CustomFields, "Photo" => $Photo);
-=======
         $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, RecommendedRetailPrice, SearchDetails FROM stockitems WHERE StockItemID = ?");
         mysqli_stmt_bind_param($statement, 'i', $id);
         mysqli_stmt_execute($statement);
         mysqli_stmt_bind_result($statement, $StockItemId, $StockItemName, $price, $beschrijving);
         mysqli_stmt_fetch($statement);
         $result = array("nummer" => $StockItemId, "naam" => $StockItemName, "price" => $price, "beschrijving" => $beschrijving);
->>>>>>> master
         mysqli_stmt_close($statement);
         return $result;
     }
+}
+
+function getProduct($connection, $query, $id)
+{
+        $statement = mysqli_prepare($connection, $query);
+        mysqli_stmt_bind_param($statement, 'i', $id);
+        mysqli_stmt_execute($statement);
+        mysqli_stmt_bind_result($statement, $StockItemId, $StockItemName, $price, $voorraad);
+        mysqli_stmt_fetch($statement);
+        $result = array("id" => $StockItemId, "productNaam" => $StockItemName, "productPrijs" => $price, "productVoorraad" => $voorraad);
+        mysqli_stmt_close($statement);
+        return $result;
+
+}
+function getProductVoorraad($connection, $query, $id)
+{
+    $statement = mysqli_prepare($connection, $query);
+    mysqli_stmt_bind_param($statement, 'i', $id);
+    mysqli_stmt_execute($statement);
+    mysqli_stmt_bind_result($statement, $voorraad);
+    mysqli_stmt_fetch($statement);
+    $result = array("voorraad" => $voorraad);
+    mysqli_stmt_close($statement);
+    return $result;
+
 }
 
 function VoorraadOphalen($connection)
@@ -57,10 +73,7 @@ function VoorraadOphalen($connection)
     }
 }
 
-<<<<<<< HEAD
 
 ?>
-=======
-?>
 
->>>>>>> master
+

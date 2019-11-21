@@ -22,21 +22,7 @@ $voorraad = VoorraadOphalen($con);
 <div class="container">
     <div class="card">
         <div class="row">
-            <aside class="col-sm-5 border-right">
-                <article class="gallery-wrap">
-                    <div class="img-big-wrap">
-<<<<<<< HEAD
-                        <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $product['Photo'] ).'"/>'; ?>
-                        <div> <a href="#"><img src=""></a></div>
-                    </div> <!-- slider-product.// -->
-                </article> <!-- gallery-wrap .end// -->
-=======
-                        <div> <a href="#"><img src="imgs/USB-Thunder-Missile-Launcher.jpg"></a></div>
-                    </div>
-                </article>
->>>>>>> master
-            </aside>
-            <aside class="col-sm-7">
+            <div class="text-center"><a href="#"><img src="imgs/USB-Thunder-Missile-Launcher.jpg" style="width: 80%"></a></div>
                 <article class="card-body p-5">
                     <h3 class="title mb-3"><?php echo $product['naam']; ?></h3>
 
@@ -48,14 +34,12 @@ $voorraad = VoorraadOphalen($con);
                     </p>
                     <dl class="item-property">
                         <dt>Beschrijving</dt>
-<<<<<<< HEAD
                         <dd><p><?php echo $product['beschrijving'] ?></p></dd>
                     </dl>
 
                     <dl class="param param-feature">
                         <dt>Verzending</dt>
                         <dd>Nederland, Europa</dd>
-=======
                         <dd><p><?php echo $product['beschrijving'] ?> </p></dd>
                     </dl>
 
@@ -63,7 +47,6 @@ $voorraad = VoorraadOphalen($con);
                         <div class="alert alert-success">
                             <strong>Gratis levering in heel Europa!</strong> voor 23:59 besteld, morgen in huis.
                         </div>
->>>>>>> master
                     </dl>
 
                     <div class="alert alert-success">
@@ -71,20 +54,21 @@ $voorraad = VoorraadOphalen($con);
                     </div>
 
                     <hr>
+                    <form method="post" action="Winkelwagen.php">
+
                     <div class="row">
                         <div class="col-sm-5">
                             <dl class="param param-inline">
                                 <dt>Aantal: </dt>
-<<<<<<< HEAD
-                                <div class="box">
-                                    <input type="number">
+                                <div class="form-group">
+                                    <select class="custom-select text-center" id="aantal" name="aantal">
+                                        <?php
+                                        for ($i = 1; $i <= $voorraad['voorraad'] && $i < 100; $i++){
+                                            print( "<option value='$i'>$i</option>");
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
-=======
-                                <dd>
-                                    <div class="box">
-                                        <input type="number">
-                                    </div>
-                                </dd>
 
                         </div>
                         <div class="col-sm-6"><br>
@@ -92,21 +76,20 @@ $voorraad = VoorraadOphalen($con);
                             <div class="alert alert-success">
                                 <strong>direct leverbaar ✔</strong>
                             </div>
-                            </dl>
                         </div>
                         <div class="col-sm-7">
->>>>>>> master
-
                         </div>
                     </div>
                     <hr>
                     <a href="#" class="btn btn-lg btn-primary text-uppercase"> Koop nu </a>
-                    <a href="Winkelwagen.php?" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Aan mand toevoegen </a>
+                        <button value="<?php echo $product['nummer'] ?>" id="btnAddToCart" name="btnAddToCart" type="submit" class="btn btn-lg btn-outline-primary text-uppercase">Aan mand toevoegen</button>
+                    </form>
                 </article>
             </aside>
         </div>
     </div>
 
+<div>
 
 </div>
 
