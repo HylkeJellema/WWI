@@ -10,19 +10,27 @@
 .kortingsbanner {
     text-align: center;
     padding: 30px;
+    width: 1280px;
+    height: 300px;
 }
 
 .logo {
     float: left;
+    margin-top: 14px;
 }
 
 .winkelmand {
     float: right;
-    padding-top: 23px;
+    padding-top: 25px;
     padding-right: 8px;
+    margin-top: 3px;
 
 }
 
 .home {
     font-weight: bold;  
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master

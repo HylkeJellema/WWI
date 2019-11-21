@@ -8,19 +8,14 @@
 <body>
 
 <?php
-    include 'NAVBar functie.php';
-    navigatiebalkje();
+include 'NAVBar functie.php';
+navigatiebalkje();
 
 ?>
 
-<img src="imgs/kortingsbanner.jpg" href="#" class="kortingsbanner">
 
-<!-- producten komen nog bradda -->
+    Hallo op deze klote pagina <br>
+    Colin
 
-<br><br>
-<?php
-include "bottomFunctie.php";
-    bottomFunctie();
-?>
 </body>
 </html>

@@ -22,26 +22,45 @@ function ProductOphalen($connection)
 {
     $id = $_GET["id"];
     if (isset($id)) {
+<<<<<<< HEAD
         $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, UnitPrice, CustomFields, Photo FROM stockitems WHERE StockItemID = ?");
         mysqli_stmt_bind_param($statement, 'i', $id);
         mysqli_stmt_execute($statement);
         mysqli_stmt_bind_result($statement, $StockItemId, $StockItemName, $price, $CustomFields, $Photo);
         mysqli_stmt_fetch($statement);
         $result = array("nummer" => $StockItemId, "naam" => $StockItemName, "price" => $price, "beschrijving" => $CustomFields, "Photo" => $Photo);
+=======
+        $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, RecommendedRetailPrice, SearchDetails FROM stockitems WHERE StockItemID = ?");
+        mysqli_stmt_bind_param($statement, 'i', $id);
+        mysqli_stmt_execute($statement);
+        mysqli_stmt_bind_result($statement, $StockItemId, $StockItemName, $price, $beschrijving);
+        mysqli_stmt_fetch($statement);
+        $result = array("nummer" => $StockItemId, "naam" => $StockItemName, "price" => $price, "beschrijving" => $beschrijving);
+>>>>>>> master
         mysqli_stmt_close($statement);
         return $result;
     }
 }
 
-function ZoekProduct($vraag){
-    $connection = MaakVerbinding();
-    $sql = "SELECT Photo, StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE '%($vraag)%'";
-    $zoekresultaten = mysqli_query($connection, $sql);
-    $row = mssql_fetch_array($zoekresultaten,MYSQLI_NUM);
-    SluitVerbinding($connection);
-
-    return $row;
+function VoorraadOphalen($connection)
+{
+    $id = $_GET["id"];
+    if (isset($id)) {
+        $statement = mysqli_prepare($connection, "SELECT QuantityOnHand FROM stockitemholdings WHERE StockItemID = ?");
+        mysqli_stmt_bind_param($statement, 'i', $id);
+        mysqli_stmt_execute($statement);
+        mysqli_stmt_bind_result($statement, $StockItemHoldings);
+        mysqli_stmt_fetch($statement);
+        $result = array("voorraad" => $StockItemHoldings);
+        mysqli_stmt_close($statement);
+        return $result;
+    }
 }
 
+<<<<<<< HEAD
 
 ?>
+=======
+?>
+
+>>>>>>> master
