@@ -1,0 +1,15 @@
+.kleurtje {
+    color: lightskyblue;
+}
+
+.blokje:hover {
+    display: block;
+    border-radius: 4px;
+    background-color: yellow;
+}
+
+.blokje {
+    display: block;
+    background-color: yellow;
+    border: solid;
+}

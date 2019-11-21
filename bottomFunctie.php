@@ -17,7 +17,7 @@ function bottomFunctie()
                 <!-- Grid column -->
                 <div class="col-md-2 mb-3">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="OverOns.php">Over ons</a>
+                        <a href="OverOns.php" class="kleurtje" >Over ons</a>
                     </h6>
                 </div>
                 <!-- Grid column -->
@@ -25,14 +25,14 @@ function bottomFunctie()
                 <!-- Grid column -->
                 <div class="col-md-2 mb-3">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!">Producten</a>
+                        <a href="#!" class="kleurtje" >Producten</a>
                     </h6>
                 </div>
 
                 <!-- Grid column -->
                 <div class="col-md-2 mb-3">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!">Help</a>
+                        <a href="#!" class="kleurtje" class="blokje" >Help</a>
                     </h6>
                 </div>
                 <!-- Grid column -->
@@ -40,7 +40,7 @@ function bottomFunctie()
                 <!-- Grid column -->
                 <div class="col-md-2 mb-3">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!">Contact</a>
+                        <a href="#!" class="kleurtje" >Contact</a>
                     </h6>
                 </div>
                 <!-- Grid column -->
@@ -122,4 +122,9 @@ function bottomFunctie()
     <?php
 }
 ?>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="bottomNAV.css"
+
+</head>
 </html>
