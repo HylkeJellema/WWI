@@ -32,7 +32,7 @@ function bottomFunctie()
                 <!-- Grid column -->
                 <div class="col-md-2 mb-3">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a href="#!" class="kleurtje" class="blokje" >Help</a>
+                        <a href="#!" class="kleurtje" >Help</a>
                     </h6>
                 </div>
                 <!-- Grid column -->
