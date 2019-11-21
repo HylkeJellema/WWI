@@ -15,7 +15,7 @@ navigatiebalkje();
 
 
     Hallo op deze klote pagina <br>
-    Colin
+    Yuri
 
 </body>
 </html>

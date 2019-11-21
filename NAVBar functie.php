@@ -4,7 +4,7 @@
         <div> <!-- NAVBAR -->
 
                 <a href="Homepagina.php">
-                    <img class="logo" src="imgs/wide-world-importers-logo-small.png" height="80">
+                    <img class="logo" src="imgs/wide-world-importers-logo-small.png" height="70">
                 </a>
                 
                 <!--
