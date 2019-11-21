@@ -14,20 +14,38 @@
 <table id="Producten">
     <?php
         include "lijstpaginafuncties.php";
-        $vraag = $_GET["search"];                                                                                           //  Deze $_GET pakt de zoekopdracht en stopt deze in $vraag.
-        $conn = MaakVerbinding();
-      //$sql2 = "SELECT StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE '%" . $vraag . "%'";     // Deze sql functie is exclusief de optie om te zoeken op bedrijf.
-        $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID FROM stockitems JOIN suppliers ON stockitems.SupplierID = suppliers.SupplierID WHERE SupplierName LIKE '%" . $vraag . "%' OR StockItemName LIKE '%". $vraag ."%'";
-        $zoekresultaten = mysqli_query($conn, $sql);
-        while($row = mysqli_fetch_array($zoekresultaten)){
-    echo "<tr>";
-    echo "<td><img src='imgs/ImageComingSoon.png' width='120' height='80'></td>";
-    echo "<td>" . $row['StockItemName'] . "</td>";
-    echo "<td>" . $row['RecommendedRetailPrice'] . "</td>";
-    echo "<td><a href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
-    echo "</tr>";
-        };
-        SluitVerbinding($conn);
+        if(isset($_GET["search"]) == true) {
+            $vraag = $_GET["search"];                                                                                           //  Deze $_GET pakt de zoekopdracht en stopt deze in $vraag.
+            $conn = MaakVerbinding();
+            //$sql2 = "SELECT StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE '%" . $vraag . "%'";     // Deze sql functie is exclusief de optie om te zoeken op bedrijf.
+            $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID FROM stockitems JOIN suppliers ON stockitems.SupplierID = suppliers.SupplierID WHERE SupplierName LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%'";
+            $zoekresultaten = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_array($zoekresultaten)) {
+                echo "<tr>";
+                echo "<td><img src='imgs/ImageComingSoon.png' width='120' height='80'></td>";
+                echo "<td>" . $row['StockItemName'] . "</td>";
+                echo "<td>" . $row['RecommendedRetailPrice'] . "</td>";
+                echo "<td><a href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
+                echo "</tr>";
+            }
+            SluitVerbinding($conn);
+        } else {
+            $conn = MaakVerbinding();
+
+            $sqlAlles = "SELECT StockItemName, RecommendedRetailPrice, StockItemID FROM stockitems";
+
+            $zoekresultaten = mysqli_query($conn, $sqlAlles);
+            while ($row = mysqli_fetch_array($zoekresultaten)) {
+                echo "<tr>";
+                echo "<td><img src='imgs/ImageComingSoon.png' width='120' height='80'></td>";
+                echo "<td>" . $row['StockItemName'] . "</td>";
+                echo "<td>" . $row['RecommendedRetailPrice'] . "</td>";
+                echo "<td><a href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
+                echo "</tr>";
+            }
+
+            SluitVerbinding($conn);
+        }
     ?>
 </table>
 </body>
