@@ -1,29 +1,3 @@
-.bottomNAV {
-    font-family: Arial;
-    color: #222222;
-    font-size: 24px;
-    padding: 0px 20px;
-    background: white;
-    border: none;
-    margin-top: 40px;
-    border-radius: 4px;
-}
-
-.bottomNAV a {
-    font-size: 24px;
-}
-
-.bottomNAV:hover {
-    background: whitesmoke;
-    text-decoration: none;
-    text-decoration: underline;
-}
-
-.bottomNAValles {
-    width: 100%;
-    height: 140px;
-    background: lightskyblue;
-    line-height: 55px;
-
-
+.kleurtje {
+    color: lightskyblue;
 }
