@@ -73,7 +73,7 @@ $voorraad = VoorraadOphalen($con);
                     </div>
                     <hr>
                     <a href="#" class="btn btn-lg btn-primary text-uppercase"> Koop nu </a>
-                    <a href="Winkelwagen.php?id=<?php $_GET['id'] ?>" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Aan mand toevoegen </a>
+                    <a href="Winkelwagen.php?" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Aan mand toevoegen </a>
                 </article>
             </aside>
         </div>
