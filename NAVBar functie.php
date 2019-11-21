@@ -13,7 +13,7 @@
                         </a>
                 -->
 
-                <a href="Homepagina.php">
+                <a href="Winkelwagen.php">
                     <img class="winkelmand" src="imgs/winkelmandje.png" height="75" width="60">
                 </a>
                 <br>
