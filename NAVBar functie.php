@@ -16,6 +16,9 @@
                 <a href="Winkelwagen.php">
                     <img class="winkelmand" src="imgs/winkelmandje.png" height="75" width="60">
                 </a>
+                <a href="detect.php">
+                        <img class="winkelmand" src="imgs/cam.png" height="70" width="60">
+                </a>
                 <br>
 
 
@@ -56,9 +59,7 @@
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
-                        <a href="detect.php">
-                        <img class="winkelmand" src="imgs/cam.png" height="75" width="60">
-                </a>
+                        
 
                     </li>
                 </ul>
