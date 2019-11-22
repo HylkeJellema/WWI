@@ -26,15 +26,6 @@ navigatiebalkje();
     </form>
     <br>
     <br>
-
-    <?php
-    session_start();
-    include "lijstpaginafuncties.php";
-    if(empty($_SESSION['zoeken'])){
-        $_SESSION['zoeken'] = array();
-    }
-    ?>
-
     <?php
         if(isset($_GET['action'])) {
             if (isset($_GET['action']) == 'ZtotA') {
