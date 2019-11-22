@@ -14,9 +14,10 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
 </nav>
-<body>
+<body onLoad="init()">
 <div>Zoeken naar product</div>
-<button type="button" onclick="init()">Start</button>
+<button type="button" onclick="webcam.play()">Start</button>
+<button type="button" onclick="webcam.pause()">Snap</button>
 <div id="webcam-container"></div>
 <div id="label-container"></div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
@@ -73,7 +74,11 @@
             labelContainer.childNodes[i].innerHTML = classPrediction;
         }
     }
+    async function Search() {
+        
+    }
 </script>
+<button type="button" onclick="Search()">Search</button>
 
 
 </body>
