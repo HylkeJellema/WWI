@@ -12,9 +12,9 @@
     navigatiebalkje();
 
 ?>
-
+<div class="text-center">
 <img src="imgs/kortingsbanner.jpg" href="#" class="kortingsbanner">
-
+</div>
 <!-- producten komen nog bradda -->
 
 <br><br>
