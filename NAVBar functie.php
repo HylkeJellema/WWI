@@ -28,13 +28,19 @@
                     <li><a class="Home" href="Homepagina.php">Home</a></li>
                     <li><a href="#">Catagorieen</a>
                         <ul>
-                            <li><a href="#">prod1</a></li>
-                            <li><a href="#">prod2</a></li>
-                            <li><a href="#">prod3</a></li>
-                            <li><a href="#">prod4</a></li>
+                            <li><a href="#">Novelty Items</a></li>
+                            <li><a href="#">Clothing</a></li>
+                            <li><a href="#">Mugs</a></li>
+                            <li><a href="#">T-Shirts</a></li>
+                            <li><a href="#">Airline Novelties</a></li>
+                            <li><a href="#">Computing Novelties</a></li>
+                            <li><a href="#">USB Novelties</a></li>
+                            <li><a href="#">Furry Footwear</a></li>
+                            <li><a href="#">Toys</a></li>
+                            <li><a href="#">Packaging Materials</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Lijst2</a>
+                    <li><a href="#">Aanbiedingen</a>
                         <ul>
                             <li><a href="#">prod1</a></li>
                             <li><a href="#">prod2</a></li>
@@ -42,7 +48,7 @@
                             <li><a href="#">prod4</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Lijst3</a>
+                    <li><a href="#">Zakelijk</a>
                         <ul>
                             <li><a href="#">prod1</a></li>
                             <li><a href="#">prod2</a></li>
