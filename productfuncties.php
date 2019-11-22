@@ -18,6 +18,8 @@ function numberOfRecords($result) {
     return mysqli_num_rows($result);
 }
 
+
+//functie om gegevens op te halen die nodig zijn op de productpagina
 function ProductOphalen($connection)
 {
     $id = $_GET["id"];
@@ -33,6 +35,7 @@ function ProductOphalen($connection)
     }
 }
 
+//functie die gegevens ophaalt die je zelf in een query kunt aangeven bij het aanroepen van deze functie
 function getProduct($connection, $query, $id)
 {
         $statement = mysqli_prepare($connection, $query);
@@ -45,6 +48,8 @@ function getProduct($connection, $query, $id)
         return $result;
 
 }
+
+//haalt voorraad op
 function getProductVoorraad($connection, $query, $id)
 {
     $statement = mysqli_prepare($connection, $query);
