@@ -3,6 +3,7 @@
 session_start();
 include "productfuncties.php";
 
+<<<<<<< Updated upstream
 include "NAVBar functie.php";
 navigatiebalkje();
 
@@ -25,6 +26,29 @@ if (isset($_POST['btnAddToCart'])){
             'price' => $product['productPrijs'],
             'voorraad' => $productVoorraad['voorraad'],
             'aantal' => $_POST['aantal']
+=======
+$product_ids = array();
+$id = $_GET('productid', 'number');
+$updateid = $_POST('updateid', 'number');
+
+//update de hoeveelheid van 1 product in de winkelwagen
+if (null !== $_POST('quantity', 'number') and $_POST('quantity', 'number') > 0 and $_POST('quantity', 'number') < $_SESSION['shopping_cart'][$_POST('updateid', 'number')]['voorraad'] and $_POST('quantity', 'number') != "") {
+    $_SESSION['shopping_cart'][$updateid]['quantity'] = $_POST('quantity', 'number');
+}
+
+if ($_GET('productid', 'number')) {
+    //maakt array wanneer $id nog niet in de array $product_ids staat
+    if (!in_array($id, $product_ids) and $id != "" and sqliexists('select * from stockitems where stockitemid = ?', array($id))) {
+        $voorraad = sqlselect("select stockitemid, quantityonhand from stockitemholdings where stockitemid = ?", array($id));
+        $stockdata = sqlselect("select * from stockitems where stockitemid = ?", array($id));
+        $_SESSION['shopping_cart'][$id] = array
+        (
+            'id' => $id,
+            'name' => $stockdata[0]['StockItemName'],
+            'price' => $stockdata[0]['RecommendedRetailPrice'],
+            'quantity' => 1,
+            'voorraad' => $voorraad[0]['quantityonhand']
+>>>>>>> Stashed changes
         );
 
     }
