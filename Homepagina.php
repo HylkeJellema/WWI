@@ -13,7 +13,9 @@
 
 ?>
 
-<img src="imgs/kortingsbanner.png" href="#" class="kortingsbanner">
+<div class="text-center">
+<a href="#"><img src="imgs/kortingsbanner.png" style="width: 100% height: 100%"></a>
+</div>
 
 <!-- producten komen nog bradda -->
 
