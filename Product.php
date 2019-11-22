@@ -40,7 +40,6 @@ $voorraad = VoorraadOphalen($con);
                     <dl class="param param-feature">
                         <dt>Verzending</dt>
                         <dd>Nederland, Europa</dd>
-                        <dd><p><?php echo $product['beschrijving'] ?> </p></dd>
                     </dl>
 
                     <dl class="param param-feature">
