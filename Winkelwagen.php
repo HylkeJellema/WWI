@@ -1,73 +1,140 @@
-<html>
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<nav class="navbar navbar-dark bg-light justify-content-between">
-    <a class="navbar-brand"><img src="imgs/logo.png" alt="logo"></a>
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-</nav>
-<body>
 <?php
+
+session_start();
 include "productfuncties.php";
-$conn=MaakVerbinding();
-$product= ProductOphalen($conn);
+
+include "NAVBar functie.php";
+navigatiebalkje();
+
+if (empty($_SESSION['cart'])){
+    $_SESSION['cart'] = array();
+}
 
 
+if (isset($_POST['btnAddToCart'])){
+    $productId = $_POST['btnAddToCart'];
+    if (!in_array($productId, $_SESSION['cart'])){
+        $con = MaakVerbinding();
+        $queryProduct = "SELECT StockItemID, StockItemName, RecommendedRetailPrice, SearchDetails FROM stockitems WHERE StockItemID = ?";
+        $product = getProduct($con, $queryProduct, $productId);
+        $queryVoorraad = "select quantityonhand from stockitemholdings where stockitemid = ?";
+        $productVoorraad = getProductVoorraad($con, $queryVoorraad, $productId);
+        $_SESSION['cart'][$productId] = array(
+            'id' => $productId,
+            'name' => $product['productNaam'],
+            'price' => $product['productPrijs'],
+            'voorraad' => $productVoorraad['voorraad'],
+            'aantal' => $_POST['aantal']
+        );
 
+    }
+}
+
+if (isset($_GET['action'])) {
+    if ($_GET['action'] == "deleteall"){
+        unset($_SESSION['cart']);
+    }elseif ($_GET['action'] == "delete" ){
+        unset($_SESSION['cart'][$_GET['id']]);
+    }
+}
 ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            WWI de internationale groothandel
+        </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<br><br><br>
-<div class="container">
-<div class="card">
-    <div class="row">
-        <div class="col-sm-7 offset-sm-3">
-            <br>
-        <h6>Artikel</h6>
+    </head>
+    <body>
+
+
+        <div class="container-fluid bg-wwi" >
+            <div class="container rounded">
+                <div class="card">
+                    <div class="card-body">
+
+
+                <?php
+                //wanneer de winkelwagen niet leeg is laat hij de producten zien
+                if (!empty($_SESSION['cart'])) {
+                    ?>
+                    <div style="clear:both"></div>
+                    <br/>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <h1 style="text-align: center">Winkelwagen</h1>
+
+                            <thead>
+                            <tr>
+                                <th scope="col">Product naam</th>
+                                <th scope="col">Hoeveelheid</th>
+                                <th scope="col">Prijs</th>
+                                <th scope="col">Verwijder</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            $total = 0;
+
+                            foreach ($_SESSION['cart'] as $key => $value) {
+                                ?>
+                                <tr>
+                                    <form action="Winkelwagen.php" method="post">
+
+                                        <td><?php echo $value['name']; ?></td>
+                                        <td>
+                                            <?php echo $value['aantal']?>
+                                        </td>
+                                        <td>€<?php echo $value['price']; ?></td>
+
+                                        <td><a class="btn btn-danger" href="Winkelwagen.php?action=delete&id=<?php echo $value['id']; ?>">Verwijder</a></td>
+
+
+                                    </form>
+                                </tr>
+                                <?php
+                                $total = $total + ( $value['aantal'] * $value['price']);
+
+                            }
+
+                            print("<caption>Totaal: €".$total."</caption>");
+
+                }
+                            ?>
+                            </tbody>
+
+
+                            <?php
+                         if (count($_SESSION['cart']) == 0) {
+                            ?>
+                            <div style='padding-top: 200px;'>
+                                <?php print('<h1 style="text-align: center">Winkelwagen is leeg</h1></div>');
+                                ?>
+                                <div style="padding-top: 100px; padding-bottom: 100px;"><a href=''
+                                                                                           style='padding-bottom: 100px'>
+                                        <div class="col text-center">
+                                            <button class='btn btn-lg btn-primary text-uppercase align-center'>Verder winkelen</button>
+
+                                        </div>
+                                    </a></div>
+                            </div>
+                            <?php
+                        }else{
+                             ?>
+                            <caption><button class="btn btn-primary text-uppercase">Afrekenen</button><a class="btn btn-danger float-right" href="Winkelwagen.php?action=deleteall">Verwijder alles</a></caption>
+<?php
+                            }
+                        ?>
+                    </table>
+                    </div>
+                </div>
+
+            </div>
+            </div>
         </div>
+    </body>
 
-    </div>
-    <div class="row">
-        <div class="card offset-sm-1">
-        <div class="col-sm-3">
-        <a href="#"><img src="imgs/USB-Thunder-Missile-Launcher.jpg" width="207" height="150"></a>
-        </div>
-        </div>
-        <div class="col-sm-3">
-            <br><br>
-            <h5 class="title mb-3"><?php echo $product['naam']; ?></h5>
-            <span class="currency">Prijs per stuk €</span><span class="num"><?php echo $product['price'] ?></span>
-        </div>
-        <div class="col-sm-4">
-            <br><br>
-            <h5 class="title mb-3">Prijsopgave</h5>
-        </div>
-
-    </div>
-
-    <hr>
-    <div class="row">
-        <div class="card offset-sm-1">
-        <div class="col-sm-12">
-            <label for="exampleInputEmail1">Kortingscode</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Voeg toe">
-            <small id="geldig" class="form-text text-muted">Kortingscode is niet geldig</small>
-        </div>
-        </div>
-        <div class="col-sm-1 offset-sm-7">
-            <br><br><br>
-            <button type="button" class="btn btn-secondary">Afrekenen</button>
-        </div>
-
-    </div>
-    <br>
-</div>
-
-</div>
-
-
-
-</body>
 </html>
