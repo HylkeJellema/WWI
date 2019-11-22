@@ -49,9 +49,6 @@ $voorraad = VoorraadOphalen($con);
                         </div>
                     </dl>
 
-                    <div class="alert alert-success">
-                        <strong>Gratis verzending!</strong> voor 23:59 besteld, morgen in huis
-                    </div>
 
                     <hr>
                     <form method="post" action="Winkelwagen.php">
@@ -73,9 +70,20 @@ $voorraad = VoorraadOphalen($con);
                         </div>
                         <div class="col-sm-6"><br>
                                     <strong><?php ($voorraad['voorraad'] . " "); ?></strong>
+                            <?php if ($voorraad['voorraad'] > 0){
+                            ?>
                             <div class="alert alert-success">
-                                <strong>direct leverbaar ✔</strong>
+                                <strong>Op voorraad✔</strong>
                             </div>
+                            <?php
+                            } else {
+                                ?>
+                                <div class="alert alert-warning" role="alert">
+                                   <strong> Niet op voorraad!</strong>
+                                </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                         <div class="col-sm-7">
                         </div>
