@@ -10,6 +10,7 @@
 
 <?php
 include "NAVBar functie.php";
+include "lijstpaginafuncties.php";
 navigatiebalkje();
 ?>
 
