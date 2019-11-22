@@ -56,7 +56,7 @@
                             <li><a href="#">prod4</a></li>
                         </ul></li>
 
-                    <li><a class="Login" href="Login.php">Login</a></li>
+                    <li><a class="Login" href="Login.php">Inloggen</a></li>
 
 
                     <li>
