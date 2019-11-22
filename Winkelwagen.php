@@ -2,15 +2,16 @@
 
 session_start();
 include "productfuncties.php";
-
 include "NAVBar functie.php";
 navigatiebalkje();
 
+
+//maakt winkelwagen array aan als er niets in staat
 if (empty($_SESSION['cart'])){
     $_SESSION['cart'] = array();
 }
 
-
+//Controleert of er wat in winkelwagen wordt gezet en zet nodige gegevens in de winkelwagen array
 if (isset($_POST['btnAddToCart'])){
     $productId = $_POST['btnAddToCart'];
     if (!in_array($productId, $_SESSION['cart'])){
@@ -24,12 +25,13 @@ if (isset($_POST['btnAddToCart'])){
             'name' => $product['productNaam'],
             'price' => $product['productPrijs'],
             'voorraad' => $productVoorraad['voorraad'],
-            'aantal' => $_POST['aantal']
+            'aantal' => $_POST['aantal'],
         );
 
     }
 }
 
+//Functie om winkelwagen leeg te maken
 if (isset($_GET['action'])) {
     if ($_GET['action'] == "deleteall"){
         unset($_SESSION['cart']);
@@ -78,7 +80,7 @@ if (isset($_GET['action'])) {
                             <tbody>
                             <?php
                             $total = 0;
-
+                            // laat gegevens zien van winkelwagen producten vanuit array
                             foreach ($_SESSION['cart'] as $key => $value) {
                                 ?>
                                 <tr>
@@ -108,7 +110,7 @@ if (isset($_GET['action'])) {
 
 
                             <?php
-                         if (count($_SESSION['cart']) == 0) {
+                         if (empty($_SESSION['cart'])) {
                             ?>
                             <div style='padding-top: 200px;'>
                                 <?php print('<h1 style="text-align: center">Winkelwagen is leeg</h1></div>');
@@ -116,8 +118,7 @@ if (isset($_GET['action'])) {
                                 <div style="padding-top: 100px; padding-bottom: 100px;"><a href=''
                                                                                            style='padding-bottom: 100px'>
                                         <div class="col text-center">
-                                            <button class='btn btn-lg btn-primary text-uppercase align-center'>Verder winkelen</button>
-
+                                            <a class='btn btn-lg btn-primary text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a>
                                         </div>
                                     </a></div>
                             </div>
@@ -125,7 +126,7 @@ if (isset($_GET['action'])) {
                         }else{
                              ?>
                             <caption><button class="btn btn-primary text-uppercase">Afrekenen</button><a class="btn btn-danger float-right" href="Winkelwagen.php?action=deleteall">Verwijder alles</a></caption>
-<?php
+                        <?php
                             }
                         ?>
                     </table>
