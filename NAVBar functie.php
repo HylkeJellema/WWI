@@ -23,7 +23,7 @@
             <nav>
                 <ul>
                     <li><a class="Home" href="Homepagina.php">Home</a></li>
-                    <li><a href="#">Lijst1</a>
+                    <li><a href="#">Catagorieen</a>
                         <ul>
                             <li><a href="#">prod1</a></li>
                             <li><a href="#">prod2</a></li>
@@ -56,6 +56,9 @@
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
+                        <a href="detect.php">
+                        <img class="winkelmand" src="imgs/cam.png" height="75" width="60">
+                </a>
 
                     </li>
                 </ul>
