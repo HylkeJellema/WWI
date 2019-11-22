@@ -14,7 +14,7 @@ navigatiebalkje();
 ?>
 
 <body>
-<table id="Producten" align="center">
+<table id="Producten" align="center" width="60%">
     <form>
     <div class="col text-center">
     <div class="btn-group text-center" role="group" aria-label="ic example">
