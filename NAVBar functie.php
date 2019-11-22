@@ -56,8 +56,8 @@
                     <li>
 
                         <form class="form-inline" action="Lijstpagina.php">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            <input class="form-control mr-sm-2" type="search" placeholder="Zoeken" aria-label="Search" name="search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoeken</button>
                         </form>
                         
 

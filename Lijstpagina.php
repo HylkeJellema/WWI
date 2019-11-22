@@ -15,13 +15,17 @@ navigatiebalkje();
 
 <body>
 <table id="Producten" align="center">
+    <form>
     <div class="col text-center">
     <div class="btn-group text-center" role="group" aria-label="ic example">
-        <a type="button" class="btn btn-outline-primary align-center" href="Lijstpagina.php?action=AtotZ">Alfabet A - Z</a>
-        <a type="button" class="btn btn-outline-primary align-center" href="Lijstpagina.php?action=ZtotA">Alfabet Z - A</a>
-        <a type="button" class="btn btn-outline-primary align-center" href="Lijstpagina.php?action=PLtotPH">Prijs L - H</a>
-        <a type="button" class="btn btn-outline-primary align-center" href="Lijstpagina.php?action=PHtotPL">Right H - L</a><br><br>
+        <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=AtotZ">Alfabet A - Z</a>
+        <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=ZtotA">Alfabet Z - A</a>
+        <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=PLtotPH">Prijs L - H</a>
+        <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=PHtotPL">Right H - L</a>
     </div>
+    </form>
+    <br>
+    <br>
 
     <?php
     session_start();
