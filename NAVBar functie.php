@@ -17,7 +17,7 @@
                     <img class="winkelmand" src="imgs/winkelmandje.png" height="75" width="60">
                 </a>
                 <a href="detect.php">
-                        <img class="winkelmand" src="imgs/cam.png" height="70" width="60">
+                        <img class="winkelmand" src="imgs/cam.png" height="75" width="60">
                 </a>
                 <br>
 
@@ -26,7 +26,7 @@
             <nav>
                 <ul>
                     <li><a class="Home" href="Homepagina.php">Home</a></li>
-                    <li><a href="#">Catagorieen</a>
+                    <li><a href="#">Categoriëen</a>
                         <ul>
                             <li><a href="#">Novelty Items</a></li>
                             <li><a href="#">Clothing</a></li>

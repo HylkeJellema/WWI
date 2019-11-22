@@ -132,10 +132,21 @@ if (isset($_GET['action'])) {
                     </table>
                     </div>
                 </div>
-
+                    
             </div>
             </div>
         </div>
     </body>
+
+    </div>
+</div>
+<?php include __DIR__ . '/includes/footer.php'; ?>
+</body>
+    <br><br>
+<?php
+include "bottomFunctie.php";
+bottomFunctie();
+?>
+
 
 </html>
