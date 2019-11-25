@@ -26,7 +26,7 @@
             <nav>
                 <ul>
                     <li><a class="Home" href="Homepagina.php">Home</a></li>
-                    <li><a href="#">Categoriëen</a>
+                    <li><a href="#">Categorieën</a>
                         <ul>
                             <li><a href="#">Novelty Items</a></li>
                             <li><a href="#">Clothing</a></li>
