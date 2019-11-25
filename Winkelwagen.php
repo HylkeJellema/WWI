@@ -39,7 +39,20 @@ if (isset($_GET['action'])) {
         unset($_SESSION['cart'][$_GET['id']]);
     }
 }
+
+//Functie om winkelwagen te bewerken
+
 ?>
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -82,7 +95,13 @@ if (isset($_GET['action'])) {
                             $total = 0;
                             // laat gegevens zien van winkelwagen producten vanuit array
                             foreach ($_SESSION['cart'] as $key => $value) {
+
                                 ?>
+                                <?php if (isset($_GET['action'])) {
+                                    if ($_GET['action'] == "add1"){
+                                        $value['aantal']++;
+                                    }
+                                } ?>
                                 <tr>
                                     <form action="Winkelwagen.php" method="post">
 
@@ -94,6 +113,7 @@ if (isset($_GET['action'])) {
 
                                         <td><a class="btn btn-danger" href="Winkelwagen.php?action=delete&id=<?php echo $value['id']; ?>">Verwijder</a></td>
 
+                                        <td><a class="btn btn-danger float-right" href="Winkelwagen.php?action=add1&id=<?php echo $value['id']; ?>">+1</a></caption></td>
 
                                     </form>
                                 </tr>
@@ -140,7 +160,7 @@ if (isset($_GET['action'])) {
 
     </div>
 </div>
-<?php include __DIR__ . '/includes/footer.php'; ?>
+<?php //include __DIR__ . '/includes/footer.php'; ?>
 </body>
     <br><br>
 <?php
