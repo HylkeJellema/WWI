@@ -90,7 +90,7 @@ if (isset($_GET['action'])) {
                                         <td>
                                             <?php echo $value['aantal']?>
                                         </td>
-                                        <td>€<?php echo $value['price']; ?></td>
+                                        <td>€<?php echo round($value['price'], 2); ?></td>
 
                                         <td><a class="btn btn-danger" href="Winkelwagen.php?action=delete&id=<?php echo $value['id']; ?>">Verwijder</a></td>
 
@@ -98,7 +98,7 @@ if (isset($_GET['action'])) {
                                     </form>
                                 </tr>
                                 <?php
-                                $total = $total + ( $value['aantal'] * $value['price']);
+                                $total = $total + ( $value['aantal'] * round($value['price'], 2));
 
                             }
 
