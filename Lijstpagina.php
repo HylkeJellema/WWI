@@ -15,7 +15,15 @@ navigatiebalkje();
 ?>
 
 <body>
-
+<div class="col text-center">
+    <div class="btn-group text-center" role="group" aria-label="ic example">
+        <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=AtotZ">Alfabet A - Z</a>
+        <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=ZtotA">Alfabet Z - A</a>
+        <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=PLtotPH">Prijs L - H</a>
+        <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=PHtotPL">Right H - L</a>
+    </div>
+</div>
+<br>
 <?php
 $vraag = $_GET['search'];
 $conn = MaakVerbinding();
@@ -23,26 +31,31 @@ $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails
 $zoekresultaten = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_array($zoekresultaten)){
     ?>
-    <div class="container">
+    <div class="container col-1">
+    </div>
+    <div class="container col-2">
         <div class="card">
-            <div class="col-md-4">
-                <img src="imgs/ImageComingSoon.png" width="320" height="240">
+            <div class="col">
+                <br>
+                <img src="imgs/ImageComingSoon.png" width="160" height="120">
             </div>
-            <div class="col-md-8">
+            <div class="col">
                 <?php
                 echo $row['StockItemName'];
                 ?>
                 <br>
                 <?php
-                echo $row['RecommendedRetailPrice'];
+                echo round(($row['RecommendedRetailPrice'] * 0.91), 2);
                 ?>
                 <br>
                 <?php
                 echo "<td><a href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
                 ?>
+                <br>
             </div>
         </div>
     </div>
+    <br>
     <?php
         }
     ?>
@@ -59,13 +72,7 @@ bottomFunctie();
 
 <!--<table id="Producten" align="center" width="60%">-->
 <!--    <form>-->
-<!--        <div class="col text-center">-->
-<!--            <div class="btn-group text-center" role="group" aria-label="ic example">-->
-<!--                <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=AtotZ">Alfabet A - Z</a>-->
-<!--                <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=ZtotA">Alfabet Z - A</a>-->
-<!--                <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=PLtotPH">Prijs L - H</a>-->
-<!--                <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=PHtotPL">Right H - L</a>-->
-<!--            </div>-->
+
 <!--    </form>-->
 <!--    <br>-->
 <!--    <br>-->
