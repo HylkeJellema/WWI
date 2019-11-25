@@ -15,12 +15,14 @@ navigatiebalkje();
 ?>
 
 <body>
-<div class="col text-center">
-    <div class="btn-group text-center" role="group" aria-label="ic example">
-        <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=AtotZ">Alfabet A - Z</a>
-        <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=ZtotA">Alfabet Z - A</a>
-        <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=PLtotPH">Prijs L - H</a>
-        <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=PHtotPL">Right H - L</a>
+<div class="row">
+    <div class="col text-center">
+        <div class="btn-group text-center" role="group" aria-label="ic example">
+            <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=AtotZ">Alfabet A - Z</a>
+            <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=ZtotA">Alfabet Z - A</a>
+            <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=PLtotPH">Prijs L - H</a>
+            <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=PHtotPL">Right H - L</a>
+        </div>
     </div>
 </div>
 <br>
@@ -31,31 +33,50 @@ $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails
 $zoekresultaten = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_array($zoekresultaten)){
     ?>
-    <div class="container col-1">
-    </div>
-    <div class="container col-2">
-        <div class="card">
-            <div class="col">
-                <br>
-                <img src="imgs/ImageComingSoon.png" width="160" height="120">
-            </div>
-            <div class="col">
-                <?php
-                echo $row['StockItemName'];
-                ?>
-                <br>
-                <?php
-                echo round(($row['RecommendedRetailPrice'] * 0.91), 2);
-                ?>
-                <br>
-                <?php
-                echo "<td><a href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
-                ?>
-                <br>
+<!--    <div class="container col-2">-->
+<!--        <div class="card">-->
+<!--            <div class="card">-->
+<!--                <img src="imgs/ImageComingSoon.png">-->
+<!--            </div>-->
+<!--            <div class="col">-->
+<!--                --><?php
+//                echo $row['StockItemName'];
+//                ?>
+<!--                <br>-->
+<!--                --><?php
+//                echo round(($row['RecommendedRetailPrice'] * 0.91), 2);
+//                ?>
+<!--                <br>-->
+<!--                --><?php
+//                echo "<a href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
+//                ?>
+<!--                <br>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <br>-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card border-primary" style="width: 18rem;">
+                <img class="card-img-top" src="imgs/ImageComingSoon.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <?php
+                        echo $row['StockItemName'];
+                        ?>
+                    </h5>
+                    <p class="card-text">
+                        <?php
+                        echo "€" . round(($row['RecommendedRetailPrice'] * 0.91), 2);
+                        ?>
+                    </p>
+                    <?php
+                    echo "<a class='btn btn-outline-primary btn-sm align-center' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
+                    ?>
+                </div>
             </div>
         </div>
     </div>
-    <br>
     <?php
         }
     ?>
