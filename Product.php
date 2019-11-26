@@ -28,7 +28,7 @@ $voorraad = VoorraadOphalen($con);
 
                     <p class="price-detail-wrap">
 	<span class="price h3 text-warning">
-		<span class="currency">€</span><span class="num"><?php echo $product['price'] ?></span>
+		<span class="currency">€</span><span class="num"><?php echo round($product['price'], 2) ?></span>
 	</span>
 
                     </p>
