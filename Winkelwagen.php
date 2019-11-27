@@ -140,7 +140,7 @@ if (isset($_GET['action'])) {
 
     </div>
 </div>
-<?php include __DIR__ . '/includes/footer.php'; ?>
+
 </body>
     <br><br>
 <?php
