@@ -3,7 +3,6 @@
 session_start();
 include "productfuncties.php";
 include "NAVBar functie.php";
-navigatiebalkje();
 
 
 //maakt winkelwagen array aan als er niets in staat
@@ -46,13 +45,15 @@ if (isset($_GET['action'])) {
         <title>
             WWI de internationale groothandel
         </title>
+        <link rel="stylesheet" type="text/css" href="Style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     </head>
     <body>
-
-
-        <div class="container-fluid bg-wwi" >
+    <?php
+    navigatiebalkje();
+    ?>
+    <div class="container-fluid bg-wwi" >
             <div class="container rounded">
                 <div class="card">
                     <div class="card-body">
@@ -140,7 +141,6 @@ if (isset($_GET['action'])) {
 
     </div>
 </div>
-<?php include __DIR__ . '/includes/footer.php'; ?>
 </body>
     <br><br>
 <?php
