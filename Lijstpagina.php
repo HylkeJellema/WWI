@@ -72,32 +72,3 @@ bottomFunctie();
 ?>
 
 </html>
-
-<!--<table id="Producten" align="center" width="60%">-->
-<!--    <form>-->
-
-<!--    </form>-->
-<!--    <br>-->
-<!--    <br>-->
-<!--    --><?php
-//    if(isset($_GET['action'])) {
-//        if (isset($_GET['action']) == 'ZtotA') {
-//            ZtotA();
-//        }
-//        if (isset($_GET['action']) == 'PLtotPH') {
-//            PLtotPH();
-//        }
-//        if (isset($_GET['action']) == 'PHtotPL') {
-//            PHtotPL();
-//        }
-//        if (isset($_GET['action']) == 'AtotZ') {
-//            AtotZ();
-//        } else {
-//            AtotZ();
-//        }
-//    } else{
-//        AtotZ();
-//    }
-//    ?>
-<!--    </div>-->
-<!--</table>-->
