@@ -141,10 +141,7 @@ if (isset($_GET['action'])) {
 
     </div>
 </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> master
 </body>
     <br><br>
 <?php
