@@ -7,13 +7,11 @@
     <link rel="stylesheet" type="text/css" href="bottomNAV.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-
 <?php
 include "NAVBar functie.php";
 include "lijstpaginafuncties.php";
 navigatiebalkje();
 ?>
-
 <body>
 <div class="row">
     <div class="col text-center">
@@ -31,12 +29,13 @@ $vraag = $_GET['search'];
 $conn = MaakVerbinding();
 $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%'";
 $zoekresultaten = mysqli_query($conn, $sql);
-?>    
-<div class="row" style="align-content: center">
+?>
+<div class="center">
+<div class="row">
 <?php
 while($row = mysqli_fetch_array($zoekresultaten)){
     ?>
-    <div class="col-md-3" style="padding-bottom: 15px;">
+    <div class="col-md-3 text-center" style="padding-bottom: 15px;">
         <div class="card border-primary" style="width: 18rem;">
             <img class="card-img-top" src="imgs/ImageComingSoon.png" alt="Card image cap">
             <div class="card-body">
@@ -61,14 +60,11 @@ while($row = mysqli_fetch_array($zoekresultaten)){
         }
     ?>
 </div>
-
-
-
+</div>
 </body>
 <br><br>
 <?php
 include "bottomFunctie.php";
 bottomFunctie();
 ?>
-
 </html>
