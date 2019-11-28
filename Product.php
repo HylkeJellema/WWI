@@ -43,9 +43,20 @@ $voorraad = VoorraadOphalen($con);
                     </dl>
 
                     <dl class="param param-feature">
+                        <?php if ($voorraad['voorraad'] > 0){
+                        ?>
                         <div class="alert alert-success">
-                            <strong>Gratis levering in heel Europa!</strong> voor 23:59 besteld, morgen in huis.
+                            <strong>Gratis levering in heel Nederland!</strong> voor 23:59 besteld, morgen in huis.
                         </div>
+                            <?php
+                        } else {
+                        ?>
+                            <div class="alert alert-success">
+                                <strong>Gratis levering in heel Nederland!</strong> leverdatum onbekend.
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </dl>
 
 
