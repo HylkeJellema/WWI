@@ -63,9 +63,7 @@ if (isset($_GET['action'])) {
 
     </head>
     <body>
-    <?php
-    navigatiebalkje();
-    ?>
+    <div class="naarVoorgrond"><?php   navigatiebalkje();  ?></div>
     <div class="container-fluid bg-wwi" >
             <div class="container rounded">
                 <div class="card">
@@ -161,7 +159,10 @@ if (isset($_GET['action'])) {
 
     </div>
 </div>
+<<<<<<< Updated upstream
 <?php //include __DIR__ . '/includes/footer.php'; ?>
+=======
+>>>>>>> Stashed changes
 </body>
     <br><br>
 <?php

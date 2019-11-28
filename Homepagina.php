@@ -18,6 +18,43 @@
 </div>
 
 <!-- producten komen nog bradda -->
+<br><br>
+
+<?php
+include "lijstpaginafuncties.php";
+$conn = MaakVerbinding();
+$sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%'";
+$zoekresultaten = mysqli_query($conn, $sql);
+?>
+
+<div class="row">
+    <?php
+    while($row = mysqli_fetch_array($zoekresultaten)){
+        ?>
+        <div class="col-md-3 text-center" style="padding-bottom: 15px;">
+            <div class="card border-primary" style="width: 18rem; margin: 0 auto;">
+                <img class="card-img-top" src="imgs/ImageComingSoon.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <?php
+                        echo $row['StockItemName'];
+                        ?>
+                    </h5>
+                    <p class="card-text">
+                        <?php
+                        echo "€" . round(($row['RecommendedRetailPrice'] * 0.91), 2);
+                        ?>
+                    </p>
+                    <?php
+                    echo "<a class='btn btn-outline-primary btn-sm align-center' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
+                    echo "<a class='btn btn-outline-danger btn-sm align-center' href='Winkelwagen.php?id=" . $row['StockItemID'] . "'>Koop nu</a>";
+                    ?>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
 
 <br><br>
 <?php
