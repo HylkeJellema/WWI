@@ -23,7 +23,7 @@ $voorraad = VoorraadOphalen($con);
     <div class="card">
         <div class="row">
             <div class="text-center"><a href="#"><img src="imgs/USB-Thunder-Missile-Launcher.jpg" style="width: 80%"></a></div>
-                <article class="card-body p-5">
+                <article class="card-body right">
                     <h3 class="title mb-3"><?php echo $product['naam']; ?></h3>
 
                     <p class="price-detail-wrap">
@@ -36,7 +36,7 @@ $voorraad = VoorraadOphalen($con);
                         <dt>Beschrijving</dt>
                         <dd><p><?php echo $product['beschrijving'] ?></p></dd>
                     </dl>
-
+    
                     <dl class="param param-feature">
                         <dt>Verzending</dt>
                         <dd>Nederland, Europa</dd>
@@ -87,15 +87,13 @@ $voorraad = VoorraadOphalen($con);
                             </div>
                             <?php
                             } else {
-                                ?>
-                                <div class="alert alert-warning" role="alert">
-                                   <strong> Niet op voorraad!</strong>
-                                </div>
+                            ?>
+                             <div class="alert alert-warning" role="alert">
+                                 <strong> Niet op voorraad!</strong>
+                             </div>
                             <?php
                             }
                             ?>
-                        </div>
-                        <div class="col-sm-7">
                         </div>
                     </div>
                     <hr>
