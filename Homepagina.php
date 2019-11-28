@@ -23,7 +23,7 @@
 <?php
 include "lijstpaginafuncties.php";
 $conn = MaakVerbinding();
-$sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%'";
+$sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems ORDER BY rand() LIMIT 4";
 $zoekresultaten = mysqli_query($conn, $sql);
 ?>
 
@@ -53,6 +53,7 @@ $zoekresultaten = mysqli_query($conn, $sql);
             </div>
         </div>
         <?php
+        //stap2:
     }
     ?>
 
