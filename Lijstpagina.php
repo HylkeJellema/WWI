@@ -30,13 +30,13 @@ $conn = MaakVerbinding();
 $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%'";
 $zoekresultaten = mysqli_query($conn, $sql);
 ?>
-<div class="center">
+
 <div class="row">
 <?php
 while($row = mysqli_fetch_array($zoekresultaten)){
     ?>
     <div class="col-md-3 text-center" style="padding-bottom: 15px;">
-        <div class="card border-primary" style="width: 18rem;">
+        <div class="card border-primary" style="width: 18rem; margin: 0 auto;">
             <img class="card-img-top" src="imgs/ImageComingSoon.png" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">
@@ -60,7 +60,7 @@ while($row = mysqli_fetch_array($zoekresultaten)){
         }
     ?>
 </div>
-</div>
+
 </body>
 <br><br>
 <?php
