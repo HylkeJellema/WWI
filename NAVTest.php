@@ -1,14 +1,18 @@
-
-
 <html>
-<link rel="stylesheet" type="text/css" href="Style.css">
-
+    <link rel="stylesheet" type="text/css" href="Style.css">
     <link rel="stylesheet" type="text/css" href="NAVTest.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-</html>
-
 <link rel="stylesheet" type="text/css" href="dropdownStyles.css">
+    <a href="Homepagina.php">
+        <img class="logo" src="imgs/wide-world-importers-logo-small.png" height="70">
+    </a>
+
+    <a href="Winkelwagen.php">
+        <img class="winkelmand" src="imgs/winkelmandje.png" height="70" width="70">
+    </a>
+
+    <br><br><br>
         <nav>
             <ul>
 
@@ -17,7 +21,6 @@
                     function categorieLijst(){
 
                     include "productfuncties.php";
-
 
                     $host = "localhost";
                     $databasename = "wideworldimporters";
@@ -44,11 +47,10 @@
 
                 categorieLijst();
 ?>
-
             </ul>
-
 
         </nav>
 
         <br>
 
+</html>
