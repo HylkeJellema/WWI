@@ -152,7 +152,7 @@ if (isset($_POST['update'])){
                                 <div style="padding-top: 100px; padding-bottom: 100px;"><a href=''
                                                                                            style='padding-bottom: 100px'>
                                         <div class="col text-center">
-                                            <a class='btn btn-lg btn-light text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a>
+                                            <a class='btn btn-lg btn-light text-uppercase align-center' style="background: lightskyblue" href="Lijstpagina.php?">Verder winkelen</a>
                                         </div>
                                     </a></div>
                             </div>
