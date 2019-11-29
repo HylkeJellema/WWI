@@ -41,8 +41,8 @@ $zoekresultaten = mysqli_query($conn, $sql);
 
 while($row = mysqli_fetch_array($zoekresultaten)){
     ?>
-    <div class="col-xs-6 col-sm-5 col-md-5 col-lg-4 col-xl-3 text-center" style="padding-bottom: 15px;">
-        <div class="card border-primary" style="width: 18rem; margin: 0 auto; height: 400px">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 text-center" style="padding-bottom: 15px;">
+        <div class="card border-primary" style="width: 19rem; margin: 0 auto; height: 430px;">
             <img class="card-img-top" src="imgs/ImageComingSoon.png" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">
@@ -55,12 +55,10 @@ while($row = mysqli_fetch_array($zoekresultaten)){
                     echo "€" . round(($row['RecommendedRetailPrice'] * 0.91), 2);
                     ?>
                 </p>
-                <div class="card-footer bg-white">
-                    <?php
-                    echo "<a class='btn btn-outline-primary btn-sm' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
-                    echo "<a class='btn btn-outline-danger btn-sm text-right' href='Winkelwagen.php?id=" . $row['StockItemID'] . "'>Koop nu</a>";
-                    ?>
-                </div>
+                <?php
+                echo "<a class='btn btn-outline-primary btn-sm' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
+                echo "<a class='btn btn-outline-danger btn-sm text-right' href='Winkelwagen.php?id=" . $row['StockItemID'] . "'>Koop nu</a>";
+                ?>
             </div>
         </div>
     </div>
