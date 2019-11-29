@@ -32,7 +32,7 @@ $zoekresultaten = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($zoekresultaten)){
         ?>
         <div class="col-md-3 text-center" style="padding-bottom: 15px;">
-            <div class="card border-primary" style="width: 18rem; margin: 0 auto;">
+            <div class="card border-primary" style="width: 18rem; margin: 0 auto; height: 400px">
                 <img class="card-img-top" src="imgs/ImageComingSoon.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">
