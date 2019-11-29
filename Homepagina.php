@@ -14,7 +14,7 @@
 ?>
 
 <div class="text-center">
-<a href="#"><img src="imgs/kortingsbanner.png" style="width: 100% height: 100%"></a>
+<a href="#"><img src="imgs/kortingsbanner.png" style="width: 75%"></a>
 </div>
 
 <!-- producten komen nog bradda -->
