@@ -55,12 +55,10 @@ while($row = mysqli_fetch_array($zoekresultaten)){
                     echo "€" . round(($row['RecommendedRetailPrice'] * 0.91), 2);
                     ?>
                 </p>
-                <div class="card-footer bg-white">
-                    <?php
-                    echo "<a class='btn btn-outline-primary btn-sm' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
-                    echo "<a class='btn btn-outline-danger btn-sm text-right' href='Winkelwagen.php?id=" . $row['StockItemID'] . "'>Koop nu</a>";
-                    ?>
-                </div>
+                <?php
+                echo "<a class='btn btn-outline-primary btn-sm' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
+                echo "<a class='btn btn-outline-danger btn-sm text-right' href='Winkelwagen.php?id=" . $row['StockItemID'] . "'>Koop nu</a>";
+                ?>
             </div>
         </div>
     </div>
