@@ -35,7 +35,7 @@ $zoekresultaten = mysqli_query($conn, $sql);
 <?php
 while($row = mysqli_fetch_array($zoekresultaten)){
     ?>
-    <div class="col-md-3 text-center" style="padding-bottom: 15px;">
+    <div class="col-md-3" style="padding-bottom: 15px;">
         <div class="card border-primary" style="width: 18rem; margin: 0 auto;">
             <img class="card-img-top" src="imgs/ImageComingSoon.png" alt="Card image cap">
             <div class="card-body">
@@ -49,10 +49,12 @@ while($row = mysqli_fetch_array($zoekresultaten)){
                     echo "€" . round(($row['RecommendedRetailPrice'] * 0.91), 2);
                     ?>
                 </p>
+                <div class="card-footer bg-white">
                     <?php
-                    echo "<a class='btn btn-outline-primary btn-sm align-center' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
-                    echo "<a class='btn btn-outline-danger btn-sm align-center' href='Winkelwagen.php?id=" . $row['StockItemID'] . "'>Koop nu</a>";
+                    echo "<a class='btn btn-outline-primary btn-sm' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
+                    echo "<a class='btn btn-outline-danger btn-sm text-right' href='Winkelwagen.php?id=" . $row['StockItemID'] . "'>Koop nu</a>";
                     ?>
+                </div>
             </div>
         </div>
     </div>
