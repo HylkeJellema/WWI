@@ -16,9 +16,9 @@
                 <a href="Winkelwagen.php">
                     <img class="winkelmand" src="imgs/winkelmandje.png" height="75" width="60">
                 </a>
-                <a href="detect.php">
+                <!-- <a href="detect.php">
                         <img class="winkelmand" src="imgs/cam.png" height="75" width="60">
-                </a>
+                </a> -->
                 <br>
 
 
