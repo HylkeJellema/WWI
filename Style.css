@@ -31,8 +31,15 @@
     font-weight: bold;  
 }
 
+<<<<<<< Updated upstream
 .center {
     float: none;
     margin-left: auto;
     margin-right: auto;
 }
+=======
+.overOnsPagina {
+    text-align: center;
+
+}
+>>>>>>> Stashed changes

@@ -13,7 +13,6 @@ $connection = mysqli_connect($host, $user, $pass, $databasename, $port);
 
 
 $sql = "SELECT StockGroupName FROM stockgroups";
-//$result = mysqli_query($connection, $sql);
 $result = mysqli_query($connection, $sql)
 or die("Error: " . mysqli_error($connection));
 
