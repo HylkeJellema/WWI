@@ -25,7 +25,12 @@ navigatiebalkje();
 </div>
 <br>
 <?php
-$vraag = $_GET['search'];
+
+if (isset($_GET['search'])){
+    $vraag = $_GET['search'];
+} else {
+    $vraag = "";
+}
 $conn = MaakVerbinding();
 $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%'";
 $zoekresultaten = mysqli_query($conn, $sql);
@@ -33,6 +38,7 @@ $zoekresultaten = mysqli_query($conn, $sql);
 
 <div class="row">
 <?php
+
 while($row = mysqli_fetch_array($zoekresultaten)){
     ?>
     <div class="col-xs-6 col-sm-5 col-md-5 col-lg-4 col-xl-3 text-center" style="padding-bottom: 15px;">
