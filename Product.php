@@ -23,8 +23,8 @@ $voorraad = VoorraadOphalen($con);
     <div class="card">
         <div class="row">
             <div class="text-center"><a href="#"><img src="imgs/USB-Thunder-Missile-Launcher.jpg" style="width: 80%"></a></div>
-                <article class="card-body p-5">
-                    <h3 class="title mb-3"><?php echo $product['naam']; ?></h3>
+                <article class="card-body right">
+                    <h3 class="title mb-3" style="width: 32rem;"><?php echo $product['naam']; ?></h3>
 
                     <p class="price-detail-wrap">
 	<span class="price h3 text-warning">
@@ -36,16 +36,27 @@ $voorraad = VoorraadOphalen($con);
                         <dt>Beschrijving</dt>
                         <dd><p><?php echo $product['beschrijving'] ?></p></dd>
                     </dl>
-
+    
                     <dl class="param param-feature">
                         <dt>Verzending</dt>
                         <dd>Nederland, Europa</dd>
                     </dl>
 
                     <dl class="param param-feature">
+                        <?php if ($voorraad['voorraad'] > 0){
+                        ?>
                         <div class="alert alert-success">
-                            <strong>Gratis levering in heel Europa!</strong> voor 23:59 besteld, morgen in huis.
+                            <strong>Gratis levering in heel Nederland!</strong> voor 23:59 besteld, morgen in huis.
                         </div>
+                            <?php
+                        } else {
+                        ?>
+                            <div class="alert alert-success">
+                                <strong>Gratis levering in heel Nederland!</strong> leverdatum onbekend.
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </dl>
 
 
@@ -76,15 +87,13 @@ $voorraad = VoorraadOphalen($con);
                             </div>
                             <?php
                             } else {
-                                ?>
-                                <div class="alert alert-warning" role="alert">
-                                   <strong> Niet op voorraad!</strong>
-                                </div>
+                            ?>
+                             <div class="alert alert-warning" role="alert">
+                                 <strong> Niet op voorraad!</strong>
+                             </div>
                             <?php
                             }
                             ?>
-                        </div>
-                        <div class="col-sm-7">
                         </div>
                     </div>
                     <hr>

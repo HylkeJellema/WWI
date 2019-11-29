@@ -3,7 +3,7 @@
 session_start();
 include "productfuncties.php";
 include "NAVBar functie.php";
-
+$con = MaakVerbinding();
 
 //maakt winkelwagen array aan als er niets in staat
 if (empty($_SESSION['cart'])){
@@ -39,18 +39,17 @@ if (isset($_GET['action'])) {
     }
 }
 
-//Functie om winkelwagen te bewerken
+//aantal in winkelwagen updaten
+if (isset($_POST['update'])){
+    foreach ($_SESSION['cart'] as $key => $value) {
+
+        if ($value['id'] == $_POST['updateID']) {
+            $_SESSION['cart'][$key]['aantal'] = $_POST['aantal'];
+        }
+    }
+}
 
 ?>
-
-
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -63,9 +62,7 @@ if (isset($_GET['action'])) {
 
     </head>
     <body>
-    <?php
-    navigatiebalkje();
-    ?>
+    <div class="naarVoorgrond"><?php   navigatiebalkje();  ?></div>
     <div class="container-fluid bg-wwi" >
             <div class="container rounded">
                 <div class="card">
@@ -88,6 +85,8 @@ if (isset($_GET['action'])) {
                                 <th scope="col">Hoeveelheid</th>
                                 <th scope="col">Prijs</th>
                                 <th scope="col">Verwijder</th>
+                                <th scope="col">Aantal</th>
+                                <th scope="col">Update</th>
 
                             </tr>
                             </thead>
@@ -96,41 +95,55 @@ if (isset($_GET['action'])) {
                             $total = 0;
                             // laat gegevens zien van winkelwagen producten vanuit array
                             foreach ($_SESSION['cart'] as $key => $value) {
-
-                                ?>
-                                <?php if (isset($_GET['action'])) {
-                                    if ($_GET['action'] == "add1"){
-                                        $value['aantal']++;
-                                    }
-                                } ?>
+                                                                ?>
                                 <tr>
                                     <form action="Winkelwagen.php" method="post">
 
                                         <td><?php echo $value['name']; ?></td>
-                                        <td>
-                                            <?php echo $value['aantal']?>
-                                        </td>
+                                        <td><?php echo $value['aantal']?></td>
                                         <td>€<?php echo round(($value['price'] * 0.91), 2); ?></td>
 
                                         <td><a class="btn btn-danger" href="Winkelwagen.php?action=delete&id=<?php echo $value['id']; ?>">Verwijder</a></td>
 
-                                        <td><a class="btn btn-danger float-right" href="Winkelwagen.php?action=add1&id=<?php echo $value['id']; ?>">+1</a></caption></td>
+                                        <td>
+                                            <select class="custom-select text-center" id="aantal" name="aantal">
+                                                <?php
+                                                for ($i = 1; $i <= getProductVoorraad($con, 'SELECT QuantityOnHand FROM stockitemholdings WHERE StockItemID = ?', $value['id']) && $i < 100; $i++){
+                                                    print( "<option value='$i'>$i</option>");
+                                                }
+                                                ?>
+                                            </select>
+                                            <input type="hidden" value="<?php echo $value['id'] ?>" name="updateID">
+                                        </td>
+
+                                        <td><input class="btn btn-info float-right" href="Winkelwagen.php" type="submit" value="Update" name="update"></input></caption></td>
 
                                     </form>
                                 </tr>
+
                                 <?php
-                                $total = $total + ( $value['aantal'] * round(($value['price'] * 0.91), 2));
-
                             }
+                               $total = $total + ( $value['aantal'] * round(($value['price'] * 0.91), 2));
 
-                            print("<caption>Totaal: €".$total."</caption>");
 
-                }
                             ?>
+                            <tr>
+                                <td>
+                                    </td>
+                                    <td style="text-align: right;">Totaal:</td>
+                                <td style="text-align: left;"><?php print("€" . $total);?></td>
+                                    <td></td>
+
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                             </tbody>
-
-
                             <?php
+                }
+
+
+
                          if (empty($_SESSION['cart'])) {
                             ?>
                             <div style='padding-top: 200px;'>
@@ -139,14 +152,16 @@ if (isset($_GET['action'])) {
                                 <div style="padding-top: 100px; padding-bottom: 100px;"><a href=''
                                                                                            style='padding-bottom: 100px'>
                                         <div class="col text-center">
-                                            <a class='btn btn-lg btn-primary text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a>
+                                            <a class='btn btn-lg btn-light text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a>
                                         </div>
                                     </a></div>
                             </div>
                             <?php
                         }else{
                              ?>
-                            <caption><button class="btn btn-primary text-uppercase">Afrekenen</button><a class="btn btn-danger float-right" href="Winkelwagen.php?action=deleteall">Verwijder alles</a></caption>
+                            <caption><button class="btn btn-primary text-uppercase">Afrekenen</button><a class="btn btn-danger float-right" href="Winkelwagen.php?action=deleteall">Verwijder alles</a> <a class='btn btn-light text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a></caption>
+
+
                         <?php
                             }
                         ?>
@@ -162,6 +177,7 @@ if (isset($_GET['action'])) {
     </div>
 </div>
 <?php //include __DIR__ . '/includes/footer.php'; ?>
+
 </body>
     <br><br>
 <?php
