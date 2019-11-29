@@ -39,18 +39,7 @@ if (isset($_GET['action'])) {
     }
 }
 
-//Functie om winkelwagen te bewerken
-
-?>
-
-
-
-
-
-
-
-
-<?php
+//aantal in winkelwagen updaten
 if (isset($_POST['update'])){
     foreach ($_SESSION['cart'] as $key => $value) {
 
@@ -152,15 +141,9 @@ if (isset($_POST['update'])){
                             </tbody>
                             <?php
                 }
-                ?>
 
 
 
-
-
-
-
-                            <?php
                          if (empty($_SESSION['cart'])) {
                             ?>
                             <div style='padding-top: 200px;'>
