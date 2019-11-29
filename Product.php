@@ -24,7 +24,7 @@ $voorraad = VoorraadOphalen($con);
         <div class="row">
             <div class="text-center"><a href="#"><img src="imgs/USB-Thunder-Missile-Launcher.jpg" style="width: 80%"></a></div>
                 <article class="card-body right">
-                    <h3 class="title mb-3"><?php echo $product['naam']; ?></h3>
+                    <h3 class="title mb-3" style="width: 32rem;"><?php echo $product['naam']; ?></h3>
 
                     <p class="price-detail-wrap">
 	<span class="price h3 text-warning">
