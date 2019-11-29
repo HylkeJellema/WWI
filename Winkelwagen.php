@@ -133,7 +133,8 @@ if (isset($_POST['update'])){
                                 </tr>
 
                                 <?php
-                                $total = $total + ( $value['aantal'] * round(($value['price'] * 0.91), 2));
+                            }
+                               $total = $total + ( $value['aantal'] * round(($value['price'] * 0.91), 2));
 
 
                             ?>
@@ -150,13 +151,13 @@ if (isset($_POST['update'])){
                                 </tr>
                             </tbody>
                             <?php
-                            }
-
-
-
-
                 }
-                            ?>
+                ?>
+
+
+
+
+
 
 
                             <?php
