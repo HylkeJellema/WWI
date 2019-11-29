@@ -52,7 +52,7 @@ $voorraad = VoorraadOphalen($con);
                         } else {
                         ?>
                             <div class="alert alert-success">
-                                <strong>Gratis levering in heel Nederland!</strong> leverdatum onbekend.
+                                <strong>Leverdatum onbekend.</strong>
                             </div>
                             <?php
                         }
