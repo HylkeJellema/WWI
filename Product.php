@@ -35,6 +35,15 @@ $voorraad = VoorraadOphalen($con);
                     <dl class="item-property">
                         <dt>Beschrijving</dt>
                         <dd><p><?php echo $product['beschrijving'] ?></p></dd>
+                        <?php
+                        if ($product['koelProduct'] == TRUE){
+                            ?>
+                            <dt>Dit product is een gekoeld product</dt>
+                            <dd>Dit product wordt gekoeld geleverd</dd>
+                            <dd>Dit product bij 2-5 graden bewaren</dd>
+                        <?php
+                        }
+                        ?>
                     </dl>
     
                     <dl class="param param-feature">

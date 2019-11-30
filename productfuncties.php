@@ -24,12 +24,12 @@ function ProductOphalen($connection)
 {
     $id = $_GET["id"];
     if (isset($id)) {
-        $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, RecommendedRetailPrice, SearchDetails FROM stockitems WHERE StockItemID = ?");
+        $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, RecommendedRetailPrice, SearchDetails, IsChillerStock FROM stockitems WHERE StockItemID = ?");
         mysqli_stmt_bind_param($statement, 'i', $id);
         mysqli_stmt_execute($statement);
-        mysqli_stmt_bind_result($statement, $StockItemId, $StockItemName, $price, $beschrijving);
+        mysqli_stmt_bind_result($statement, $StockItemId, $StockItemName, $price, $beschrijving, $koelProduct);
         mysqli_stmt_fetch($statement);
-        $result = array("nummer" => $StockItemId, "naam" => $StockItemName, "price" => $price, "beschrijving" => $beschrijving);
+        $result = array("nummer" => $StockItemId, "naam" => $StockItemName, "price" => $price, "beschrijving" => $beschrijving, "koelProduct" => $koelProduct);
         mysqli_stmt_close($statement);
         return $result;
     }

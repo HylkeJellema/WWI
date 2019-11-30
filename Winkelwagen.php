@@ -116,7 +116,7 @@ if (isset($_POST['update'])){
                                             <input type="hidden" value="<?php echo $value['id'] ?>" name="updateID">
                                         </td>
 
-                                        <td><input class="btn btn-info float-right" href="Winkelwagen.php" type="submit" value="Update" name="update"></input></caption></td>
+                                        <td><input class="btn btn-info float-left" href="Winkelwagen.php" type="submit" value="Update" name="update"></input></caption></td>
 
                                     </form>
                                 </tr>
