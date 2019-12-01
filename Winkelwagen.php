@@ -52,7 +52,7 @@ if (isset($_POST['update'])){
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="nl">
     <head>
         <title>
             WWI de internationale groothandel
@@ -147,14 +147,12 @@ if (isset($_POST['update'])){
                          if (empty($_SESSION['cart'])) {
                             ?>
                             <div style='padding-top: 200px;'>
-                                <?php print('<h1 style="text-align: center">Winkelwagen is leeg</h1></div>');
-                                ?>
+                                <h1 style="text-align: center">Winkelwagen is leeg</h1></div>
                                 <div style="padding-top: 100px; padding-bottom: 100px;"><a href=''
                                                                                            style='padding-bottom: 100px'>
                                         <div class="col text-center">
                                             <a class='btn btn-lg btn-light text-uppercase align-center' style="background: lightskyblue" href="Lijstpagina.php?">Verder winkelen</a>
                                         </div>
-                                    </a></div>
                             </div>
                             <?php
                         }else{
@@ -173,9 +171,8 @@ if (isset($_POST['update'])){
             </div>
         </div>
     </body>
-
     </div>
-</div>
+    </div>
 <?php //include __DIR__ . '/includes/footer.php'; ?>
 
 </body>
