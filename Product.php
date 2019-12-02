@@ -32,7 +32,7 @@ $voorraad = VoorraadOphalen($con);
 	</span>
 
                     </p>
-                    <dl class="item-property">
+                    <dl class="item-property" style="width: 32rem;">
                         <dt>Beschrijving</dt>
                         <dd><p><?php echo $product['beschrijving'] ?></p></dd>
                         <?php
