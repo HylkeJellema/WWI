@@ -62,12 +62,12 @@ while($row = mysqli_fetch_array($zoekresultaten)){
         <div class="card border-primary" style="width: 19rem; margin: 0 auto; height: 430px;">
             <?php
             if($row['Photo'] != "") {
-                echo '<img class="card-img-top" src="data:image/jpg;base64,' . base64_encode($row['Photo']) . '" alt="Card image cap"/>';
+                echo '<img class="card-img-top" src="data:image/jpg;base64,' . base64_encode($row['Photo']) . '" alt="Card image cap" style="width:100%; height: 240px;"/>';
             } else {
-                echo '<img class="card-img-top" src="imgs/ImageComingSoon.png" alt="Card image cap">';
+                echo '<img class="card-img-top" src="imgs/ImageComingSoon.png" alt="Card image cap" style="width:100%; height: 240px;">';
             }
             ?>
-            <div class="card-body">
+            <div class="card-body d-flex flex-column">
                 <h5 class="card-title">
                     <?php
                     echo $row['StockItemName'];
@@ -79,8 +79,8 @@ while($row = mysqli_fetch_array($zoekresultaten)){
                     ?>
                 </p>
                 <?php
-                echo "<a class='btn btn-outline-primary btn-sm' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
-                echo "<a class='btn btn-outline-danger btn-sm text-right' href='Winkelwagen.php?id=" . $row['StockItemID'] . "'>Koop nu</a>";
+                echo "<a class='btn btn-outline-primary btn-sm float-left mt-auto' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
+                echo "<a class='btn btn-outline-danger btn-sm float-right mt-auto' href='Winkelwagen.php?id=" . $row['StockItemID'] . "'>Koop nu</a>";
                 ?>
             </div>
         </div>
