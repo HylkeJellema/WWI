@@ -79,7 +79,7 @@ while($row = mysqli_fetch_array($zoekresultaten)){
                     ?>
                 </p>
                 <?php
-                echo "<a class='btn btn-outline-primary btn-sm float-left mt-auto' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
+                echo "<a class='btn btn-outline-primary btn-sm float-left mt-auto' href='Product.php?id=" . $row['StockItemID'] . "' style='margin-bottom: 5px;'>Meer details</a>";
                 echo "<a class='btn btn-outline-danger btn-sm float-right mt-auto' href='Winkelwagen.php?id=" . $row['StockItemID'] . "'>Koop nu</a>";
                 ?>
             </div>
