@@ -11,6 +11,21 @@ function ZoekProduct($vraag){
     return $row;
 }
 
+function ZoekCategorie($vraag){
+    $conn = MaakVerbinding();
+    //$sql = "SELECT Photo, StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE '%" . $vraag . "%'";
+    $sql= "SELECT Si.Photo,Si.StockitemName,Si.RecommendedRetailPrice
+FROM stockgroups as Sg INNER JOIN stockitemstockgroups as Stg on Sg.StockGroupID=Stg.StockGroupID INNER JOIN
+stockitems as Si on Si.StockItemID=Stg.StockItemID
+WHERE Sg.StockGroupName ='" . $vraag . "'";
+
+    $zoekresultaten = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($zoekresultaten,MYSQLI_NUM);
+    SluitVerbinding($conn);
+
+    return $row;
+}
+
 function ResultatenAfrdukken($zoekresultaten){
     while ($row = mysqli_fetch_array($zoekresultaten)) {
         echo "<tr>";
