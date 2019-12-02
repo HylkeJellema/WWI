@@ -60,7 +60,7 @@
                     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                         $naam = $row["StockGroupName"];
                         //print($naam . "<br>");
-                        print("<li><a href ='#'>" . $naam . "</a></li>");
+                        print("<li><a href ='#' name='" . $naam . "'>" . $naam . "</a></li>");
                     }
 
 
@@ -71,18 +71,24 @@
                 categorieLijst();
 ?>
 
-
-
             </ul>
 </div>
         </nav>
 
         <br>
+
+
+    <?php
+    function nogeentje(){?>
 <div class="opmaakje">
     <form action="Lijstpagina.php">
     <input class="opmaakje2" type="search" placeholder="Zoeken" aria-label="Search" name="search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoeken</button>
     </form>
 </div>
+    <?php }
+        nogeentje();
+    ?>
 
+    <input type="submit" class="opmaken" value="Zoeken">
 </html>
