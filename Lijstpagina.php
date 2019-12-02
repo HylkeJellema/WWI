@@ -16,10 +16,10 @@ navigatiebalkje();
 <div class="row">
     <div class="col text-center">
         <div class="btn-group text-center" role="group" aria-label="ic example">
-            <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=AtotZ">Alfabet A - Z</a>
-            <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=ZtotA">Alfabet Z - A</a>
-            <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=PLtotPH">Prijs L - H</a>
-            <a type="button" class="btn btn-outline-primary btn-sm align-center" href="Lijstpagina.php?action=PHtotPL">Right H - L</a>
+            <button type="button" class="btn btn-outline-primary btn-sm align-center" name="A-Z">Alfabet A - Z</button>
+            <button type="button" class="btn btn-outline-primary btn-sm align-center" name="Z-A">Alfabet Z - A</button>
+            <button type="button" class="btn btn-outline-primary btn-sm align-center" name="L-H">Prijs L - H</button>
+            <button type="button" class="btn btn-outline-primary btn-sm align-center" name="H-L">Right H - L</button>
         </div>
     </div>
 </div>
@@ -31,9 +31,26 @@ if (isset($_GET['search'])){
 } else {
     $vraag = "";
 }
+
 $conn = MaakVerbinding();
-$sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%'";
-$zoekresultaten = mysqli_query($conn, $sql);
+$sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%'";
+
+$sqlPHtotPL = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice DESC";
+$sqlPLtotPH = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice ASC";
+$sqlZtotA = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName DESC";
+$sqlAtotZ = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName ASC";
+
+if(isset($_GET['A-Z'])){
+    $zoekresultaten = mysqli_query($conn, $sqlAtotZ);
+} elseif(isset($_GET['Z-A'])){
+    $zoekresultaten = mysqli_query($conn, $sqlZtotA);
+} elseif(isset($_GET['L-H'])){
+    $zoekresultaten = mysqli_query($conn, $sqlPLtotPH);
+} elseif(isset($_GET['H-L'])){
+    $zoekresultaten = mysqli_query($conn, $sqlPHtotPL);
+} else {
+    $zoekresultaten = mysqli_query($conn, $sql);
+}
 ?>
 
 <div class="row">
@@ -43,7 +60,7 @@ while($row = mysqli_fetch_array($zoekresultaten)){
     ?>
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 text-center" style="padding-bottom: 15px;">
         <div class="card border-primary" style="width: 19rem; margin: 0 auto; height: 430px;">
-            <img class="card-img-top" src="imgs/ImageComingSoon.png" alt="Card image cap">
+            <?php    echo '<img src="data:image/jpg;base64,' .  base64_encode($row['Photo'])  . '" />';     ?>
             <div class="card-body">
                 <h5 class="card-title">
                     <?php
