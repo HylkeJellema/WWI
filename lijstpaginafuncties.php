@@ -1,14 +1,17 @@
 <?php
 include "productfuncties.php";
 
-function ZoekProduct($vraag){
+function ZoekProduct(){
+    if (isset($_GET['search'])){
+        $vraag = $_GET['search'];
+    } else {
+        $vraag = "";
+    }
     $conn = MaakVerbinding();
-    $sql = "SELECT Photo, StockItemName, RecommendedRetailPrice FROM stockitems WHERE StockItemName LIKE '%" . $vraag . "%'";
+    $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%'";
     $zoekresultaten = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($zoekresultaten,MYSQLI_NUM);
-    SluitVerbinding($conn);
 
-    return $row;
+    return $zoekresultaten;
 }
 
 function ZoekCategorie($vraag){
@@ -41,8 +44,8 @@ function AtotZ(){
     if(isset($_GET["search"]) == true) {
         $vraag = $_GET["search"];
         $conn = MaakVerbinding();
-        $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName ASC";
-        $zoekresultaten = mysqli_query($conn, $sql);
+        $sqlAtotZ = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName ASC";
+        $zoekresultaten = mysqli_query($conn, $sqlAtotZ);
         ResultatenAfrdukken($zoekresultaten);
         SluitVerbinding($conn);
     } else {
@@ -58,8 +61,8 @@ function ZtotA(){
     if(isset($_GET["search"]) == true) {
         $vraag = $_GET["search"];
         $conn = MaakVerbinding();
-        $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName DESC";
-        $zoekresultaten = mysqli_query($conn, $sql);
+        $sqlZtotA = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName DESC";
+        $zoekresultaten = mysqli_query($conn, $sqlZtotA);
         ResultatenAfrdukken($zoekresultaten);
         SluitVerbinding($conn);
     } else {
@@ -75,8 +78,8 @@ function PLtotPH(){
     if(isset($_GET["search"]) == true) {
         $vraag = $_GET["search"];
         $conn = MaakVerbinding();
-        $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice ASC";
-        $zoekresultaten = mysqli_query($conn, $sql);
+        $sqlPLtotPH = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice ASC";
+        $zoekresultaten = mysqli_query($conn, $sqlPLtotPH);
         ResultatenAfrdukken($zoekresultaten);
         SluitVerbinding($conn);
     } else {
@@ -92,8 +95,8 @@ function PHtotPL(){
     if(isset($_GET["search"]) == true) {
         $vraag = $_GET["search"];
         $conn = MaakVerbinding();
-        $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice DESC";
-        $zoekresultaten = mysqli_query($conn, $sql);
+        $sqlPHtotPL = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice DESC";
+        $zoekresultaten = mysqli_query($conn, $sqlPHtotPL);
         ResultatenAfrdukken($zoekresultaten);
         SluitVerbinding($conn);
     } else {
