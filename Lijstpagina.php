@@ -60,7 +60,13 @@ while($row = mysqli_fetch_array($zoekresultaten)){
     ?>
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 text-center" style="padding-bottom: 15px;">
         <div class="card border-primary" style="width: 19rem; margin: 0 auto; height: 430px;">
-            <?php    echo '<img src="data:image/jpg;base64,' .  base64_encode($row['Photo'])  . '" />';     ?>
+            <?php
+            if($row['Photo'] != "") {
+                echo '<img class="card-img-top" src="data:image/jpg;base64,' . base64_encode($row['Photo']) . '" alt="Card image cap"/>';
+            } else {
+                echo '<img class="card-img-top" src="imgs/ImageComingSoon.png" alt="Card image cap">';
+            }
+            ?>
             <div class="card-body">
                 <h5 class="card-title">
                     <?php
