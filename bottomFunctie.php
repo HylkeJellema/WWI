@@ -114,7 +114,7 @@ function bottomFunctie()
 ?>
 <head>
 
-    <link rel="stylesheet" type="text/css" href="bottomNAV.css"
+    <link rel="stylesheet" type="text/css" href="bottomNAV.css">
 
 </head>
 </html>

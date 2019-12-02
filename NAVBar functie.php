@@ -58,7 +58,6 @@
 
                     <li><a class="Login" href="Login.php">Inloggen</a></li>
 
-
                     <li>
 
                         <form class="form-inline" action="Lijstpagina.php">

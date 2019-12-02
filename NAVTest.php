@@ -71,13 +71,6 @@
                 categorieLijst();
 ?>
 
-<?php
-            function zoekenmaarjochie(){
-                include 'lijstpaginafuncties.php';
-                ZoekCategorie("Novelty Items");
-            }
-
-?>
 
 
             </ul>
