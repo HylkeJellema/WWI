@@ -16,10 +16,12 @@ navigatiebalkje();
 <div class="row">
     <div class="col text-center">
         <div class="btn-group text-center" role="group" aria-label="ic example">
-            <button type="button" class="btn btn-outline-primary btn-sm align-center" name="A-Z">Alfabet A - Z</button>
-            <button type="button" class="btn btn-outline-primary btn-sm align-center" name="Z-A">Alfabet Z - A</button>
-            <button type="button" class="btn btn-outline-primary btn-sm align-center" name="L-H">Prijs L - H</button>
-            <button type="button" class="btn btn-outline-primary btn-sm align-center" name="H-L">Prijs H - L</button>
+            <form class="form-inline" action="Lijstpagina.php?search=<?php print($_GET["sorteer"]);?>" method="get">
+            <button class="btn btn-outline-primary btn-sm align-center" name="sorteer" value="az" type="submit">Alfabet A - Z</button>
+            <button class="btn btn-outline-primary btn-sm align-center" name="sorteer" value="za" type="submit">Alfabet Z - A</button>
+            <button class="btn btn-outline-primary btn-sm align-center" name="sorteer" value="lh" type="submit">Prijs L - H</button>
+            <button class="btn btn-outline-primary btn-sm align-center" name="sorteer" value="hl" type="submit">Prijs H - L</button>
+            </form>
         </div>
     </div>
 </div>
@@ -35,19 +37,20 @@ if (isset($_GET['search'])){
 $conn = MaakVerbinding();
 $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%'";
 
-$sqlPHtotPL = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice DESC";
-$sqlPLtotPH = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice ASC";
-$sqlZtotA = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName DESC";
-$sqlAtotZ = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName ASC";
+$sqlPHtotPL = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice DESC";
+$sqlPLtotPH = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice ASC";
+$sqlZtotA = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName DESC";
+$sqlAtotZ = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName ASC";
 
-if(isset($_GET["A-Z"])){
-    $zoekresultaten = mysqli_query($conn, $sqlAtotZ);
-} elseif(isset($_GET["Z-A"])){
-    $zoekresultaten = mysqli_query($conn, $sqlZtotA);
-} elseif(isset($_GET["L-H"])){
-    $zoekresultaten = mysqli_query($conn, $sqlPLtotPH);
-} elseif(isset($_GET["H-L"])){
-    $zoekresultaten = mysqli_query($conn, $sqlPHtotPL);
+if(isset($_GET["sorteer"])){
+    if($_GET["sorteer"]=="az"){
+    $zoekresultaten = mysqli_query($conn, $sqlAtotZ);}
+    elseif($_GET["sorteer"]=="za"){
+    $zoekresultaten = mysqli_query($conn, $sqlZtotA);}
+    elseif($_GET["sorteer"]=="hl"){
+    $zoekresultaten = mysqli_query($conn, $sqlPHtotPL);}
+    elseif($_GET["sorteer"]=="lh"){
+    $zoekresultaten = mysqli_query($conn, $sqlPLtotPH);}
 } else {
     $zoekresultaten = mysqli_query($conn, $sql);
 }
