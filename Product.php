@@ -106,8 +106,21 @@ $voorraad = VoorraadOphalen($con);
                         </div>
                     </div>
                     <hr>
-                    <a href="#" class="btn btn-lg btn-primary text-uppercase"> Koop nu </a>
-                        <button value="<?php echo $product['nummer'] ?>" id="btnAddToCart" name="btnAddToCart" type="submit" class="btn btn-lg btn-outline-primary text-uppercase">Aan mand toevoegen</button>
+                        <?php if ($voorraad['voorraad']>0){
+                        ?>
+                        <button value="<?php echo $product['nummer'] ?>" id="btnAddToCart" name="btnAddToCart"
+                                type="submit" class="btn btn-lg btn-outline-primary text-uppercase">Aan mand toevoegen
+                        </button>
+
+                    <?php
+                    } else { ?>
+                            <div>  <a class='btn btn-lg btn-light text-uppercase align-center' style="background: lightskyblue" href="Lijstpagina.php?">Verder winkelen</a>
+                        </div>
+
+
+                        <?php }  ?>
+
+
                     </form>
                 </article>
             </aside>
