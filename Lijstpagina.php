@@ -48,8 +48,6 @@ if(isset($_GET['A-Z'])){
     $zoekresultaten = mysqli_query($conn, $sqlPLtotPH);
 } elseif(isset($_GET['H-L'])){
     $zoekresultaten = mysqli_query($conn, $sqlPHtotPL);
-} elseif (isset($_GET[])){
-    $zoekresultaten = mysqli_query($conn, $sqlPHtotPL);
 } else {
     $zoekresultaten = mysqli_query($conn, $sql);
 }
