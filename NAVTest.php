@@ -1,8 +1,8 @@
 <html>
     <link rel="stylesheet" type="text/css" href="Style.css">
     <link rel="stylesheet" type="text/css" href="NAVTest.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    -->
     <?php
 
         function bovensteNAVBarretje(){
@@ -19,14 +19,17 @@
                 <img class="winkelmand" src="imgs/winkelmandje.png" height="70" width="70">
             </a>
 
-            <form class="form-inline" action="Lijstpagina.php" style="padding-top: 20px">
-                <input class="form-control mr-sm-2" type="search" placeholder="Zoeken" aria-label="Search" name="search"
-                style="width: 25%" style="margin-left: 90%" style="margin-right: auto">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
-                style="width: 8%" style="margin-left: auto" style="margin-right: auto">Zoeken</button>
-            </form>
-
-
+            <?php
+            function nogeentje(){?>
+                <div class="opmaakje">
+                    <form action="Lijstpagina.php">
+                        <input class="opmaakje2" type="search" placeholder="Zoeken" aria-label="Search" name="search">
+                        <button class="button" type="submit">Zoeken</button>
+                    </form>
+                </div>
+            <?php }
+            nogeentje();
+            ?>
 
             <br>
     <?php
@@ -74,21 +77,5 @@
             </ul>
 </div>
         </nav>
-
         <br>
-
-
-    <?php
-    function nogeentje(){?>
-<div class="opmaakje">
-    <form action="Lijstpagina.php">
-    <input class="opmaakje2" type="search" placeholder="Zoeken" aria-label="Search" name="search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoeken</button>
-    </form>
-</div>
-    <?php }
-        nogeentje();
-    ?>
-
-    <input type="submit" class="opmaken" value="Zoeken">
 </html>

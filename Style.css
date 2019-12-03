@@ -17,13 +17,14 @@
 
 .logo {
     float: left;
-    padding: 8px;
+    padding-left: 8px;
+    padding-top: 8px;
 }
 
 .winkelmand {
     float: right;
-    padding: 8px;
-
+    padding-left: 8px;
+    padding-top: 8px;
 }
 
 .home {
@@ -38,6 +39,5 @@
 
 .overOnsPagina {
     text-align: center;
-
 }
 

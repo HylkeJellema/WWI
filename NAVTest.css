@@ -1,18 +1,31 @@
 .opmaakje {
+    padding-top: 25px;
     width: 100%;
     text-align:center;
-
 }
 
 .opmaakje2{
     width: 30%;
+    height: 40px;
     border-radius: 4px;
     border-color: white;
+    text-align: center;
 }
 
-.opmaken {
-    border-color: green;
-    border-radius: 4px;
+.button {
+    transition-duration: 0.4s;
     background-color: white;
-    border-width: 100px;
+    color: black;
+    border: 2px solid limegreen;
+    border-radius: 4px;
+    width: 80px;
+    height: 40px;
+    padding: 8px;
+
+}
+
+
+.button:hover {
+    background-color: limegreen;
+    color: white;
 }
