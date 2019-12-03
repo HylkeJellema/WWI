@@ -19,7 +19,7 @@ navigatiebalkje();
             <button type="button" class="btn btn-outline-primary btn-sm align-center" name="A-Z">Alfabet A - Z</button>
             <button type="button" class="btn btn-outline-primary btn-sm align-center" name="Z-A">Alfabet Z - A</button>
             <button type="button" class="btn btn-outline-primary btn-sm align-center" name="L-H">Prijs L - H</button>
-            <button type="button" class="btn btn-outline-primary btn-sm align-center" name="H-L">Right H - L</button>
+            <button type="button" class="btn btn-outline-primary btn-sm align-center" name="H-L">Prijs H - L</button>
         </div>
     </div>
 </div>
@@ -40,13 +40,13 @@ $sqlPLtotPH = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, Search
 $sqlZtotA = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName DESC";
 $sqlAtotZ = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName ASC";
 
-if(isset($_GET['A-Z'])){
+if(isset($_GET["A-Z"])){
     $zoekresultaten = mysqli_query($conn, $sqlAtotZ);
-} elseif(isset($_GET['Z-A'])){
+} elseif(isset($_GET["Z-A"])){
     $zoekresultaten = mysqli_query($conn, $sqlZtotA);
-} elseif(isset($_GET['L-H'])){
+} elseif(isset($_GET["L-H"])){
     $zoekresultaten = mysqli_query($conn, $sqlPLtotPH);
-} elseif(isset($_GET['H-L'])){
+} elseif(isset($_GET["H-L"])){
     $zoekresultaten = mysqli_query($conn, $sqlPHtotPL);
 } else {
     $zoekresultaten = mysqli_query($conn, $sql);
