@@ -73,14 +73,13 @@ while($row = mysqli_fetch_array($zoekresultaten)){
                     echo $row['StockItemName'];
                     ?>
                 </h5>
-                <p class="card-text">
+                <p class="card-text currency">
                     <?php
                     echo "€" . round(($row['RecommendedRetailPrice'] * 0.91), 2);
                     ?>
                 </p>
                 <?php
-                echo "<a class='btn btn-outline-primary btn-sm float-left mt-auto' href='Product.php?id=" . $row['StockItemID'] . "' style='margin-bottom: 5px;'>Meer details</a>";
-                echo "<a class='btn btn-outline-danger btn-sm float-right mt-auto' href='Winkelwagen.php?id=" . $row['StockItemID'] . "'>Koop nu</a>";
+                echo "<a class='btn btn-outline-success mt-auto' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
                 ?>
             </div>
         </div>
