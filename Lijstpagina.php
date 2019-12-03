@@ -16,11 +16,12 @@ navigatiebalkje();
 <div class="row">
     <div class="col text-center">
         <div class="btn-group text-center" role="group" aria-label="ic example">
-            <form class="form-inline" action="Lijstpagina.php?search=<?php print($_GET["sorteer"]);?>" method="get">
+            <form class="form-inline" action="Lijstpagina.php" method="get">
             <button class="btn btn-outline-primary btn-sm align-center" name="sorteer" value="az" type="submit">Alfabet A - Z</button>
             <button class="btn btn-outline-primary btn-sm align-center" name="sorteer" value="za" type="submit">Alfabet Z - A</button>
             <button class="btn btn-outline-primary btn-sm align-center" name="sorteer" value="lh" type="submit">Prijs L - H</button>
             <button class="btn btn-outline-primary btn-sm align-center" name="sorteer" value="hl" type="submit">Prijs H - L</button>
+            <input type="hidden" name="search" value="<?php print($_GET["search"]); ?>">
             </form>
         </div>
     </div>
