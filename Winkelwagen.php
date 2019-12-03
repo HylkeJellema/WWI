@@ -180,6 +180,8 @@ if (isset($_POST['update'])){
 <?php
 include "bottomFunctie.php";
 bottomFunctie();
+
+SluitVerbinding($con);
 ?>
 
 
