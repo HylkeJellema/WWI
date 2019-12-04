@@ -1,10 +1,10 @@
 <?php
 function MaakVerbinding()
 {
-    $host = 'localhost';
-    $user = 'root';
-    $pass = '';
-    $databasename = 'wideworldimporters';
+    $host = 'hyl.ke';
+    $user = 'u11725p60100_WWI';
+    $pass = 'database';
+    $databasename = 'u11725p60100_WWI';
     $connection = mysqli_connect($host, $user, $pass, $databasename);
     if (!$connection) die("Unable to connect to MySQL: " . mysqli_error($connection));
     return $connection;
