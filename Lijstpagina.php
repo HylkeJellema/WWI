@@ -29,19 +29,29 @@ navigatiebalkje();
 <br>
 <?php
 
-if (isset($_GET['search'])){
+if(isset($_GET['search'])){
     $vraag = $_GET['search'];
 } else {
     $vraag = "";
 }
 
+
+
+
 $conn = MaakVerbinding();
+
 $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%'";
 
 $sqlPHtotPL = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice DESC";
 $sqlPLtotPH = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice ASC";
 $sqlZtotA = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName DESC";
 $sqlAtotZ = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName ASC";
+
+$sqlCategorie = "SELECT Si.Photo,Si.StockitemName,Si.RecommendedRetailPrice
+                 FROM stockgroups as Sg 
+                 INNER JOIN stockitemstockgroups as Stg on Sg.StockGroupID=Stg.StockGroupID 
+                 INNER JOIN stockitems as Si on Si.StockItemID=Stg.StockItemID
+                 WHERE Sg.StockGroupName ='" . $categorie . "'";
 
 if(isset($_GET["sorteer"])){
     if($_GET["sorteer"]=="az"){
@@ -77,7 +87,7 @@ while($row = mysqli_fetch_array($zoekresultaten)){
                     echo $row['StockItemName'];
                     ?>
                 </h5>
-                <p class="card-text currency">
+                <p class="card-text" style="color: orange;">
                     <?php
                     echo "€" . round(($row['RecommendedRetailPrice'] * 0.91), 2);
                     ?>
