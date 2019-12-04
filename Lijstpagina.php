@@ -2,32 +2,54 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="Style.css">
-    <link rel="stylesheet" type="text/css" href="dropdownStyles.css">
-    <link rel="stylesheet" type="text/css" href="bottomNAV.css">
+<!--    <link rel="stylesheet" type="text/css" href="Style.css">-->
+<!--    <link rel="stylesheet" type="text/css" href="dropdownStyles.css">-->
+<!--    <link rel="stylesheet" type="text/css" href="bottomNAV.css">-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <?php
-include "NAVBar functie.php";
 include "lijstpaginafuncties.php";
-navigatiebalkje();
+include "productfuncties.php";
+//include "NAVBar functie.php";
+//navigatiebalkje();
 ?>
-<body>
-<div class="row">
-    <div class="col text-center">
-        <div class="btn-group text-center" role="group" aria-label="ic example">
-            <form class="form-inline" action="Lijstpagina.php" method="get">
-            <button class="btn btn-outline-primary btn-sm align-center" name="sorteer" value="az" type="submit">Alfabet A - Z</button>
-            <button class="btn btn-outline-primary btn-sm align-center" name="sorteer" value="za" type="submit">Alfabet Z - A</button>
-            <button class="btn btn-outline-primary btn-sm align-center" name="sorteer" value="lh" type="submit">Prijs L - H</button>
-            <button class="btn btn-outline-primary btn-sm align-center" name="sorteer" value="hl" type="submit">Prijs H - L</button>
-            <input type="hidden" name="search" value="<?php print($_GET["search"]); ?>">
-            </form>
-        </div>
+
+<nav class="navbar navbar-light justify-content-between" style="background-color: #DDDDDD;">
+    <div class="row">
+        <a href="Homepagina.php">
+            <img class="float-left" src="imgs/wide-world-importers-logo-small.png" height="70">
+        </a>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <form class="form-inline" action="Lijstpagina.php" method="get">
+            <div class="btn-group btn-group-toggle" role="group">
+                <button class="btn btn-outline-secondary" name="sorteer" value="az" type="submit">Alfabet A - Z</button>
+                <button class="btn btn-outline-secondary" name="sorteer" value="za" type="submit">Alfabet Z - A</button>
+                <button class="btn btn-outline-secondary" name="sorteer" value="lh" type="submit">Prijs L - H</button>
+                <button class="btn btn-outline-secondary" name="sorteer" value="hl" type="submit">Prijs H - L</button>
+            </div>
+            <input type="hidden" name="search" value="<?php print($_GET["search"]); ?>"
+        </form>
+        <a class="btn btn-outline-secondary" href="Login.php" style="margin-left: 100px; margin-right: 10px;">Inloggen</a>
+        <a href="Winkelwagen.php">
+            <img class="float-right" src="imgs/winkelmandje.png" height="70" width="70">
+        </a>
     </div>
-</div>
+    <div class="row">
+        <?php
+
+        ?>
+    </div>
+</nav>
+<body>
+
 <br>
 <?php
+
+$conn = MaakVerbinding();
 
 if(isset($_GET['search'])){
     $vraag = $_GET['search'];
@@ -35,23 +57,28 @@ if(isset($_GET['search'])){
     $vraag = "";
 }
 
-
-
-
-$conn = MaakVerbinding();
+$sql = "SELECT StockGroupName FROM stockgroups";
+$result = mysqli_query($conn, $sql)
+or die("Error: " . mysqli_error($conn));
+while($row = mysqli_fetch_array($result, MYSQLI_ASSOC and $cat == 0)){
+    $categorie = $row["StockGroupName"];
+    if(isset($_GET["$categorie"])){
+        $cat = $categorie;
+    }
+}
 
 $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%'";
 
-$sqlPHtotPL = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice DESC";
-$sqlPLtotPH = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice ASC";
-$sqlZtotA = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName DESC";
-$sqlAtotZ = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName ASC";
+$sqlPHtotPL = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice DESC";
+$sqlPLtotPH = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice ASC";
+$sqlZtotA = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName DESC";
+$sqlAtotZ = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName ASC";
 
-$sqlCategorie = "SELECT Si.Photo,Si.StockitemName,Si.RecommendedRetailPrice
+$sqlCategorie = "SELECT Si.Photo, Si.StockItemName, Si.RecommendedRetailPrice, Si.StockItemID
                  FROM stockgroups as Sg 
                  INNER JOIN stockitemstockgroups as Stg on Sg.StockGroupID=Stg.StockGroupID 
                  INNER JOIN stockitems as Si on Si.StockItemID=Stg.StockItemID
-                 WHERE Sg.StockGroupName ='" . $categorie . "'";
+                 WHERE Sg.StockGroupName ='" . $cat . "'";
 
 if(isset($_GET["sorteer"])){
     if($_GET["sorteer"]=="az"){
@@ -63,7 +90,11 @@ if(isset($_GET["sorteer"])){
     elseif($_GET["sorteer"]=="lh"){
     $zoekresultaten = mysqli_query($conn, $sqlPLtotPH);}
 } else {
-    $zoekresultaten = mysqli_query($conn, $sql);
+    if(isset($_GET["$cat"])){
+        $zoekresultaten = mysqli_query($conn, $sqlCategorie);
+    } else {
+        $zoekresultaten = mysqli_query($conn, $sql);
+    }
 }
 ?>
 
@@ -73,7 +104,7 @@ if(isset($_GET["sorteer"])){
 while($row = mysqli_fetch_array($zoekresultaten)){
     ?>
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 text-center" style="padding-bottom: 15px;">
-        <div class="card border-primary" style="width: 19rem; margin: 0 auto; height: 430px;">
+        <div class="card border-info" style="width: 19rem; margin: 0 auto; height: 430px;">
             <?php
             if($row['Photo'] != "") {
                 echo '<img class="card-img-top" src="data:image/jpg;base64,' . base64_encode($row['Photo']) . '" alt="Card image cap" style="width:100%; height: 240px;"/>';
@@ -93,7 +124,7 @@ while($row = mysqli_fetch_array($zoekresultaten)){
                     ?>
                 </p>
                 <?php
-                echo "<a class='btn btn-outline-success mt-auto' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
+                echo "<a class='btn btn-outline-info mt-auto' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
                 ?>
             </div>
         </div>

@@ -16,21 +16,23 @@
             <nav>
                 <ul>
                     <li><a class="Home" href="Homepagina.php">Home</a></li>
-                    <li><a class="Login" href="Login.php">Inloggen</a></li>
                     <li>
-                        <form class="form-inline" action="Lijstpagina.php">
-                            <?php
-                            if(isset($_GET["search"])){
-                                print("<input class='form-control mr-sm-2' type='search' aria-label='Search' value='".$_GET["search"]."' name='search'>");
-                            } else {
-                                print("<input class='form-control mr-sm-2' type='search' placeholder='Zoeken' aria-label='Search' name='search'>");}?>
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoeken</button>
-                        </form>
+                        <div class="center">
+                            <form class="form-inline" action="Lijstpagina.php">
+                                <?php
+                                if(isset($_GET["search"])){
+                                    print("<input class='form-control mr-sm-2' type='search' aria-label='Search' value='".$_GET["search"]."' name='search'>");
+                                } else {
+                                    print("<input class='form-control mr-sm-2' type='search' placeholder='Zoeken' aria-label='Search' name='search'>");}?>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoeken</button>
+                            </form>
+                        </div>
                     </li>
+                    <li><a class="Login" href="Login.php">Inloggen</a></li>
                 </ul>
             </nav>
             <br>
-            <div>
+        <div>
         <?php
     }
 

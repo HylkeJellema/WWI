@@ -1,8 +1,7 @@
 <?php
-function MaakVerbinding()
-{
+function MaakVerbinding(){
     //Verander dit als je offline wilt prutsen
-    $offline = false;
+    $offline = true;
 
     if($offline){
         $host = 'localhost';
