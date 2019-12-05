@@ -1,5 +1,4 @@
 <?php
-include 'init.php';
     function navigatiebalkje(){
         ?>
         <div>
@@ -30,18 +29,7 @@ include 'init.php';
                             </form>
                         </div>
                     </li>
-        <?php
-        if (logged_in() == true) {
-            ?>
-            <li><a class="ingelogd" href="login.php">Ingelogd!</a></li>
-            <?php
-        } else {
-            ?>
                     <li><a class="Login" href="login.php">Inloggen</a></li>
-            <?php
-        }
-        ?>
-
                 </ul>
             </nav>
             <br>
