@@ -17,6 +17,7 @@ if (empty($_POST) == false) {
         $errors[] = 'You haven\'t activated your account!';
     } else {
         $login = login($con, $username, $password);
+
         if ($login == false) {
             $errors[] = 'That username/password combination is incorrect';
         } else {
@@ -24,7 +25,9 @@ if (empty($_POST) == false) {
             header("location: Homepagina.php");
             exit();
         }
+
     }
+
     print_r($errors);
 }
 

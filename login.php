@@ -8,20 +8,23 @@
                     <div class="inner">
                         <form action="loginVerwerk.php" method="post">
                             <ul id="login">
-                                <li>
+                                <a> <br>
                                     Username:
                                     <input type="text" name="username">
-                                </li>
-                                <li>
+                                    <br><br>
+                                </a>
+                                <a>
                                     Password:
                                     <input type="password" name="password">
-                                </li>
-                                <li>
-                                    <input type="submit" value="Log in">
-                                </li>
-                                <li>
-                                    <a href="register.php">Register</a>
-                                </li>
+                                    <br><br>
+                                </a>
+                                <a>
+                                    <input class="btn btn-outline-secondary" type="submit" value="Log in">
+                                    <br><br>
+                                </a>
+                                <a>
+                                    <a class="btn btn-outline-primary" href="register.php">Register</a>
+                                </a>
                             </ul>
                         </form>
                     </div>
