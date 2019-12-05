@@ -15,11 +15,6 @@ include 'init.php';
     include 'NAVBar functie.php';
     navigatiebalkje();
 
-    if (isset($_SESSION['user_id'])) {
-        echo 'logged in';
-    } else {
-        echo 'nog logged in';
-    }
 ?>
 
 <div class="text-center">

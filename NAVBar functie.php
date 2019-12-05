@@ -1,10 +1,12 @@
 <?php
+include 'init.php';
     function navigatiebalkje(){
         ?>
         <div>
             <a href="Homepagina.php">
                 <img class="logo" src="imgs/wide-world-importers-logo-small.png" height="70">
             </a>
+
             <a href="Winkelwagen.php">
                 <img class="winkelmand" src="imgs/winkelmandje.png" height="75" width="60">
             </a>
@@ -28,7 +30,18 @@
                             </form>
                         </div>
                     </li>
-                    <li><a class="Login" href="Login.php">Inloggen</a></li>
+        <?php
+        if (logged_in() == true) {
+            ?>
+            <li><a class="ingelogd" href="login.php">Ingelogd!</a></li>
+            <?php
+        } else {
+            ?>
+                    <li><a class="Login" href="login.php">Inloggen</a></li>
+            <?php
+        }
+        ?>
+
                 </ul>
             </nav>
             <br>

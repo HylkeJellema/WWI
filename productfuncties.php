@@ -152,6 +152,14 @@ function login($connection, $username, $password) {
     return $check;
 }
 
+function logged_in() {
+    if (isset($_SESSION['user_id'])){
+        return true;
+    } else {
+        return false;
+    }
+}
+
 ?>
 
 
