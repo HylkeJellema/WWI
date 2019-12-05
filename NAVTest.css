@@ -29,3 +29,23 @@
     background-color: limegreen;
     color: white;
 }
+
+.categorieButton {
+    transition-duration: 0.4s;
+    float: left;
+    display: block;
+    margin: 7.5px;
+    border: none;
+    padding: 8px;
+    background-color: white;
+    border: 2px solid grey;
+    border-radius: 4px;
+    width: 103px;
+    height: 45px;
+}
+
+.categorieButton:hover {
+    background-color: skyblue;
+    border: 2px solid white;
+    color: white;
+}

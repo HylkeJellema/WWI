@@ -24,7 +24,8 @@
 .winkelmand {
     float: right;
     padding-left: 8px;
-    padding-top: 8px;
+    padding-right: 8px;
+    padding-top: 12px;
 }
 
 .home {

@@ -16,7 +16,7 @@
         <img class="logo" src="imgs/wide-world-importers-logo-small.png" height="70">
     </a>
     <a href="Winkelwagen.php">
-        <img class="winkelmand" src="imgs/winkelmandje.png" height="70" width="70">
+        <img class="winkelmand" src="imgs/winkelmandje.png" height="60" width="60">
     </a>
     <?php
         function nogeentje(){
@@ -50,7 +50,7 @@
                 <?php
                                     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                                         $categorie = $row["StockGroupName"];
-                                        echo("<button class='btn btn-outline-secondary' name='" . $categorie . "' value='$categorie'>" . $categorie . "</button>");
+                                        echo("<button class='categorieButton' name='" . $categorie . "' value='$categorie'>" . $categorie . "</button>");
                                     }
                 ?>
                             </form>
