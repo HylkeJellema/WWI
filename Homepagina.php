@@ -14,12 +14,11 @@ use MongoDB\BSON\MaxKey;
 include 'init.php';
     include 'NAVBar functie.php';
     navigatiebalkje();
-
-    if (isset($_SESSION['user_id'])) {
-        echo 'logged in';
-    } else {
-        echo 'nog logged in';
-    }
+if (logged_in() == true){
+    echo 'logged in!';
+} else {
+    echo 'nog niet ingelogd';
+}
 ?>
 
 <div class="text-center">

@@ -1,5 +1,7 @@
 <?php
 include 'init.php';
+include 'NAVBar functie.php';
+navigatiebalkje();
 
 $con = MaakVerbinding();
 
