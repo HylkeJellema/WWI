@@ -1,7 +1,5 @@
 <?php
 include 'init.php';
-include 'NAVBar functie.php';
-navigatiebalkje();
 
 $con = MaakVerbinding();
 
@@ -16,6 +14,11 @@ if (empty($_POST) == false) {
     } elseif (user_active($con, $username) == false) {
         $errors[] = 'You haven\'t activated your account!';
     } else {
+
+        if (strlen($password) > 32) {
+            $errors[] = 'Password is too long';
+        }
+
         $login = login($con, $username, $password);
 
         if ($login == false) {
@@ -27,7 +30,19 @@ if (empty($_POST) == false) {
         }
 
     }
+<<<<<<< Updated upstream
 
     print_r($errors);
+=======
+} else {
+    $errors[] = 'No data received';
+>>>>>>> Stashed changes
 }
 
+if (empty($errors) == false) {
+?>
+    <h2>We tried to log you in, but....</h2>
+<?php
+    echo output_errors($errors);
+}
+?>
