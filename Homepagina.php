@@ -8,9 +8,18 @@
 <body>
 
 <?php
+
+use MongoDB\BSON\MaxKey;
+
+include 'init.php';
     include 'NAVBar functie.php';
     navigatiebalkje();
 
+    if (isset($_SESSION['user_id'])) {
+        echo 'logged in';
+    } else {
+        echo 'nog logged in';
+    }
 ?>
 
 <div class="text-center">
@@ -21,10 +30,9 @@
 <br><br>
 
 <?php
-include "lijstpaginafuncties.php";
-$conn = MaakVerbinding();
+$con = MaakVerbinding();
 $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems ORDER BY rand() LIMIT 4";
-$zoekresultaten = mysqli_query($conn, $sql);
+$zoekresultaten = mysqli_query($con, $sql);
 ?>
 
 <div class="row">

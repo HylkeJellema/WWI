@@ -61,6 +61,17 @@ function getProduct($connection, $query, $id)
 
 }
 
+function getUsername($connection, $query, $username){
+    $statement = mysqli_prepare($connection, $query);
+    mysqli_stmt_bind_param($statement, 's', $username);
+    mysqli_stmt_execute($statement);
+    mysqli_stmt_bind_result($statement, $username);
+    mysqli_stmt_fetch($statement);
+    $result = array("userexists" => $username);
+    mysqli_stmt_close($statement);
+    return $result;
+}
+
 //haalt voorraad op
 function getProductVoorraad($connection, $query, $id)
 {
@@ -74,6 +85,8 @@ function getProductVoorraad($connection, $query, $id)
     return $result;
 
 }
+
+
 
 function VoorraadOphalen($connection)
 {
@@ -90,6 +103,54 @@ function VoorraadOphalen($connection)
     }
 }
 
+function user_exists($connection, $username){
+    $statement = mysqli_prepare($connection, "SELECT COUNT(user_id) FROM users WHERE username = ?");
+    mysqli_stmt_bind_param($statement, 's', $username);
+    mysqli_stmt_execute($statement);
+    mysqli_stmt_bind_result($statement, $userExist);
+    mysqli_stmt_fetch($statement);
+    mysqli_stmt_close($statement);
+    return $userExist;
+}
+
+function user_active($connection, $username){
+    $statement = mysqli_prepare($connection, "SELECT COUNT(user_id) FROM users WHERE username = ? AND active = 1");
+    mysqli_stmt_bind_param($statement, 's', $username);
+    mysqli_stmt_execute($statement);
+    mysqli_stmt_bind_result($statement, $userActive);
+    mysqli_stmt_fetch($statement);
+    mysqli_stmt_close($statement);
+    return $userActive;
+}
+
+function user_id_from_username($connection, $username) {
+    $statement = mysqli_prepare($connection, "SELECT user_id FROM users WHERE username = ?");
+    mysqli_stmt_bind_param($statement, 's', $username);
+    mysqli_stmt_execute($statement);
+    mysqli_stmt_bind_result($statement, $userID);
+    mysqli_stmt_fetch($statement);
+    mysqli_stmt_close($statement);
+    return $userID;
+}
+
+function login($connection, $username, $password) {
+    $check = 0;
+    $con = MaakVerbinding();
+    $user_id = user_id_from_username($con, $username);
+    $password = md5($password);
+    $statement = mysqli_prepare($connection, "SELECT COUNT(user_id) FROM users WHERE username =? AND password =? ");
+    mysqli_stmt_bind_param($statement,'ss', $username,$password);
+    mysqli_stmt_execute($statement);
+    mysqli_stmt_bind_result($statement, $userExist);
+    mysqli_stmt_fetch($statement);
+    mysqli_stmt_close($statement);
+    if ($userExist == 1){
+        $check = $user_id;
+    } elseif ($userExist == 0) {
+        $check = 0;
+    }
+    return $check;
+}
 
 ?>
 
