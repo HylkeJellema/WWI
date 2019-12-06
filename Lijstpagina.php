@@ -14,7 +14,6 @@ include_once "productfuncties.php";
 //include "NAVBar functie.php";
 //navigatiebalkje();
 ?>
-
 <nav class="navbar navbar-light justify-content-between" style="background-color: #EAE9E9; margin-bottom: 15px;">
     <a href="Homepagina.php">
         <img class="float-left" src="imgs/wide-world-importers-logo-small.png" height="70">
@@ -30,18 +29,19 @@ include_once "productfuncties.php";
         <img class="float-right" src="imgs/winkelmandje.png" height="70" width="70">
     </a>
 </nav>
-
 <body>
     <div class="row">
         <div class="d-flex" id="wrapper">
-            <div class="border-right" id="sidebar-wrapper" style="width: 20%; margin-left: 40px;">
-                <form class="text-center form-inline" action="Lijstpagina.php" method="get">
-                    <button class="btn btn-outline-secondary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="az" type="submit">Alfabet A - Z</button>
-                    <button class="btn btn-outline-secondary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="za" type="submit">Alfabet Z - A</button>
-                    <button class="btn btn-outline-secondary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="lh" type="submit">Prijs L - H</button>
-                    <button class="btn btn-outline-secondary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="hl" type="submit">Prijs H - L</button>
-                    <input type="hidden" name="search" value="<?php print($_GET["search"]); ?>">
-                </form>
+            <div class="border-right" id="sidebar-wrapper" style="width: 25%; margin-left: 40px;">
+                <div class="container">
+                    <form class="form-inline" action="Lijstpagina.php" method="get">
+                        <button class="btn btn-outline-secondary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="az" type="submit">Alfabet A - Z</button>
+                        <button class="btn btn-outline-secondary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="za" type="submit">Alfabet Z - A</button>
+                        <button class="btn btn-outline-secondary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="lh" type="submit">Prijs L - H</button>
+                        <button class="btn btn-outline-secondary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="hl" type="submit">Prijs H - L</button>
+                        <input type="hidden" name="search" value="<?php print($_GET["search"]); ?>">
+                    </form>
+                </div>
             </div>
             <div id="page-content-wrapper">
                 <div class="container-fluid">
@@ -98,7 +98,7 @@ include_once "productfuncties.php";
                         }
                         while($row = mysqli_fetch_array($zoekresultaten)){
                             ?>
-                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 text-center" style="padding-bottom: 15px;">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 text-center" style="padding-bottom: 15px;">
                                 <div class="card border-info" style="width: 19rem; margin: 0 auto; height: 430px;">
                                     <?php
                                     if($row['Photo'] != "") {
