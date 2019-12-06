@@ -64,7 +64,7 @@
                             <?php
                             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                                 $categorie = $row["StockGroupName"];
-                                echo("<button class='categorieButton' style='font-size: 12px' name='" . $categorie . "' value='$categorie'>" . $categorie . "</button>");
+                                echo("<button class='categorieButton' style='font-size: 12px' name='search' value='$categorie'>" . $categorie . "</button>");
                             }
                             ?>
                         </form>
