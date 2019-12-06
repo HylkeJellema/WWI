@@ -62,7 +62,7 @@ $voorraad = VoorraadOphalen($con);
                             <?php
                         } else {
                         ?>
-                            <div class="alert alert-success">
+                            <div class="alert alert-warning">
                                 <strong>Leverdatum onbekend.</strong>
                             </div>
                             <?php

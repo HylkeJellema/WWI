@@ -109,7 +109,11 @@ if (isset($_POST['update'])){
                                             <select class="custom-select text-center" id="aantal" name="aantal">
                                                 <?php
                                                 for ($i = 1; $i <= getProductVoorraad($con, 'SELECT QuantityOnHand FROM stockitemholdings WHERE StockItemID = ?', $value['id']) && $i < 100; $i++){
-                                                    print( "<option value='$i'>$i</option>");
+                                                    if ($i == $value['aantal']) {
+                                                        echo( "<option value='$i' selected>$i</option>");
+                                                    }else{
+                                                        print( "<option value='$i'>$i</option>");
+                                                    }
                                                 }
                                                 ?>
                                             </select>
