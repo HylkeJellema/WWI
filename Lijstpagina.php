@@ -38,10 +38,10 @@ include_once "productfuncties.php";
             <div class="border-right" id="sidebar-wrapper" style="width: 25%; margin-left: 40px;">
                 <div class="container">
                     <form class="form-inline" action="Lijstpagina.php" method="get">
-                        <button class="btn btn-outline-secondary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="az" type="submit">Alfabet A - Z</button>
-                        <button class="btn btn-outline-secondary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="za" type="submit">Alfabet Z - A</button>
-                        <button class="btn btn-outline-secondary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="lh" type="submit">Prijs L - H</button>
-                        <button class="btn btn-outline-secondary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="hl" type="submit">Prijs H - L</button>
+                        <button class="btn btn-outline-info mt-auto" style="margin-bottom: 15px;" name="sorteer" value="az" type="submit">Alfabet A - Z</button>
+                        <button class="btn btn-outline-info mt-auto" style="margin-bottom: 15px;" name="sorteer" value="za" type="submit">Alfabet Z - A</button>
+                        <button class="btn btn-outline-info mt-auto" style="margin-bottom: 15px;" name="sorteer" value="lh" type="submit">Prijs L - H</button>
+                        <button class="btn btn-outline-info mt-auto" style="margin-bottom: 15px;" name="sorteer" value="hl" type="submit">Prijs H - L</button>
                         <input type="hidden" name="search" value="<?php print($_GET["search"]); ?>">
                     </form>
                 </div>
