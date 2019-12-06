@@ -48,7 +48,7 @@
         bovensteNAVBarretje();
         ?>
         <nav>
-            <div style="text-align: center">
+            <div style="text-align: center; border-top: 2px solid white;">
                 <ul>
                     <?php
                     function categorieLijst()
