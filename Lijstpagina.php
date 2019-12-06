@@ -69,7 +69,7 @@ include_once "productfuncties.php";
                         //    }
                         //}
 
-                        $sql =         "SELECT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
+                        $sql =         "SELECT DISTINCT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
                                         FROM stockitems AS A
                                         INNER JOIN stockitemstockgroups AS B ON A.StockItemID = B.StockItemID
                                         INNER JOIN stockgroups AS C ON B.StockGroupID = C.StockGroupID
@@ -78,7 +78,7 @@ include_once "productfuncties.php";
                                         OR SearchDetails LIKE '%" . $vraag . "%'
                                         ORDER BY StockItemName ASC";
 
-                        $sqlPHtotPL =   "SELECT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
+                        $sqlPHtotPL =   "SELECT DISTINCT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
                                         FROM stockitems AS A
                                         INNER JOIN stockitemstockgroups AS B ON A.StockItemID = B.StockItemID
                                         INNER JOIN stockgroups AS C ON B.StockGroupID = C.StockGroupID
@@ -87,7 +87,7 @@ include_once "productfuncties.php";
                                         OR SearchDetails LIKE '%" . $vraag . "%'
                                         ORDER BY RecommendedRetailPrice DESC";
 
-                        $sqlPLtotPH =   "SELECT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
+                        $sqlPLtotPH =   "SELECT DISTINCT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
                                         FROM stockitems AS A
                                         INNER JOIN stockitemstockgroups AS B ON A.StockItemID = B.StockItemID
                                         INNER JOIN stockgroups AS C ON B.StockGroupID = C.StockGroupID
@@ -96,7 +96,7 @@ include_once "productfuncties.php";
                                         OR SearchDetails LIKE '%" . $vraag . "%'
                                         ORDER BY RecommendedRetailPrice ASC";
 
-                        $sqlZtotA = "SELECT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
+                        $sqlZtotA = "SELECT DISTINCT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
                                         FROM stockitems AS A
                                         INNER JOIN stockitemstockgroups AS B ON A.StockItemID = B.StockItemID
                                         INNER JOIN stockgroups AS C ON B.StockGroupID = C.StockGroupID
@@ -105,7 +105,7 @@ include_once "productfuncties.php";
                                         OR SearchDetails LIKE '%" . $vraag . "%'
                                         ORDER BY StockItemName DESC";
 
-                        $sqlAtotZ = "SELECT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
+                        $sqlAtotZ = "SELECT DISTINCT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
                                         FROM stockitems AS A
                                         INNER JOIN stockitemstockgroups AS B ON A.StockItemID = B.StockItemID
                                         INNER JOIN stockgroups AS C ON B.StockGroupID = C.StockGroupID
