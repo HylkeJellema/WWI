@@ -27,7 +27,7 @@ $voorraad = VoorraadOphalen($con);
                 <a href="#"><?php if($product['Photo'] != "") {
                                         echo ('<img src="data:image/jpg;base64,'.base64_encode($product["Photo"]).'" style="width:80%;">');
                                     } else {
-                                        echo '<img src="imgs/ImageComingSoon.png" style="width:20%;">';
+                                        echo '<img src="imgs/ImageComingSoon.jpg" style="width:80%;">';
                                     }
                                     ?></a>
             </div>
