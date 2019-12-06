@@ -17,21 +17,21 @@ include_once "productfuncties.php";
 //include "NAVBar functie.php";
 //navigatiebalkje();
 ?>
-<nav class="navbar navbar-light justify-content-between" style="background-color: #EAE9E9; margin-bottom: 15px;">
-    <a href="Homepagina.php">
-        <img class="float-left" src="imgs/wide-world-importers-logo-small.png" height="70">
-    </a>
-    <form class="form-inline" method="get">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    <a class="btn btn-outline-secondary" href="Login.php" style="margin-left: 10px; margin-right: 10px;">
-        Inloggen
-    </a>
-    <a href="Winkelwagen.php">
-        <img class="float-right" src="imgs/winkelmandje.png" height="70" width="70">
-    </a>
-</nav>
+<!--<nav class="navbar navbar-light justify-content-between" style="background-color: #EAE9E9; margin-bottom: 15px;">-->
+<!--    <a href="Homepagina.php">-->
+<!--        <img class="float-left" src="imgs/wide-world-importers-logo-small.png" height="70">-->
+<!--    </a>-->
+<!--    <form class="form-inline" method="get">-->
+<!--        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">-->
+<!--        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>-->
+<!--    </form>-->
+<!--    <a class="btn btn-outline-secondary" href="Login.php" style="margin-left: 10px; margin-right: 10px;">-->
+<!--        Inloggen-->
+<!--    </a>-->
+<!--    <a href="Winkelwagen.php">-->
+<!--        <img class="float-right" src="imgs/winkelmandje.png" height="70" width="70">-->
+<!--    </a>-->
+<!--</nav>-->
 <body>
     <div class="row">
         <div class="d-flex" id="wrapper">
