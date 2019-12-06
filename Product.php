@@ -7,13 +7,13 @@
 </head>
 
 <?php
-    include "NAVBar functie.php";
-        navigatiebalkje();
+include 'NAVTest.php';
+waza();
 ?>
 
 <body>
 <?php
-include "productfuncties.php";
+include_once "init.php";
 $con = MaakVerbinding();
 $product = ProductOphalen($con);
 $voorraad = VoorraadOphalen($con);
