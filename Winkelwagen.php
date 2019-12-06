@@ -159,7 +159,7 @@ if (isset($_POST['update'])){
                             <?php
                         }else{
                              ?>
-                            <caption><button class="btn btn-primary text-uppercase">Afrekenen</button><a class="btn btn-danger float-right" href="Winkelwagen.php?action=deleteall">Verwijder alles</a> <a class='btn btn-light text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a></caption>
+                            <caption><a class='btn btn-primary text-uppercase align-center' href="afrekenen.php?">AFREKENEN</a><a class="btn btn-danger float-right" href="Winkelwagen.php?action=deleteall">Verwijder alles</a> <a class='btn btn-light text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a></caption>
 
 
                         <?php

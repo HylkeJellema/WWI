@@ -75,16 +75,13 @@ if (isset($_POST['update'])){
                     <br/>
                     <div class="table-responsive">
                         <table class="table">
-                            <h1 style="text-align: center">Winkelwagen</h1>
+                            <h1 style="text-align: center">Dit is je bestelling</h1>
 
                             <thead>
                             <tr>
                                 <th scope="col">Product naam</th>
                                 <th scope="col">Hoeveelheid</th>
                                 <th scope="col">Prijs</th>
-                                <th scope="col">Verwijder</th>
-                                <th scope="col">Aantal</th>
-                                <th scope="col">Update</th>
 
                             </tr>
                             </thead>
@@ -101,24 +98,11 @@ if (isset($_POST['update'])){
                                         <td><?php echo $value['aantal']?></td>
                                         <td>€<?php echo round(($value['price'] * 0.91), 2); ?></td>
 
-                                        <td><a class="btn btn-danger" href="Winkelwagen.php?action=delete&id=<?php echo $value['id']; ?>">Verwijder</a></td>
-
                                         <td>
-                                            <select class="custom-select text-center" id="aantal" name="aantal">
-                                                <?php
-                                                for ($i = 1; $i <= getProductVoorraad($con, 'SELECT QuantityOnHand FROM stockitemholdings WHERE StockItemID = ?', $value['id']) && $i < 100; $i++){
-                                                    if ($i == $value['aantal']) {
-                                                        echo( "<option value='$i' selected>$i</option>");
-                                                    }else{
-                                                        print( "<option value='$i'>$i</option>");
-                                                    }
-                                                }
-                                                ?>
-                                            </select>
+
                                             <input type="hidden" value="<?php echo $value['id'] ?>" name="updateID">
                                         </td>
 
-                                        <td><input class="btn btn-info float-left" href="Winkelwagen.php" type="submit" value="Update" name="update"></input></caption></td>
 
                                     </form>
                                 </tr>
@@ -159,7 +143,7 @@ if (isset($_POST['update'])){
                             <?php
                         }else{
                              ?>
-                            <caption><button class="btn btn-primary text-uppercase">Afrekenen</button><a class="btn btn-danger float-right" href="Winkelwagen.php?action=deleteall">Verwijder alles</a> <a class='btn btn-light text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a></caption>
+                            <caption><a class="btn btn-primary float-right" href="betalen.php">Door naar betalen</a></caption>
 
 
                         <?php
