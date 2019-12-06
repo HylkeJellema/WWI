@@ -1,8 +1,7 @@
 <?php
-
-session_start();
-include "productfuncties.php";
-include "NAVBar functie.php";
+include 'NAVTest.php';
+waza();
+include_once "init.php";
 $con = MaakVerbinding();
 
 //maakt winkelwagen array aan als er niets in staat
@@ -62,7 +61,6 @@ if (isset($_POST['update'])){
 
     </head>
     <body>
-    <div class="naarVoorgrond"><?php   navigatiebalkje();  ?></div>
     <div class="container-fluid bg-wwi" >
             <div class="container rounded">
                 <div class="card">
