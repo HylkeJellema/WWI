@@ -12,6 +12,7 @@
         function bovensteNAVBarretje(){
     ?>
 <link rel="stylesheet" type="text/css" href="dropdownStyles.css">
+    <div class="span" style="background-color: #EAE9E9">
     <a href="Homepagina.php">
         <img class="logo" src="imgs/wide-world-importers-logo-small.png" height="70">
     </a>
@@ -27,10 +28,12 @@
             <button class="button" type="submit">Zoeken</button>
         </form>
     </div>
+            <br>
+            </div>
     <?php }
         nogeentje();
     ?>
-    <br>
+
     <?php
         }
     bovensteNAVBarretje();
