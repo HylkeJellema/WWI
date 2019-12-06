@@ -1,5 +1,5 @@
 <?php
-include "productfuncties.php";
+include_once "productfuncties.php";
 
 function ZoekProduct(){
     if (isset($_GET['search'])){

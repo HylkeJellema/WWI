@@ -8,14 +8,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
+
 <?php
+include 'NAVTest.php';
+waza();
 include "lijstpaginafuncties.php";
 include_once "productfuncties.php";
 //include "NAVBar functie.php";
 //navigatiebalkje();
 ?>
 <body>
-    <nav class="navbar navbar-light justify-content-between" style="background-color: #EAE9E9;">
+ <!--   <nav class="navbar navbar-light justify-content-between" style="background-color: #EAE9E9;">
         <a href="Homepagina.php">
             <img class="float-left" src="imgs/wide-world-importers-logo-small.png" height="70">
         </a>
@@ -29,8 +32,7 @@ include_once "productfuncties.php";
         <a href="Winkelwagen.php">
             <img class="float-right" src="imgs/winkelmandje.png" height="70" width="70">
         </a>
-    </nav>
-<br>
+    </nav>-->
 <?php
 
 $conn = MaakVerbinding();

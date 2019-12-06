@@ -1,9 +1,9 @@
 <html>
 
 <?php
+
     function waza()
     {
-
 
         ?>
 
@@ -53,6 +53,7 @@
                     <?php
                     function categorieLijst()
                     {
+                        include_once 'init.php';
                         $conn = MaakVerbinding();
 
                         $sql = "SELECT StockGroupName FROM stockgroups";
