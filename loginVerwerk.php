@@ -30,13 +30,9 @@ if (empty($_POST) == false) {
         }
 
     }
-<<<<<<< Updated upstream
-
-    print_r($errors);
-=======
+    
 } else {
     $errors[] = 'No data received';
->>>>>>> Stashed changes
 }
 
 if (empty($errors) == false) {
