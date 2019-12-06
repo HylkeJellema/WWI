@@ -12,8 +12,13 @@
 use MongoDB\BSON\MaxKey;
 
 include 'init.php';
-    include 'NAVBar functie.php';
-    navigatiebalkje();
+    //include 'NAVBar functie.php';
+    //navigatiebalkje();
+    include 'NAVTest.php';
+    waza();
+    ?>
+
+<?php
 if (logged_in() == true){
     echo 'logged in!';
 } else {
@@ -27,6 +32,7 @@ if (logged_in() == true){
 
 <!-- producten komen nog bradda -->
 <br><br>
+
 
 <?php
 $con = MaakVerbinding();
@@ -59,6 +65,7 @@ $zoekresultaten = mysqli_query($con, $sql);
                 </div>
             </div>
         </div>
+
         <?php
         //stap2:
     }
