@@ -137,8 +137,8 @@ $voorraad = VoorraadOphalen($con);
 </body>
 <br><br>
 <?php
-    include "bottomFunctie.php";
-        bottomFunctie();
+   /* include "bottomFunctie.php";
+        bottomFunctie();*/
 
 
     SluitVerbinding($con);
