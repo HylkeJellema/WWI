@@ -73,8 +73,8 @@ $zoekresultaten = mysqli_query($con, $sql);
 
 <br><br>
 <?php
-include "bottomFunctie.php";
-    bottomFunctie();
+/*include "bottomFunctie.php";
+    bottomFunctie();*/
 ?>
 </body>
 </html>
