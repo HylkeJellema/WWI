@@ -8,6 +8,7 @@
 
 <?php
 include 'NAVTest.php';
+
 waza();
 ?>
 
@@ -22,8 +23,13 @@ $voorraad = VoorraadOphalen($con);
 <div class="container">
     <div class="card">
         <div class="row">
-            <div class="text-center">
-                <a href="#"><img src="imgs/USB-Thunder-Missile-Launcher.jpg" style="width: 80%"></a>
+            <div class="card-body left">
+                <a href="#"><?php if($product['Photo'] != "") {
+                                        echo ('<img src="data:image/jpg;base64,'.base64_encode($product["Photo"]).'" style="width:80%;">');
+                                    } else {
+                                        echo '<img src="imgs/ImageComingSoon.png" style="width:20%;">';
+                                    }
+                                    ?></a>
             </div>
                 <article class="card-body right">
                     <h3 class="title mb-3" style="width: 32rem;"><?php echo $product['naam']; ?></h3>
