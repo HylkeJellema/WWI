@@ -69,18 +69,50 @@ include_once "productfuncties.php";
                         //    }
                         //}
 
-                        $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%'";
+                        $sql =         "SELECT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
+                                        FROM stockitems AS A
+                                        INNER JOIN stockitemstockgroups AS B ON A.StockItemID = B.StockItemID
+                                        INNER JOIN stockgroups AS C ON B.StockGroupID = C.StockGroupID
+                                        WHERE C.StockGroupName = '" . $vraag . "'
+                                        OR StockItemName LIKE '%" . $vraag . "%'
+                                        OR SearchDetails LIKE '%" . $vraag . "%'
+                                        ORDER BY StockItemName ASC";
 
-                        $sqlPHtotPL = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice DESC";
-                        $sqlPLtotPH = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY RecommendedRetailPrice ASC";
-                        $sqlZtotA = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName DESC";
-                        $sqlAtotZ = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, Photo FROM stockitems WHERE SearchDetails LIKE '%" . $vraag . "%' OR StockItemName LIKE '%" . $vraag . "%' ORDER BY StockItemName ASC";
+                        $sqlPHtotPL =   "SELECT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
+                                        FROM stockitems AS A
+                                        INNER JOIN stockitemstockgroups AS B ON A.StockItemID = B.StockItemID
+                                        INNER JOIN stockgroups AS C ON B.StockGroupID = C.StockGroupID
+                                        WHERE C.StockGroupName = '" . $vraag . "'
+                                        OR StockItemName LIKE '%" . $vraag . "%'
+                                        OR SearchDetails LIKE '%" . $vraag . "%'
+                                        ORDER BY RecommendedRetailPrice DESC";
 
-                        //$sqlCategorie = "SELECT Si.Photo, Si.StockItemName, Si.RecommendedRetailPrice, Si.StockItemID
-                        //                 FROM stockgroups as Sg
-                        //                 INNER JOIN stockitemstockgroups as Stg on Sg.StockGroupID=Stg.StockGroupID
-                        //                 INNER JOIN stockitems as Si on Si.StockItemID=Stg.StockItemID
-                        //                 WHERE Sg.StockGroupName ='" . $cat . "'";
+                        $sqlPLtotPH =   "SELECT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
+                                        FROM stockitems AS A
+                                        INNER JOIN stockitemstockgroups AS B ON A.StockItemID = B.StockItemID
+                                        INNER JOIN stockgroups AS C ON B.StockGroupID = C.StockGroupID
+                                        WHERE C.StockGroupName = '" . $vraag . "'
+                                        OR StockItemName LIKE '%" . $vraag . "%'
+                                        OR SearchDetails LIKE '%" . $vraag . "%'
+                                        ORDER BY RecommendedRetailPrice ASC";
+
+                        $sqlZtotA = "SELECT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
+                                        FROM stockitems AS A
+                                        INNER JOIN stockitemstockgroups AS B ON A.StockItemID = B.StockItemID
+                                        INNER JOIN stockgroups AS C ON B.StockGroupID = C.StockGroupID
+                                        WHERE C.StockGroupName = '" . $vraag . "'
+                                        OR StockItemName LIKE '%" . $vraag . "%'
+                                        OR SearchDetails LIKE '%" . $vraag . "%'
+                                        ORDER BY StockItemName DESC";
+
+                        $sqlAtotZ = "SELECT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
+                                        FROM stockitems AS A
+                                        INNER JOIN stockitemstockgroups AS B ON A.StockItemID = B.StockItemID
+                                        INNER JOIN stockgroups AS C ON B.StockGroupID = C.StockGroupID
+                                        WHERE C.StockGroupName = '" . $vraag . "'
+                                        OR StockItemName LIKE '%" . $vraag . "%'
+                                        OR SearchDetails LIKE '%" . $vraag . "%'
+                                        ORDER BY StockItemName ASC";
 
                         if(isset($_GET["sorteer"])){
                             if($_GET["sorteer"]=="az"){
