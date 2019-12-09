@@ -36,7 +36,7 @@ include 'init.php';
 
 <?php
 $con = MaakVerbinding();
-$sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails FROM stockitems ORDER BY rand() LIMIT 4";
+$sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems ORDER BY rand() LIMIT 4";
 $zoekresultaten = mysqli_query($con, $sql);
 ?>
 
@@ -44,23 +44,28 @@ $zoekresultaten = mysqli_query($con, $sql);
     <?php
     while($row = mysqli_fetch_array($zoekresultaten)){
         ?>
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-3" style="padding-bottom: 15px;">
-            <div class="card border-primary" style="width: 18rem; margin: 0 auto; height: 400px">
-                <img class="card-img-top" src="imgs/ImageComingSoon.png" alt="Card image cap">
-                <div class="card-body">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 text-center" style="padding-bottom: 15px;">
+            <div class="card border-info" style="width: 19rem; margin: 0 auto; height: 430px;">
+                <?php
+                if($row['Photo'] != "") {
+                    echo '<img class="card-img-top" src="data:image/jpg;base64,' . base64_encode($row['Photo']) . '" alt="Card image cap" style="width:100%; height: 240px;"/>';
+                } else {
+                    echo '<img class="card-img-top" src="imgs/ImageComingSoon.png" alt="Card image cap" style="width:100%; height: 240px;">';
+                }
+                ?>
+                <div class="card-body d-flex flex-column">
                     <h5 class="card-title">
                         <?php
                         echo $row['StockItemName'];
                         ?>
                     </h5>
-                    <p class="card-text">
+                    <p class="card-text" style="color: orange;">
                         <?php
                         echo "€" . round(($row['RecommendedRetailPrice'] * 0.91), 2);
                         ?>
                     </p>
                     <?php
-                    echo "<a class='btn btn-outline-primary btn-sm align-center' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
-                    echo "<a class='btn btn-outline-danger btn-sm align-center' href='Winkelwagen.php?id=" . $row['StockItemID'] . "'>Koop nu</a>";
+                    echo "<a class='btn btn-outline-info mt-auto' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
                     ?>
                 </div>
             </div>
