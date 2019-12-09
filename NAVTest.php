@@ -32,13 +32,12 @@
                         function nogeentje()
                         {
                             ?>
-                            <div class="opmaakje">
-                                <form method="get" action="Lijstpagina.php">
-                                    <input class="opmaakje2" type="search" placeholder="Zoeken" aria-label="Search" name="search">
-                                    <button class="button" type="submit">Zoeken</button>
+                                <form class="form-inline" method="get">
+                                    <div style="margin-left: 30%; margin-right: 30%; margin-bottom: 10px; margin-top: 10px;">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                    </div>
                                 </form>
-                            </div>
-                            <br>
                             </div>
                         <?php }
 
@@ -50,7 +49,7 @@
 
                     bovensteNAVBarretje();
                     ?>
-                    <nav>
+                    <nav style="background-color: #00AEEF;">
                         <div style="text-align: center; border-top: 2px solid white;">
                             <ul>
                                 <?php
@@ -67,7 +66,7 @@
                                         <?php
                                         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                                             $categorie = $row["StockGroupName"];
-                                            echo("<button class='categorieButton' style='font-size: 12px' name='search' value='$categorie'>" . $categorie . "</button>");
+                                            echo("<button class='btn btn-outline-light btn-md' style='margin-top: 10px; margin-left: 5px; margin-right: 5px;' name='search' value='$categorie'>" . $categorie . "</button>");
                                         }
                                         ?>
                                     </form>
