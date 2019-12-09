@@ -108,9 +108,9 @@ if (isset($_POST['update'])){
                                 </tr>
 
                                 <?php
-                            }
+                            
                                $total = $total + ( $value['aantal'] * round(($value['price'] * 0.91), 2));
-
+                            }
 
                             ?>
                             <tr>
