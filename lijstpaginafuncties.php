@@ -16,7 +16,7 @@ function ResultatenAfrdukken($zoekresultaten){
         echo "<tr>";
         echo "<td><img src='imgs/ImageComingSoon.png' width='120' height='80'></td>";
         echo "<td>" . $row['StockItemName'] . "</td>";
-        echo "<td>" . $row['RecommendedRetailPrice'] . "</td>";
+        echo "<td>" . round(($row['RecommendedRetailPrice'] * 0.91), 2) . "</td>";
         echo "<td><a href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
         echo "</tr>";
     }
