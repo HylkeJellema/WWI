@@ -2,20 +2,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-<!--    <link rel="stylesheet" type="text/css" href="Style.css">-->
-<!--    <link rel="stylesheet" type="text/css" href="dropdownStyles.css">-->
-<!--    <link rel="stylesheet" type="text/css" href="bottomNAV.css">-->
+    <link rel="stylesheet" type="text/css" href="Style.css">
+    <link rel="stylesheet" type="text/css" href="dropdownStyles.css">
+    <link rel="stylesheet" type="text/css" href="bottomNAV.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 
 <?php
+include_once "lijstpaginafuncties.php";
+//include_once "productfuncties.php";
+include_once "init.php";
 include 'NAVTest.php';
+
 waza();
-include "lijstpaginafuncties.php";
-include_once "productfuncties.php";
-//include "NAVBar functie.php";
-//navigatiebalkje();
 ?>
 <!--<nav class="navbar navbar-light justify-content-between" style="background-color: #EAE9E9; margin-bottom: 15px;">-->
 <!--    <a href="Homepagina.php">-->
@@ -58,16 +58,6 @@ include_once "productfuncties.php";
                         } else {
                             $vraag = "";
                         }
-
-                        //$sql = "SELECT StockGroupName FROM stockgroups";
-                        //$result = mysqli_query($conn, $sql)
-                        //or die("Error: " . mysqli_error($conn));
-                        //while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                        //    $categorie = $row["StockGroupName"];
-                        //    if(isset($_GET["$categorie"])){
-                        //        $cat = $categorie;
-                        //    }
-                        //}
 
                         $sql =         "SELECT DISTINCT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
                                         FROM stockitems AS A
@@ -124,11 +114,6 @@ include_once "productfuncties.php";
                             elseif($_GET["sorteer"]=="lh"){
                                 $zoekresultaten = mysqli_query($conn, $sqlPLtotPH);}
                         } else {
-                            //    if(isset($_GET["$cat"])){
-                            //        $zoekresultaten = mysqli_query($conn, $sqlCategorie);
-                            //    } else {
-                            //        $zoekresultaten = mysqli_query($conn, $sql);
-                            //    }
                             $zoekresultaten = mysqli_query($conn, $sql);
                         }
                         while($row = mysqli_fetch_array($zoekresultaten)){
