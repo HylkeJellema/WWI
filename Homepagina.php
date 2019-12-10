@@ -19,12 +19,12 @@ include 'init.php';
     ?>
 
 <?php
-/*if (logged_in() == true){
-    echo 'logged in!';
+if (logged_in() == true){
+    echo file_get_contents('loggedin.php');
 } else {
     echo 'nog niet ingelogd';
 }
-*/?>
+?>
 
 <div class="text-center">
 <a href="#"><img src="imgs/kortingsbanner.png" style="width: 75%"></a>

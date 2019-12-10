@@ -1,7 +1,7 @@
 <?php
 function MaakVerbinding(){
     //Verander dit als je offline wilt prutsen
-    $offline = false;
+    $offline = true;
 
     if($offline){
         $host = 'localhost';
@@ -103,6 +103,37 @@ function VoorraadOphalen($connection)
     }
 }
 
+function user_data($connection, $user_session_id) {
+
+    $stmt = mysqli_prepare($connection, "SELECT user_id, username, password, first_name, last_name, email FROM users WHERE user_id = ?");
+    mysqli_stmt_bind_param($stmt, "s", $user_session_id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_store_result($stmt);
+    mysqli_stmt_bind_result($stmt,$id, $username, $password, $first_name, $last_name, $email);
+    while (mysqli_stmt_fetch($stmt)) {
+        $session_user_id = $id;
+        $username = $username;
+        $password = $password;
+        $first_name = $first_name;
+        $last_name = $last_name;
+        $email = $email;
+    }
+
+    $gegevens = array();
+    $gegevens['user_id'] = $session_user_id;
+    $gegevens['username'] = $username;
+    $gegevens['password'] = $password;
+    $gegevens['last_name'] = $last_name;
+    $gegevens['first_name'] = $first_name;
+    $gegevens['last_name'] = $last_name;
+    $gegevens['email'] = $email;
+
+    mysqli_stmt_free_result($stmt); // resultset opschonen
+    mysqli_stmt_close($stmt); // statement opruimen
+
+    return $gegevens;
+}
+
 function user_exists($connection, $username){
     $statement = mysqli_prepare($connection, "SELECT COUNT(user_id) FROM users WHERE username = ?");
     mysqli_stmt_bind_param($statement, 's', $username);
@@ -164,6 +195,8 @@ function output_errors($errors) {
 
     return '<ul><li>' . implode('</li><li>', $errors) . '</li></ul>';
 }
+
+
 ?>
 
 
