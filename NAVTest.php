@@ -25,9 +25,16 @@
                         <a href="Homepagina.php">
                             <img class="logo" src="imgs/wide-world-importers-logo-small.png" height="70">
                         </a>
-                        <a href="Winkelwagen.php">
-                            <img class="winkelmand" src="imgs/winkelmandje.png" height="60" width="60">
-                        </a>
+                        <row>
+                            <div style="text-align: right">
+                                <a href="login.php">Login</a>
+                            </div>
+                            <div style="text-align: right">
+                                <a href="Winkelwagen.php">
+                                    <img class="winkelmand" src="imgs/winkelmandje.png" height="60" width="60">
+                                </a>
+                            </div>
+
                         <?php
                         function nogeentje()
                         {

@@ -19,26 +19,38 @@ include 'init.php';
     ?>
 
 <?php
-/*if (logged_in() == true){
-    echo 'logged in!';
+
+$con = MaakVerbinding();
+$sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems ORDER BY rand() LIMIT 4";
+$zoekresultaten = mysqli_query($con, $sql);
+
+if (logged_in() == true){
+    $session_user_id = $_SESSION['user_id'];
+    $user_data = user_data($con, $session_user_id);
+
+?>
+    <h2>Hello, <?php echo $user_data['first_name']; ?>!</h2>
+    <div class="inner">
+        <ul>
+            <li>
+                <a href="logout.php">Log out</a>
+            </li>
+        </ul>
+    </div>
+<?php
 } else {
     echo 'nog niet ingelogd';
 }
-*/?>
+?>
 
 <div class="text-center">
 <a href="#"><img src="imgs/kortingsbanner.png" style="width: 75%"></a>
 </div>
 
-<!-- producten komen nog bradda -->
 <br><br>
 
 
-<?php
-$con = MaakVerbinding();
-$sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems ORDER BY rand() LIMIT 4";
-$zoekresultaten = mysqli_query($con, $sql);
-?>
+
 
 <div class="row">
     <?php

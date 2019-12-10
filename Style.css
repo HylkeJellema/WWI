@@ -71,3 +71,13 @@
        border-radius: 12px;
        text-decoration: none;
     }
+
+.foutmeldingen{
+    color: #D8000C;
+    background-color: #FFBABA;
+    border: 1px solid #ff0000;
+    border-radius: 2px;
+    list-style: none;
+    padding: 0.5em;
+    margin: 0.5em 0;
+}
