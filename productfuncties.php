@@ -229,18 +229,6 @@ function register_user($con, $register_data) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
 
 
