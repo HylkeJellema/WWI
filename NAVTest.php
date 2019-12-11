@@ -6,9 +6,9 @@
             <?php
                 function waza(){
                     ?>
-                    <link rel="stylesheet" type="text/css" href="Style.css">
                     <link rel="stylesheet" type="text/css" href="NAVTest.css">
                     <link rel="stylesheet" type="text/css" href="dropdownStyles.css">
+                    <link rel="stylesheet" type="text/css" href="Style.css">
                     <div class="span" style="background-color: #EAE9E9">
                         <a href="Homepagina.php">
                             <img class="logo" src="imgs/wide-world-importers-logo-small.png" height="70">

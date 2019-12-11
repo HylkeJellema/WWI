@@ -83,3 +83,11 @@
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #00AEFF;
 }
+.btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary:visited {
+    color: #00AEFF;
+    border: solid #00AEFF 2px;
+}
+.btn-outline-primary:hover {
+    background-color: #00AEFF;
+    color: #FFFFFF; 
+}

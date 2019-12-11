@@ -1,8 +1,5 @@
 <?php
-include 'NAVTest.php';
-waza();
-include "lijstpaginafuncties.php";
-include_once "productfuncties.php";
+include_once 'header.php';
 
 $mollie = new \Mollie\Api\MollieApiClient();
 $mollie->setApiKey("test_B9wWs47JaxUVjJVCj9ukyF8bFvvxED");

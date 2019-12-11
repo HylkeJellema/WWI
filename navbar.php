@@ -24,7 +24,7 @@
             <button class="btn btn-outline-secondary" name="sorteer" value="lh" type="submit">Prijs L - H</button>
             <button class="btn btn-outline-secondary" name="sorteer" value="hl" type="submit">Prijs H - L</button>
         </div>
-        <input type="hidden" name="search" value="<?php print($_GET["search"]); ?>"
+        <input type="hidden" name="search" value="<?php print($_GET["search"]); ?>
     </form>
     <a class="btn btn-outline-secondary" href="Login.php" style="margin-left: 100px; margin-right: 10px;">Inloggen</a>
     <a href="Winkelwagen.php">
