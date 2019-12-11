@@ -25,16 +25,22 @@ include ("init.php");
         $user_data = user_data($con, $session_user_id);
         ?>
         <?php echo ("Hello,   ". $user_data['first_name'] . "!"); ?>
-                <a class="btn btn-primary text-uppercase" href="logout.php" style="margin-right: 18px">Log out</a>
+                <a href="logout.php" style="margin-right: 18px">
+<!--                    UITLOGGEN -->
+                    <img src="imgs/persoon.png" height="60" width="60">
+                </a>
         <?php
     } else {
         ?>
-        <a class="btn btn-primary text-uppercase" href="login.php" style="margin-right: 10px; margin-top: 18px">Login</a>
+        <a href="login.php" style="margin-right: 10px; margin-top: 18px">
+<!--            INLOGGEN -->
+            <img src="imgs/persoon.png" height="60" width="60">
+        </a>
         <?php
     }
     ?>
     <a href="Winkelwagen.php">
-        <img class="winkelmand" src="imgs/winkelmandje.png" height="60" width="60">
+        <img class="winkelmand" src="imgs/winkelmand.png" height="60" width="60">
     </a>
 </nav>
 <div style="text-align: center; border-top: 2px solid white; background-color: #00AEEF;border-bottom: 1px solid white">

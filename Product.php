@@ -17,7 +17,7 @@ $voorraad = VoorraadOphalen($con);
 <div class="container">
     <div class="card" style="margin-top: 10px">
         <div class="row">
-            <div class="card-body left">
+            <div class="card-body left" style="text-align: center">
                 <a href="#"><?php if($product['Photo'] != "") {
                                         echo ('<img src="data:image/jpg;base64,'.base64_encode($product["Photo"]).'" style="width:80%;">');
                                     } else {
