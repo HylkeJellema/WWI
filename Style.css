@@ -92,3 +92,7 @@
     color: #FFFFFF; 
     border: solid #00AEFF 2px;
 }
+
+.btn-outline-light:hover{
+    color: #00AEEF;
+}
