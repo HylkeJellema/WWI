@@ -17,10 +17,10 @@ include_once 'header.php';
             <div class="border-right" id="sidebar-wrapper" style="width: 25%; margin-left: 1%; border-color: #00AEEF;">
                 <div class="container">
                     <form class="form-inline" action="Lijstpagina.php" method="get">
-                        <button class="btn btn-sm btn-outline-primary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="az" type="submit">Alfabet<br>A - Z</button>
-                        <button class="btn btn-sm btn-outline-primary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="za" type="submit">Alfabet<br>Z - A</button>
-                        <button class="btn btn-sm btn-outline-info mt-auto" style="margin-bottom: 15px;" name="sorteer" value="lh" type="submit">Prijs<br>L - H</button>
-                        <button class="btn btn-sm btn-outline-info mt-auto" style="margin-bottom: 15px;" name="sorteer" value="hl" type="submit">Prijs<br>H - L</button>
+                        <button class="btn btn-outline-primary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="az" type="submit">Alfabet<br>A - Z</button>
+                        <button class="btn btn-outline-primary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="za" type="submit">Alfabet<br>Z - A</button>
+                        <button class="btn btn-outline-primary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="lh" type="submit">Prijs<br>L - H</button>
+                        <button class="btn btn-outline-primary mt-auto" style="margin-bottom: 15px;" name="sorteer" value="hl" type="submit">Prijs<br>H - L</button>
                         <input type="hidden" name="search" value="<?php print($_GET["search"]); ?>">
                     </form>
                 </div>
