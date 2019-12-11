@@ -90,4 +90,5 @@
 .btn-outline-primary:hover {
     background-color: #00AEFF;
     color: #FFFFFF; 
+    border: solid #00AEFF 2px;
 }
