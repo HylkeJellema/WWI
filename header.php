@@ -10,32 +10,26 @@ include ("init.php");
 
 </header>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-bottom: 15px">
-    <a href="Homepagina.php">
+<nav class="navbar navbar-expand-md navbar-light bg-light" style="padding-bottom: 15px">
+    <a href="Homepagina.php" style="padding-right: 20px">
         <img class="logo" src="imgs/wide-world-importers-logo-small.png" height="60">
 
     </a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top: 10px">
-        <form class="form-inline my-2 my-lg-0" action="Lijstpagina.php?">
+        <form class="navbar-nav mr-auto" action="Lijstpagina.php?" style="padding-top: 18px">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-
-    </div>
-
-
-
     <?php
     if (logged_in() == true) {
         $session_user_id = $_SESSION['user_id'];
         $user_data = user_data($con, $session_user_id);
         ?>
         <?php echo ("Hello,   ". $user_data['first_name'] . "!"); ?>
-                <a class="btn btn-primary text-uppercase" href="logout.php" style="margin-right: 10px">Log out</a>
+                <a class="btn btn-primary text-uppercase" href="logout.php" style="margin-right: 18px">Log out</a>
         <?php
     } else {
         ?>
-        <a class="btn btn-primary text-uppercase" href="login.php" style="margin-right: 10px; margin-top: 10px">Login</a>
+        <a class="btn btn-primary text-uppercase" href="login.php" style="margin-right: 10px; margin-top: 18px">Login</a>
         <?php
     }
     ?>
