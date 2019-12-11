@@ -224,8 +224,13 @@ function register_user($con, $register_data) {
     mysqli_stmt_bind_param($stmt, "sssss", $username, $password, $first_name, $last_name, $email);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+}
 
-
+function login_check() {
+    if(logged_in() == false) {
+        header('Location: loginCheck.php');
+        exit();
+    }
 }
 
 

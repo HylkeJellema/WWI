@@ -1,5 +1,6 @@
 <?php
 include_once 'header.php';
+login_check();
 $con = MaakVerbinding();
 
 //maakt winkelwagen array aan als er niets in staat

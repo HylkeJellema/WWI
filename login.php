@@ -23,7 +23,7 @@ if (empty($_POST) == false) {
             $errors[] = 'That username/password combination is incorrect';
         } else {
             $_SESSION['user_id'] = $login;
-            header("location: Homepagina.php");
+            header("location: winkelwagen.php");
             exit();
         }
 
@@ -69,7 +69,7 @@ if (empty($_POST) == false) {
                                     <br><br>
                                 </div>
                                 <div class="col-md-5">
-                                    <a class="btn btn-outline-primary" href="register.php">Register</a>
+                                    <a class="btn btn-lg btn-outline-primary text-uppercase" href="register.php">Register</a>
                                 </div>
                             </ul>
                         </form>

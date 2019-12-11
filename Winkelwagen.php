@@ -1,10 +1,6 @@
 <?php
-//include 'NAVTest.php';
-//waza();
-//include_once "init.php";
-include_once 'header.php';
 
-$con = MaakVerbinding();
+include_once 'header.php';
 
 //maakt winkelwagen array aan als er niets in staat
 if (empty($_SESSION['cart'])){
