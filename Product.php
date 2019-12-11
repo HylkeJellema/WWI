@@ -5,23 +5,17 @@
     <link rel="stylesheet" type="text/css" href="dropdownStyles.css">
     <link rel="stylesheet" type="text/css" href="bottomNAV.css">
 </head>
-
 <?php
-include 'NAVTest.php';
-
-waza();
-?>
-
-<body>
-<?php
-include_once "init.php";
+//include_once "init.php";
+include_once 'header.php';
 $con = MaakVerbinding();
 $product = ProductOphalen($con);
 $voorraad = VoorraadOphalen($con);
 ?>
 
+<body>
 <div class="container">
-    <div class="card">
+    <div class="card" style="margin-top: 10px">
         <div class="row">
             <div class="card-body left">
                 <a href="#"><?php if($product['Photo'] != "") {

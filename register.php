@@ -1,5 +1,6 @@
 <?php
-include 'init.php';
+//include 'init.php';
+include_once 'header.php';
 
 if (empty($_POST) == false) {
     $required_fields = array('username', 'password', 'password_again', 'first_name', 'email');
@@ -32,7 +33,6 @@ if (empty($_POST) == false) {
     }
 }
 
-include 'NAVTest.php';
 
 ?>
 <html>
@@ -40,12 +40,8 @@ include 'NAVTest.php';
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-
-    <?php
-    waza();
-    ?>
     <div class="container">
-        <div class="card" style="padding-left: 40px">
+        <div class="card" style="padding-left: 40px; margin-top: 10px">
             <h1>Register</h1>
             <?php
             if (isset($_GET['succes']) && empty($_GET['succes'])) {
@@ -53,7 +49,7 @@ include 'NAVTest.php';
                ?>
             <div>
                 <br>
-                <a class='btn btn-lg btn-light align-center' style="background: lightskyblue" href="login.php">Inloggen</a>
+                <a class='btn btn-lg btn-light align-center' style="background: lightskyblue; margin-bottom: 10px" href="login.php">Inloggen</a>
             </div>
 
             <?php
@@ -79,35 +75,35 @@ include 'NAVTest.php';
             <div class="row">
                 <div class="inner">
                     <form action="" method="post">
-                        <ul>
+                        <ul style="list-style: none">
                             <li>
                                 Username*:<br>
-                                <input type="text" name="username">
+                                <input class="form-control" type="text" name="username">
                             </li>
                             <li>
                                 Password*:<br>
-                                <input type="password" name="password">
+                                <input class="form-control" type="password" name="password">
                             </li>
 
                             <li>
                                 Password again*:<br>
-                                <input type="password" name="password_again">
+                                <input class="form-control" type="password" name="password_again">
                             </li>
                             <li>
                                 First name*:<br>
-                                <input type="text" name="first_name">
+                                <input class="form-control" type="text" name="first_name">
                             </li>
                             <li>
                                 Last name:<br>
-                                <input type="text" name="last_name">
+                                <input class="form-control" type="text" name="last_name">
                             </li>
                             <li>
                                 Email*:<br>
-                                <input type="text" name="email">
+                                <input class="form-control" type="text" name="email">
                             </li>
                             <br>
                             <li>
-                                <input type="submit" value="Register">
+                                <input class="btn btn-primary" type="submit" value="Register">
                             </li>
                         </ul>
                     </form>

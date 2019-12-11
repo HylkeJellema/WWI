@@ -61,14 +61,14 @@
     transition: 0.3s;
     }
     
-    .HSknop:hover {
-    background: #00AEFF;
-    border: solid #00AEFF 2px;
-    color: #FFFFFF;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    border-radius: 12px;
-    text-decoration: none;
+    .sorteer:hover {
+       background: #00AEFF;
+       border: solid #00AEFF 2px;
+       color: #FFFFFF;
+       -webkit-border-radius: 12px;
+       -moz-border-radius: 12px;
+       border-radius: 12px;
+       text-decoration: none;
     }
 
 .foutmeldingen{

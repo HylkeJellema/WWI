@@ -1,7 +1,9 @@
 <?php
-include 'NAVTest.php';
-waza();
-include_once "init.php";
+//include 'NAVTest.php';
+//waza();
+//include_once "init.php";
+include_once 'header.php';
+
 $con = MaakVerbinding();
 
 //maakt winkelwagen array aan als er niets in staat
@@ -63,7 +65,7 @@ if (isset($_POST['update'])){
     <body>
     <div class="container-fluid bg-wwi" >
             <div class="container rounded">
-                <div class="card">
+                <div class="card" style="margin-top: 10px">
                     <div class="card-body">
 
 
