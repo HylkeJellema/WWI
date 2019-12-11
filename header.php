@@ -46,28 +46,22 @@ include ("init.php");
 <div style="text-align: center; border-top: 2px solid white; background-color: #00AEEF;border-bottom: 1px solid white">
     <ul>
         <?php
-        function categorieLijst()
-        {
-            include_once 'init.php';
-            $conn = MaakVerbinding();
-
-            $sql = "SELECT StockGroupName FROM stockgroups";
-            $result = mysqli_query($conn, $sql)
-            or die("Error: " . mysqli_error($conn));
-            ?>
-            <form method="GET" action="Lijstpagina.php">
-                <?php
-                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                    $categorie = $row["StockGroupName"];
-                    echo("<button class='btn btn-outline-light btn-md' style='margin-top: 15px; margin-left: 5px; margin-right: 5px;' name='search' value='$categorie'>" . $categorie . "</button>");
-                }
-                ?>
-            </form>
+        include_once 'init.php';
+        $conn = MaakVerbinding();
+        $sql = "SELECT StockGroupName FROM stockgroups";
+        $result = mysqli_query($conn, $sql)
+        or die("Error: " . mysqli_error($conn));
+        ?>
+        <form method="GET" action="Lijstpagina.php">
             <?php
-            SluitVerbinding($conn);
-        }
-
-        categorieLijst();
+            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                $categorie = $row["StockGroupName"];
+                echo("<button class='btn btn-outline-light btn-md' style='margin-top: 15px; margin-left: 5px; margin-right: 5px;' name='search' value='$categorie'>" . $categorie . "</button>");
+            }
+            ?>
+        </form>
+        <?php
+        SluitVerbinding($conn);
         ?>
     </ul>
 </div>
