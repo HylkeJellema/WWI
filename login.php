@@ -40,27 +40,27 @@ if (empty($_POST) == false) {
         <div class="container">
             <div class="card" style="padding-left: 20px; margin-top: 10px">
                 <br>
-                <h1>Login</h1>
+                <h1>Inloggen</h1>
                 <div class="row">
                     <div class="inner">
                             <?php
                             if (empty($errors) == false) {
                                 ?>
                                 <br>
-                                We tried to log you in, but....
+                                We hebben geprobeerd je in te loggen, maar....
                                 <?php
                                 echo output_errors($errors);
                             }
                             ?>
                         <form action="login.php" method="post">
                             <ul id="login">
-                                <div class="col-md-5"> <br>
-                                    Username
+                                <div class="col-md-5" style="width:22rem"> <br>
+                                    Gebruikersnaam
                                     <input type="text" name="username">
                                     <br><br>
                                 </div>
                                 <div class="col-md-5">
-                                    Password
+                                    Wachtwoord
                                     <input type="password" name="password">
                                     <br><br>
                                 </div>
