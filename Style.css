@@ -43,33 +43,32 @@
 }
 
 .HSknop {
-       -webkit-border-radius: 12px;
-       -moz-border-radius: 12px;
-       border-radius: 12px;
-       height: 18px;
-       line-height: 18px;
-       color: #00AEFF;
-       font-family: Arial;
-       width: 90px;
-       font-size: 38px;
-       font-weight: 100;
-       padding: 38px;
-       background-color: #FFFFFF;
-       border: solid #00AEFF 2px;
-       text-decoration: none;
-       display: inline-block;
-       cursor: pointer;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    height: 18px;
+    line-height: 18px;
+    color: #00AEFF;
+    width: 90px;
+    font-size: 38px;
+    font-weight: 100;
+    padding: 38px;
+    background-color: #FFFFFF;
+    border: solid #00AEFF 2px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
     transition: 0.3s;
     }
     
-    .sorteer:hover {
-       background: #00AEFF;
-       border: solid #00AEFF 2px;
-       color: #FFFFFF;
-       -webkit-border-radius: 12px;
-       -moz-border-radius: 12px;
-       border-radius: 12px;
-       text-decoration: none;
+    .HSknop:hover {
+    background: #00AEFF;
+    border: solid #00AEFF 2px;
+    color: #FFFFFF;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    text-decoration: none;
     }
 
 .foutmeldingen{
