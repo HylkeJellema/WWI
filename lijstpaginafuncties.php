@@ -1,5 +1,5 @@
 <?php
-include_once "init.php";
+//include_once "init.php";
 
 function ZoekProduct(){
     if (isset($_GET['search'])){

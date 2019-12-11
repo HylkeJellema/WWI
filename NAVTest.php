@@ -39,10 +39,10 @@
                         function nogeentje()
                         {
                             ?>
-                                <form class="form-inline" method="get">
+                                <form class="form-inline" method="get" action="Lijstpagina.php?">
                                     <div style="margin-left: 30%; margin-right: 30%; margin-bottom: 10px; margin-top: 10px;">
                                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
                                     </div>
                                 </form>
                             </div>
