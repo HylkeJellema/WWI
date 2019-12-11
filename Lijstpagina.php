@@ -7,32 +7,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="Style.css">
 </head>
-
-
 <?php
-include_once "lijstpaginafuncties.php";
-//include_once "productfuncties.php";
-//include_once "init.php";
-//include 'NAVTest.php';
 include_once 'header.php';
-
-//waza();
 ?>
-<!--<nav class="navbar navbar-light justify-content-between" style="background-color: #EAE9E9; margin-bottom: 15px;">-->
-<!--    <a href="Homepagina.php">-->
-<!--        <img class="float-left" src="imgs/wide-world-importers-logo-small.png" height="70">-->
-<!--    </a>-->
-<!--    <form class="form-inline" method="get">-->
-<!--        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">-->
-<!--        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>-->
-<!--    </form>-->
-<!--    <a class="btn btn-outline-secondary" href="Login.php" style="margin-left: 10px; margin-right: 10px;">-->
-<!--        Inloggen-->
-<!--    </a>-->
-<!--    <a href="Winkelwagen.php">-->
-<!--        <img class="float-right" src="imgs/winkelmandje.png" height="70" width="70">-->
-<!--    </a>-->
-<!--</nav>-->
 <body>
 <div class="container-fluid">
     <div class="row">
