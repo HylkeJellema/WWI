@@ -120,7 +120,7 @@ include_once 'header.php';
                         }
                         while($row = mysqli_fetch_array($zoekresultaten)){
                             ?>
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 text-center" style="padding-bottom: 15px; margin-right: 40px; margin-left: 40px;">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 text-center" style="padding-bottom: 15px;">
                                 <div class="card" style="width: 19rem; margin: 0 auto; height: 430px; border-color: #00AEEF;">
                                     <?php
                                     if($row['Photo'] != "") {
