@@ -3,7 +3,7 @@
 include_once 'header.php';
 
 if (empty($_POST) == false) {
-    $required_fields = array('username', 'password', 'password_again', 'first_name', 'email');
+    $required_fields = array('username', 'password', 'password_again', 'first_name', 'email', 'plaats', 'postcode', 'huisnummer');
     foreach($_POST as $key => $value){
         if(empty($value) && in_array($key, $required_fields) == true){
             $errors[] = 'Fields marked with an asterisk are required';
@@ -13,22 +13,25 @@ if (empty($_POST) == false) {
 
     if (empty($errors) == true){
         if(user_exists($con, $_POST['username']) == true){
-            $errors[] = 'Sorry, the username \'' . $_POST['username'] . '\' is already taken.';
+            $errors[] = 'Sorry, de gebruikersnaam \'' . $_POST['username'] . '\' is al in gebruik.';
         }
         if(preg_match("/\\s/", $_POST['username']) == true){
-            $errors[] = 'Your username must not contain any spaces.';
+            $errors[] = 'Uw gebruikersnaam mag geen spaties bevatten.';
         }
         if(strlen($_POST['password']) < 9){
-            $errors[] = 'Your password must be at least 8 characters.';
+            $errors[] = 'Uw wachtwoord moet minstens 8 karakters lang zijn.';
         }
         if($_POST['password'] !== $_POST['password_again']){
-            $errors[] = 'Your passwords do not match.';
+            $errors[] = 'Uw wachtwoorden komen niet overeen.';
         }
         if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == false) {
-            $errors[] = 'A valid email address is required';
+            $errors[] = 'Een geldige email is vereist.';
         }
         if(email_exists($con, $_POST['email']) == true) {
-            $errors[] = 'Sorry, the email \'' . $_POST['email'] . '\' is already in use.';
+            $errors[] = 'Sorry, de email \'' . $_POST['email'] . '\' is al in gebruik.';
+        }
+        if(preg_match("/\\s/", $_POST['postcode']) == true) {
+            $errors[] = 'Uw postcode mag geen spaties bevatten';
         }
     }
 }
@@ -36,10 +39,7 @@ if (empty($_POST) == false) {
 
 ?>
 <html>
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="Style.css">
-        <link rel="stylesheet" type="text/css" href="dropdownStyles.css">
+<head></head>
     </head>
     <body>
     <div class="container">
@@ -63,6 +63,9 @@ if (empty($_POST) == false) {
                     'first_name' => $_POST['first_name'],
                     'last_name' => $_POST['last_name'],
                     'email' => $_POST['email'],
+                    'plaats' => $_POST['plaats'],
+                    'postcode' => $_POST['postcode'],
+                    'huisnummer' => $_POST['huisnummer']
                 );
 
                 register_user($con, $regiser_data);
@@ -102,6 +105,18 @@ if (empty($_POST) == false) {
                             <li>
                                 Email*:<br>
                                 <input class="form-control" type="text" name="email">
+                            </li>
+                            <li>
+                                Plaats*:<br>
+                                <input class="form-control" type="text" name="plaats">
+                            </li>
+                            <li>
+                                Postcode*:<br>
+                                <input class="form-control" type="text" name="postcode">
+                            </li>
+                            <li>
+                                Huisnummer en toevoeging*:<br>
+                                <input class="form-control" type="text" name="huisnummer">
                             </li>
                             <br>
                             <li>

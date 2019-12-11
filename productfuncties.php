@@ -219,9 +219,13 @@ function register_user($con, $register_data) {
     $first_name = $register_data['first_name'];
     $last_name = $register_data['last_name'];
     $email = $register_data['email'];
+    $plaats = $register_data['plaats'];
+    $postcode = $register_data['postcode'];
+    $huisnummer = $register_data['huisnummer'];
 
-    $stmt = mysqli_prepare($con, "INSERT INTO users (username, password, first_name, last_name, email) VALUES (?, ?, ?, ?, ?)");
-    mysqli_stmt_bind_param($stmt, "sssss", $username, $password, $first_name, $last_name, $email);
+
+    $stmt = mysqli_prepare($con, "INSERT INTO users (username, password, first_name, last_name, email, plaats, postcode, huisnummer) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    mysqli_stmt_bind_param($stmt, "ssssssss", $username, $password, $first_name, $last_name, $email, $plaats, $postcode, $huisnummer);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 }
