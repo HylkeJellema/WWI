@@ -1,5 +1,7 @@
 <?php
-include 'init.php';
+include_once 'header.php';
+
+//include 'init.php';
 $con = MaakVerbinding();
 
 if (empty($_POST) == false) {
@@ -31,7 +33,6 @@ if (empty($_POST) == false) {
     }
 }
 
-include 'NAVTest.php';
 
 ?>
 <html>
@@ -39,12 +40,8 @@ include 'NAVTest.php';
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="Style.css">
     <body>
-    <?php
-    waza();
-    ?>
-    <br>
         <div class="container">
-            <div class="card" style="padding-left: 20px">
+            <div class="card" style="padding-left: 20px; margin-top: 10px">
                 <br>
                 <h1>Login</h1>
                 <div class="row">

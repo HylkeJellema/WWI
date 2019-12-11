@@ -12,10 +12,11 @@
 <?php
 include_once "lijstpaginafuncties.php";
 //include_once "productfuncties.php";
-include_once "init.php";
-include 'NAVTest.php';
+//include_once "init.php";
+//include 'NAVTest.php';
+include_once 'header.php';
 
-waza();
+//waza();
 ?>
 <!--<nav class="navbar navbar-light justify-content-between" style="background-color: #EAE9E9; margin-bottom: 15px;">-->
 <!--    <a href="Homepagina.php">-->
@@ -33,6 +34,7 @@ waza();
 <!--    </a>-->
 <!--</nav>-->
 <body>
+<div class="container-fluid">
     <div class="row">
         <div class="d-flex" id="wrapper">
             <div class="border-right" id="sidebar-wrapper" style="width: 25%; margin-left: 1%; border-color: #00AEEF;">
@@ -46,7 +48,7 @@ waza();
                     </form>
                 </div>
             </div>
-            <div id="page-content-wrapper">
+            <div id="page-content-wrapper" style="margin-top: 10px">
                 <div class="container-fluid">
                     <div class="row">
                         <?php
@@ -152,6 +154,7 @@ waza();
             </div>
         </div>
     </div>
+</div>
 </body>
 <br><br>
 <?php
