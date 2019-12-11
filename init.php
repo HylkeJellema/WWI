@@ -4,6 +4,7 @@ session_start();
 include ("productfuncties.php");
 $con = MaakVerbinding();
 
+<<<<<<< HEAD
 if (logged_in() == true) {
     $session_user_id = $_SESSION['user_id'];
     $user_data = user_data($con, $session_user_id);
@@ -13,6 +14,11 @@ if (logged_in() == true) {
         header('Homepagina.php');
         exit();
     }
+=======
+if(logged_in() == true) {
+    $session_user_id = $_SESSION['user_id'];
+    $user_data = user_data($con, $session_user_id);
+>>>>>>> productpagina
 }
 
 $errors = array();

@@ -19,6 +19,7 @@ include 'init.php';
     ?>
 
 <?php
+<<<<<<< HEAD
 
 $con = MaakVerbinding();
 $sql = "SELECT StockItemName, RecommendedRetailPrice, StockItemID, SearchDetails, Photo FROM stockitems ORDER BY rand() LIMIT 4";
@@ -38,6 +39,10 @@ if (logged_in() == true){
         </ul>
     </div>
 <?php
+=======
+if (logged_in() == true){
+    echo file_get_contents('loggedin.php');
+>>>>>>> productpagina
 } else {
     echo 'nog niet ingelogd';
 }
