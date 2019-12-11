@@ -80,3 +80,6 @@
     padding: 0.5em;
     margin: 0.5em 0;
 }
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #00AEFF;
+}

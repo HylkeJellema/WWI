@@ -59,9 +59,8 @@ if (isset($_POST['update'])){
             WWI de internationale groothandel
         </title>
         <link rel="stylesheet" type="text/css" href="dropdownStyles.css">
-        <link rel="stylesheet" type="text/css" href="Style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+        <link rel="stylesheet" type="text/css" href="Style.css">
     </head>
     <body>
     <div class="container-fluid bg-wwi" >
@@ -121,7 +120,7 @@ if (isset($_POST['update'])){
                                             <input type="hidden" value="<?php echo $value['id'] ?>" name="updateID">
                                         </td>
 
-                                        <td><input class="btn btn-info float-left" href="Winkelwagen.php" type="submit" value="Update" name="update"></input></caption></td>
+                                        <td><input class="btn btn-primary float-left" href="Winkelwagen.php" type="submit" value="Update" name="update"></input></caption></td>
 
                                     </form>
                                 </tr>
