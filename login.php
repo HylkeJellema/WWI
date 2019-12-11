@@ -1,9 +1,6 @@
 <?php
 include_once 'header.php';
-
-//include 'init.php';
 $con = MaakVerbinding();
-
 if (empty($_POST) == false) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -32,13 +29,13 @@ if (empty($_POST) == false) {
 
     }
 }
-
-
 ?>
 <html>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="Style.css">
+        <link rel="stylesheet" type="text/css" href="dropdownStyles.css">
+
     <body>
         <div class="container">
             <div class="card" style="padding-left: 20px; margin-top: 10px">
