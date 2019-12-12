@@ -47,7 +47,7 @@ if (empty($_POST) == false) {
             <h1>Register</h1>
             <?php
             if (isset($_GET['succes']) && empty($_GET['succes'])) {
-               echo 'You\'ve been registered succesfully!';
+               echo 'You\'ve been registered succesfully! Please check your email to activate your account.';
                ?>
             <div>
                 <br>
@@ -63,6 +63,7 @@ if (empty($_POST) == false) {
                     'first_name' => $_POST['first_name'],
                     'last_name' => $_POST['last_name'],
                     'email' => $_POST['email'],
+                    'email_code' => md5(($_POST['username'] + microtime())),
                     'plaats' => $_POST['plaats'],
                     'postcode' => $_POST['postcode'],
                     'huisnummer' => $_POST['huisnummer']

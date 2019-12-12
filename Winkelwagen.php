@@ -175,9 +175,8 @@ if (isset($_POST['update'])){
 </body>
     <br><br>
 <?php
-/*include "bottomFunctie.php";
-bottomFunctie();*/
 
+$con = MaakVerbinding();
 SluitVerbinding($con);
 ?>
 

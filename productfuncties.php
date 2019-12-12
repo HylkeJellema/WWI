@@ -219,15 +219,18 @@ function register_user($con, $register_data) {
     $first_name = $register_data['first_name'];
     $last_name = $register_data['last_name'];
     $email = $register_data['email'];
+    $email_code = $register_data['email_code'];
     $plaats = $register_data['plaats'];
     $postcode = $register_data['postcode'];
     $huisnummer = $register_data['huisnummer'];
 
 
-    $stmt = mysqli_prepare($con, "INSERT INTO users (username, password, first_name, last_name, email, plaats, postcode, huisnummer) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    mysqli_stmt_bind_param($stmt, "ssssssss", $username, $password, $first_name, $last_name, $email, $plaats, $postcode, $huisnummer);
+    $stmt = mysqli_prepare($con, "INSERT INTO users (username, password, first_name, last_name, email, email_code, plaats, postcode, huisnummer) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    mysqli_stmt_bind_param($stmt, "sssssssss", $username, $password, $first_name, $last_name, $email, $email_code, $plaats, $postcode, $huisnummer);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+
+    email($register_data['email'], 'Activeer uw account', "Hello " . $register_data['first_name'] . ",\n\nU moet uw account activeren als u wilt bestellen op onze site, dus gebruik de link hieronder:\n\nhttp://localhost/WWI/WWI/activate.php?email=" . $register_data['email'] . "&email_code=" . $register_data['email_code'] . "\n\n- WorldWideImporters");
 }
 
 function login_check() {
@@ -237,6 +240,57 @@ function login_check() {
     }
 }
 
+function logged_in_redirect() {
+    if(!empty($_SESSION['cart']) && (logged_in() == true)) {
+        header('Location: Winkelwagen.php');
+} elseif(logged_in()== true) {
+        header('Location: Homepagina.php');
+        exit();
+    }
+}
+
+function email($to, $subject, $body){
+    mail($to, $subject, $body, 'From: WWI@test.com');
+}
+
+function check_activate($con, $email, $email_code)
+{
+    $check = 0;
+    $email = mysqli_real_escape_string($con, $email);
+    $email_code = mysqli_real_escape_string($con, $email_code);
+    $statement = mysqli_prepare($con, "SELECT COUNT(user_id) FROM users WHERE email =? AND email_code =? AND active = 0");
+    mysqli_stmt_bind_param($statement, 'ss', $email, $email_code);
+    mysqli_stmt_execute($statement);
+    mysqli_stmt_bind_result($statement, $checkActive);
+    mysqli_stmt_fetch($statement);
+    mysqli_stmt_close($statement);
+    if($checkActive == 1) {
+        $check = 1;
+    } elseif($checkActive == 0) {
+        $check = 0;
+    }
+    return $check;
+}
+
+function activate($con, $email, $email_code) {
+    $email = mysqli_real_escape_string($con, $email);
+    $email_code = mysqli_real_escape_string($con, $email_code);
+    $check = check_activate($con, $email, $email_code);
+
+    if ($check == true){
+        $email = mysqli_real_escape_string($con, $email);
+        $statement = mysqli_prepare($con, "UPDATE users sET active = 1 WHERE email = ?");
+        mysqli_stmt_bind_param($statement, 's', $email);
+        mysqli_stmt_execute($statement);
+        mysqli_stmt_bind_result($statement, $updateActive);
+        mysqli_stmt_fetch($statement);
+        mysqli_stmt_close($statement);
+        return true;
+    } else {
+        return false;
+    }
+
+}
 
 ?>
 
