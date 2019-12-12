@@ -10,7 +10,7 @@ include_once 'header.php';
 <div class="container-fluid">
     <div class="row">
         <div class="d-flex" id="wrapper">
-            <div class="border-right" id="sidebar-wrapper" style="width: 25%; margin-left: 1%; border-color: #00AEEF;">
+            <div class="border-right" id="sidebar-wrapper" style="border-color: #00AEEF;">
                 <div class="container">
                     <form class="form-inline" action="Lijstpagina.php" method="get">
                         <button class="btn btn-outline-primary mt-auto" style="margin-bottom: 15px; margin-right: 10px;" name="sorteer" value="az" type="submit">Alfabet<br>A - Z</button>
@@ -126,8 +126,8 @@ include_once 'header.php';
                             }
                         } else {
                             ?>
-                            <div class="card" style="margin: 10%;">
-                                <p>Er zijn helaas geen producten gevonden, probeer een andere zoekopdracht.</p>
+                            <div class="card foutmeldingen" style="margin: 5%;">
+                                <p>Er zijn helaas geen producten gevonden.</p>
                             </div>
                             <?php
                         }

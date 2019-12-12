@@ -33,7 +33,7 @@ include ("init.php");
         ?>
         <a class="btn btn-lg btn-outline-primary" href="login.php" style="margin-left: 20px">Login</a>
         <a href="login.php" style="margin-right: 10px">
-            <img src="imgs/persoon.png" height="60" width="60">
+            <img src="imgs/persoon2.png" height="60" width="60">
         </a>
         <?php
     }
