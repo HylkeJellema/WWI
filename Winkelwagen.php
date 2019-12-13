@@ -154,7 +154,15 @@ if (isset($_POST['update'])){
                             <?php
                         }else{
                              ?>
-                            <caption><a class='btn btn-primary text-uppercase align-center' href="afrekenen.php?">AFREKENEN</a><a class="btn btn-danger float-right" href="Winkelwagen.php?action=deleteall">Verwijder alles</a> <a class='btn btn-light text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a></caption>
+                            <caption><a class='btn btn-primary text-uppercase align-center' href="afrekenen.php?">AFREKENEN</a><a class="btn btn-danger float-right" href="Winkelwagen.php?action=deleteall">Verwijder alles</a> <a class='btn btn-light text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a>
+                                <br><br><a class="float-left">
+                                    <span style="color: black; ">Kortingscode</span><br>
+                                    <input type="text" name="kortingscode"><br><br>
+                                    <button type="submit" class="btn btn-primary">VOEG TOE</button>
+                                    <br><br>
+                                </a></caption>
+
+
 
 
                         <?php
@@ -162,6 +170,7 @@ if (isset($_POST['update'])){
                         ?>
                     </table>
                     </div>
+                        <caption></caption>
                 </div>
 
             </div>
