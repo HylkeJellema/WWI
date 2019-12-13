@@ -1,4 +1,5 @@
 <?php
+
 function MaakVerbinding(){
     //Verander dit als je offline wilt prutsen
     $offline = true;

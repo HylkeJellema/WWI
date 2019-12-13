@@ -95,7 +95,7 @@ if (isset($_POST['update'])){
 
                                         <td><?php echo $value['name']; ?></td>
                                         <td><?php echo $value['aantal']?></td>
-                                        <td>€<?php echo round(($value['price'] * 0.91), 2); ?></td>
+                                        <td>€<?php echo round(($value['price'] * $omrekenWaarde), 2); ?></td>
 
                                         <td>
 
@@ -108,7 +108,7 @@ if (isset($_POST['update'])){
 
                                 <?php
                             
-                               $total = $total + ( $value['aantal'] * round(($value['price'] * 0.91), 2));
+                               $total = $total + ( $value['aantal'] * round(($value['price'] * $omrekenWaarde), 2));
                             }
 
                             ?>

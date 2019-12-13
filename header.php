@@ -1,6 +1,6 @@
 <?php
 include ("init.php");
-
+$omrekenWaarde = 0.91;
 ?>
 <html>
 <header>

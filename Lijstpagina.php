@@ -110,7 +110,7 @@ include_once 'header.php';
                                         </h5>
                                         <p class="card-text" style="color: orange;">
                                             <?php
-                                            echo "€" . round(($row['RecommendedRetailPrice'] * 0.91), 2);
+                                            echo "€" . round(($row['RecommendedRetailPrice'] * $omrekenWaarde), 2);
                                             ?>
                                         </p>
                                         <?php
