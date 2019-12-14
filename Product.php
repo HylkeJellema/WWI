@@ -1,6 +1,5 @@
 <html>
 <head>
-  
 </head>
 <?php
 include_once 'header.php';
@@ -14,12 +13,20 @@ $voorraad = VoorraadOphalen($con);
     <div class="card" style="margin-top: 10px">
         <div class="row">
             <div class="card-body left" style="text-align: center">
-                <a href="#"><?php if($product['Photo'] != "") {
-                                        echo ('<img src="data:image/jpg;base64,'.base64_encode($product["Photo"]).'" style="width:80%;">');
-                                    } else {
-                                        echo '<img src="imgs/ImageComingSoon.jpg" style="width:80%;">';
-                                    }
-                                    ?></a>
+                <a href="#">
+                    <?php
+                    if($product['Photo'] != "") {
+                        echo ('<img src="data:image/jpg;base64,'.base64_encode($product["Photo"]).'" style="width:80%; padding-bottom: 15px;">');
+                    } else {
+                        echo '<img src="imgs/ImageComingSoon.jpg" width="320" height="240" style="padding-bottom: 15px;">';
+                    }
+                    ?>
+                </a>
+                <br>
+                <video width="320" height="240" controls>
+                    <source src='video/<?php echo $product['nummer'] ?>/productvideo.mp4' type='video/mp4'>
+                    Het videoformat wordt niet ondersteund door Uw webbrowser.
+                </video>
             </div>
             <article class="card-body right">
                 <h3 class="title mb-3" style="width: 32rem;">
