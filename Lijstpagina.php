@@ -91,6 +91,9 @@ include_once 'header.php';
                         } else {
                             $zoekresultaten = mysqli_query($conn, $sql);
                         }
+
+                        $zoekresultaten = mysqli_real_escape_string($conn, $zoekresultaten);
+
                         while($row = mysqli_fetch_array($zoekresultaten)){
                             ?>
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 text-center" style="padding-bottom: 15px;">
