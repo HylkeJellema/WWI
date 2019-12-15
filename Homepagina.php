@@ -71,10 +71,7 @@ $zoekresultaten = mysqli_query($con, $sql);
         ?>
 
     <br><br>
-    <?php
-    /*include "bottomFunctie.php";
-        bottomFunctie();*/
-    ?>
+
 </div>
 </body>
 </html>

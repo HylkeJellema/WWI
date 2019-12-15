@@ -133,8 +133,4 @@ include_once 'header.php';
 </div>
 </body>
 <br><br>
-<?php
-/*include "bottomFunctie.php";
-bottomFunctie();*/
-?>
 </html>

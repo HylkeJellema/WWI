@@ -29,9 +29,5 @@ World Wide Importers
     </p>
 </div>
 
-<?php
-include "bottomFunctie.php";
-bottomFunctie();
-?>
 </body>
 </html>
