@@ -34,6 +34,8 @@ include_once 'header.php';
                             $vraag = "";
                         }
 
+                        $vraag = mysqli_real_escape_string($conn, $vraag);
+
                         $sql =         "SELECT DISTINCT StockItemName, RecommendedRetailPrice, A.StockItemID, Photo
                                         FROM stockitems AS A
                                         INNER JOIN stockitemstockgroups AS B ON A.StockItemID = B.StockItemID
@@ -91,8 +93,6 @@ include_once 'header.php';
                         } else {
                             $zoekresultaten = mysqli_query($conn, $sql);
                         }
-
-                        $zoekresultaten = mysqli_real_escape_string($conn, $zoekresultaten);
 
                         while($row = mysqli_fetch_array($zoekresultaten)){
                             ?>
