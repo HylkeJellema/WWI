@@ -128,8 +128,13 @@ include_once 'header.php';
                             }
                         } else {
                             ?>
-                            <div class="card foutmeldingen" style="margin: 5%;">
-                                <p>Er zijn helaas geen producten gevonden.</p>
+                            <div class="form-inline">
+                                <div class="card" style="alignment: center; margin: 1%; width: 90%; border-color: ghostwhite;">
+                                    <img class="card-ig-top" src="imgs/geenproducten.png" alt="Card image cap">
+                                    <div class="card-body foutmeldingen">
+                                        <p>Er zijn helaas geen producten gevonden.</p>
+                                    </div>
+                                </div>
                             </div>
                             <?php
                         }
