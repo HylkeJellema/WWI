@@ -25,6 +25,7 @@ $voorraad = VoorraadOphalen($con);
                 <br>
                 <video width="320" height="240" controls>
                     <source src='video/<?php echo $product['nummer'] ?>/productvideo.mp4' type='video/mp4'>
+                    <source src="video/placeholder.mp4" type="video/mp4">
                     Het videoformat wordt niet ondersteund door Uw webbrowser.
                 </video>
             </div>

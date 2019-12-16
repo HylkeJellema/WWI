@@ -36,6 +36,7 @@ function numberOfRecords($result) {
 function ProductOphalen($connection)
 {
     $id = $_GET["id"];
+    $id = mysqli_real_escape_string($connection, $id);
     if (isset($id)) {
         $statement = mysqli_prepare($connection, "SELECT StockItemID, StockItemName, RecommendedRetailPrice, SearchDetails, IsChillerStock, Photo FROM stockitems WHERE StockItemID = ?");
         mysqli_stmt_bind_param($statement, 'i', $id);
