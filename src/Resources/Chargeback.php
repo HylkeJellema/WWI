@@ -20,7 +20,7 @@ class Chargeback extends BaseResource
     /**
      * The $amount that was refunded.
      *
-     * @var \stdClass
+     * @var object
      */
     public $amount;
 
@@ -42,12 +42,12 @@ class Chargeback extends BaseResource
     /**
      * The settlement amount
      *
-     * @var \stdClass
+     * @var object
      */
     public $settlementAmount;
 
     /**
-     * @var \stdClass
+     * @var object[]
      */
     public $_links;
 

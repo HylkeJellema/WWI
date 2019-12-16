@@ -41,7 +41,7 @@ class Customer extends BaseResource
     public $locale;
 
     /**
-     * @var \stdClass|mixed|null
+     * @var object|mixed|null
      */
     public $metadata;
 
@@ -56,7 +56,7 @@ class Customer extends BaseResource
     public $createdAt;
 
     /**
-     * @var \stdClass
+     * @var object[]
      */
     public $_links;
 
@@ -76,7 +76,7 @@ class Customer extends BaseResource
             "metadata" => $this->metadata,
         ));
 
-        $result = $this->client->performHttpCallToFullUrl(MollieApiClient::HTTP_PATCH, $this->_links->self->href, $body);
+        $result = $this->client->performHttpCallToFullUrl(MollieApiClient::HTTP_POST, $this->_links->self->href, $body);
 
         return ResourceFactory::createFromApiResult($result, new Customer($this->client));
     }
@@ -99,7 +99,7 @@ class Customer extends BaseResource
      */
     public function payments()
     {
-        return $this->client->customerPayments->listFor($this, null, null, $this->getPresetOptions());
+        return $this->client->customerPayments->listFor($this);
     }
 
     /**
@@ -131,7 +131,7 @@ class Customer extends BaseResource
      */
     public function cancelSubscription($subscriptionId)
     {
-        return $this->client->subscriptions->cancelFor($this, $subscriptionId, $this->getPresetOptions());
+        return $this->client->subscriptions->cancelFor($this, $subscriptionId);
     }
 
     /**
@@ -141,7 +141,7 @@ class Customer extends BaseResource
      */
     public function subscriptions()
     {
-        return $this->client->subscriptions->listFor($this, null, null, $this->getPresetOptions());
+        return $this->client->subscriptions->listFor($this);
     }
 
     /**
@@ -173,7 +173,7 @@ class Customer extends BaseResource
      */
     public function revokeMandate($mandateId)
     {
-        return $this->client->mandates->revokeFor($this, $mandateId, $this->getPresetOptions());
+        return $this->client->mandates->revokeFor($this, $mandateId);
     }
 
     /**
@@ -183,7 +183,7 @@ class Customer extends BaseResource
      */
     public function mandates()
     {
-        return $this->client->mandates->listFor($this, null, null, $this->getPresetOptions());
+        return $this->client->mandates->listFor($this);
     }
 
     /**
@@ -193,7 +193,7 @@ class Customer extends BaseResource
      */
     public function hasValidMandate()
     {
-        $mandates = $this->mandates();
+        $mandates = $this->client->mandates->listFor($this);
         foreach ($mandates as $mandate) {
             if ($mandate->isValid()) {
                 return true;
@@ -201,37 +201,5 @@ class Customer extends BaseResource
         }
 
         return false;
-    }
-
-    /**
-     * Helper function to check for specific payment method mandate with status valid
-     *
-     * @return bool
-     */
-    public function hasValidMandateForMethod($method)
-    {
-        $mandates = $this->mandates();
-        foreach ($mandates as $mandate) {
-            if ($mandate->method === $method && $mandate->isValid()) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * When accessed by oAuth we want to pass the testmode by default
-     *
-     * @return array
-     */
-    private function getPresetOptions()
-    {
-        $options = [];
-        if($this->client->usesOAuth()) {
-            $options["testmode"] = $this->mode === "test" ? true : false;
-        }
-
-        return $options;
     }
 }

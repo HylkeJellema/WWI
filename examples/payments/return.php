@@ -10,7 +10,7 @@
  * NOTE: The examples are using a text file as a database.
  * Please use a real database like MySQL in production code.
  */
-require_once "../functions.php";
+require_once "examples/functions.php";
 
 $status = database_read($_GET["order_id"]);
 

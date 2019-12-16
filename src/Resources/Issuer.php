@@ -29,7 +29,7 @@ class Issuer extends BaseResource
     /**
      * Object containing a size1x or size2x image
      *
-     * @var \stdClass
+     * @var object
      */
     public $image;
 }

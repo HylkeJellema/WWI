@@ -6,7 +6,7 @@ use Mollie\Api\Exceptions\ApiException;
 use Mollie\Api\Resources\Customer;
 use Mollie\Api\Resources\CustomerCollection;
 
-class CustomerEndpoint extends CollectionEndpointAbstract
+class CustomerEndpoint extends EndpointAbstract
 {
     protected $resourcePath = "customers";
 
@@ -17,20 +17,20 @@ class CustomerEndpoint extends CollectionEndpointAbstract
      */
     protected function getResourceObject()
     {
-        return new Customer($this->client);
+        return new Customer($this->api);
     }
 
     /**
      * Get the collection object that is used by this API endpoint. Every API endpoint uses one type of collection object.
      *
      * @param int $count
-     * @param \stdClass $_links
+     * @param object[] $_links
      *
      * @return CustomerCollection
      */
     protected function getResourceCollectionObject($count, $_links)
     {
-        return new CustomerCollection($this->client, $count, $_links);
+        return new CustomerCollection($this->api, $count, $_links);
     }
 
     /**
@@ -59,7 +59,7 @@ class CustomerEndpoint extends CollectionEndpointAbstract
      */
     public function get($customerId, array $parameters = [])
     {
-        return $this->rest_read($customerId, $parameters);
+        return parent::rest_read($customerId, $parameters);
     }
 
     /**
@@ -70,13 +70,12 @@ class CustomerEndpoint extends CollectionEndpointAbstract
      *
      * @param string $customerId
      *
-     * @param array $data
      * @return null
      * @throws ApiException
      */
-    public function delete($customerId, array $data = [])
+    public function delete($customerId)
     {
-        return $this->rest_delete($customerId, $data);
+        return $this->rest_delete($customerId);
     }
 
     /**

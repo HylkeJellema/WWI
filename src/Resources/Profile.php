@@ -58,7 +58,7 @@ class Profile extends BaseResource
     public $status;
 
     /**
-     * @var \stdClass
+     * @var object
      */
     public $review;
 
@@ -71,7 +71,7 @@ class Profile extends BaseResource
     public $createdAt;
 
     /**
-     * @var \stdClass
+     * @var object[]
      */
     public $_links;
 
@@ -100,8 +100,7 @@ class Profile extends BaseResource
     }
 
     /**
-     * @return Profile
-     * @throws ApiException
+     * @return BaseResource
      */
     public function update()
     {
@@ -118,7 +117,7 @@ class Profile extends BaseResource
             "mode" => $this->mode,
         ));
 
-        $result = $this->client->performHttpCallToFullUrl(MollieApiClient::HTTP_PATCH, $this->_links->self->href, $body);
+        $result = $this->client->performHttpCallToFullUrl(MollieApiClient::HTTP_POST, $this->_links->self->href, $body);
 
         return ResourceFactory::createFromApiResult($result, new Profile($this->client));
     }
@@ -137,12 +136,12 @@ class Profile extends BaseResource
 
         $result = $this->client->performHttpCallToFullUrl(MollieApiClient::HTTP_GET, $this->_links->chargebacks->href);
 
-        return ResourceFactory::createCursorResourceCollection(
-            $this->client,
-            $result->_embedded->chargebacks,
-            Chargeback::class,
-            $result->_links
-        );
+        $resourceCollection = new ChargebackCollection($this->client, $result->count, $result->_links);
+        foreach ($result->_embedded->chargebacks as $dataResult) {
+            $resourceCollection[] = ResourceFactory::createFromApiResult($dataResult, new Chargeback($this->client));
+        }
+
+        return $resourceCollection;
     }
 
     /**
@@ -159,38 +158,12 @@ class Profile extends BaseResource
 
         $result = $this->client->performHttpCallToFullUrl(MollieApiClient::HTTP_GET, $this->_links->methods->href);
 
-        return ResourceFactory::createCursorResourceCollection(
-            $this->client,
-            $result->_embedded->methods,
-            Method::class,
-            $result->_links
-        );
-    }
+        $resourceCollection = new MethodCollection($result->count, $result->_links);
+        foreach ($result->_embedded->methods as $dataResult) {
+            $resourceCollection[] = ResourceFactory::createFromApiResult($dataResult, new Method($this->client));
+        }
 
-    /**
-     * Enable a payment method for this profile.
-     *
-     * @param string $methodId
-     * @param array $data
-     * @return Method
-     * @throws ApiException
-     */
-    public function enableMethod($methodId, array $data = [])
-    {
-        return $this->client->profileMethods->createFor($this, $methodId, $data);
-    }
-
-    /**
-     * Disable a payment method for this profile.
-     *
-     * @param string $methodId
-     * @param array $data
-     * @return Method
-     * @throws ApiException
-     */
-    public function disableMethod($methodId, array $data = [])
-    {
-        return $this->client->profileMethods->deleteFor($this, $methodId, $data);
+        return $resourceCollection;
     }
 
     /**
@@ -207,12 +180,12 @@ class Profile extends BaseResource
 
         $result = $this->client->performHttpCallToFullUrl(MollieApiClient::HTTP_GET, $this->_links->payments->href);
 
-        return ResourceFactory::createCursorResourceCollection(
-            $this->client,
-            $result->_embedded->methods,
-            Method::class,
-            $result->_links
-        );
+        $resourceCollection = new PaymentCollection($this->client, $result->count, $result->_links);
+        foreach ($result->_embedded->payments as $dataResult) {
+            $resourceCollection[] = ResourceFactory::createFromApiResult($dataResult, new Payment($this->client));
+        }
+
+        return $resourceCollection;
     }
 
     /**
@@ -229,11 +202,11 @@ class Profile extends BaseResource
 
         $result = $this->client->performHttpCallToFullUrl(MollieApiClient::HTTP_GET, $this->_links->refunds->href);
 
-        return ResourceFactory::createCursorResourceCollection(
-            $this->client,
-            $result->_embedded->refunds,
-            Refund::class,
-            $result->_links
-        );
+        $resourceCollection = new RefundCollection($this->client, $result->count, $result->_links);
+        foreach ($result->_embedded->refunds as $dataResult) {
+            $resourceCollection[] = ResourceFactory::createFromApiResult($dataResult, new Refund($this->client));
+        }
+
+        return $resourceCollection;
     }
 }
