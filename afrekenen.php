@@ -115,7 +115,7 @@ if (isset($_POST['update'])){
                             <tr>
                                 <td>
                                     </td>
-                                    <td style="text-align: right;">Totaal:</td>
+                                    <td style="text-align: right;">Totaal (Ex: BTW):</td>
                                 <td style="text-align: left;"><?php print("€" . $total);?></td>
                                     <td></td>
 
