@@ -7,7 +7,6 @@
 </form>
 
 <?php
-    //include_once 'productfuncties.php';
     $waarde="";
     if (isset($_GET["Verzend"])) {
 
@@ -16,16 +15,27 @@
         $password = "";
         $dbname = "wideworldimporters";
 
-// Create connection
+// Maak verbinding met de database.
         $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
+
+// Controleer of er verbinding is gemaakt.
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
+
+// Haal de zoekopdracht op.
         $waarde=$_GET["Zoekopdracht"];
+
+// Haal de karakters uit de code die een SQL-injectie kunnen veroorzaken.
+        $waarde = mysqli_real_escape_string($conn, $waarde);
+
+// Zoek op de zoekopdracht.
         $sql = "SELECT Stockgroupname, ValidFrom, ValidTo FROM stockgroups WHERE Stockgroupname LIKE '%$waarde%'";
+
+// Sla het resultaat op in waarde $result.
         $result = $conn->query($sql);
 
+// Druk de resultaten af.
         if ($result->num_rows > 0) {
             // output data of each row
             ?><ul><?php
@@ -38,6 +48,8 @@
         } else {
             echo "0 results";
         }
+
+// Sluit verbinding met de database.
         $conn->close();
 
         ?>
