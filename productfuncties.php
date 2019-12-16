@@ -233,7 +233,7 @@ function register_user($con, $register_data) {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    email($register_data['email'], 'Activeer uw account', "Hello " . $register_data['first_name'] . ",\n\nU moet uw account activeren als u wilt bestellen op onze site, dus gebruik de link hieronder:\n\nhttp://localhost/WWI/WWI/activate.php?email=" . $register_data['email'] . "&email_code=" . $register_data['email_code'] . "\n\n- WorldWideImporters");
+    email($register_data['email'], 'Activeer uw account', "Hello " . $register_data['first_name'] . ",\n\nU moet uw account activeren als u wilt bestellen op onze site, dus gebruik de link hieronder:\n\nhttp://localhost/WWI/activate.php?email=" . $register_data['email'] . "&email_code=" . $register_data['email_code'] . "\n\n- WorldWideImporters");
 }
 
 function login_check() {
@@ -253,7 +253,7 @@ function logged_in_redirect() {
 }
 
 function email($to, $subject, $body){
-    mail($to, $subject, $body, 'From: WWI@test.com');
+    mail($to, $subject, $body, 'From: wilslooten@gmail.com');
 }
 
 function check_activate($con, $email, $email_code)
