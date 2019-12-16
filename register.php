@@ -57,7 +57,7 @@ if (empty($_POST) == false) {
             <?php
             } else {
             if (empty($_POST) == false && empty($errors) == true) {
-                $regiser_data = array(
+                $register_data = array(
                     'username' => $_POST['username'],
                     'password' => md5($_POST['password']),
                     'first_name' => $_POST['first_name'],
@@ -69,7 +69,7 @@ if (empty($_POST) == false) {
                     'huisnummer' => $_POST['huisnummer']
                 );
 
-                register_user($con, $regiser_data);
+                register_user($con, $register_data);
                 header('Location: register.php?succes');
                 exit();
 

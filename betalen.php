@@ -34,8 +34,8 @@ try {
             "value" => "10.00" // You must send the correct number of decimals, thus we enforce the use of strings
         ],
         "description" => "Order #{$orderId}",
-        "redirectUrl" => "http://e445bb73.ngrok.io/WWI/WWI/return.php",
-        "webhookUrl" => "http://e445bb73.ngrok.io",
+        "redirectUrl" => "http://e630c368.ngrok.io/WWI/return.php",
+        "webhookUrl" => "http://e630c368.ngrok.io",
         "metadata" => [
             "order_id" => $orderId,
         ],
