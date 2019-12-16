@@ -31,7 +31,7 @@ try {
     $payment = $mollie->payments->create([
         "amount" => [
             "currency" => "EUR",
-            "value" => "10.00" // You must send the correct number of decimals, thus we enforce the use of strings
+            "value" => $_GET["bedrag"] // You must send the correct number of decimals, thus we enforce the use of strings
         ],
         "description" => "Order #{$orderId}",
         "redirectUrl" => "http://e630c368.ngrok.io/WWI/return.php",
