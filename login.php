@@ -3,7 +3,9 @@ include_once 'header.php';
 $con = MaakVerbinding();
 if (empty($_POST) == false) {
     $username = $_POST['username'];
+    $username = mysqli_real_escape_string($con, $username);
     $password = $_POST['password'];
+    $password = mysqli_real_escape_string($con, $password);
 
     if (empty($username) === true || empty($password) == true) {
         $errors[] = 'You need to enter a username and password';

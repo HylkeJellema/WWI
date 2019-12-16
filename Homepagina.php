@@ -5,15 +5,7 @@
 <body>
 
 <?php
-
-use MongoDB\BSON\MaxKey;
-
-//include 'init.php';
-    //include 'NAVBar functie.php';
-    //navigatiebalkje();
 include_once 'header.php';
-// niet meer doen
-
     ?>
 
 <?php

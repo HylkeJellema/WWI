@@ -93,6 +93,7 @@ function getProductVoorraad($connection, $query, $id)
 function VoorraadOphalen($connection)
 {
     $id = $_GET["id"];
+    $id = mysqli_real_escape_string($connection, $id);
     if (isset($id)) {
         $statement = mysqli_prepare($connection, "SELECT QuantityOnHand FROM stockitemholdings WHERE StockItemID = ?");
         mysqli_stmt_bind_param($statement, 'i', $id);
