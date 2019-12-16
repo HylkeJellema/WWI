@@ -3,7 +3,7 @@
 
 <form method="get" action="InjectieTest.php">
     <input type="text" name="Zoekopdracht">
-    <input type="submit" value="Verzend" name="Verzend">
+    <input type="submit" value="Zoeken" name="Verzend">
 </form>
 
 <?php
@@ -41,7 +41,7 @@
             ?><ul><?php
             while($row = $result->fetch_assoc()) {
                 ?><li><?php
-                echo "id: " . $row["Stockgroupname"]. " - Name: " . $row["ValidFrom"]. " " . $row["ValidTo"]. "<br>";
+                echo /*"id: " .*/ $row["Stockgroupname"]/*. " - Name: "*/ . $row["ValidFrom"]. /*" " .*/ $row["ValidTo"]. "<br>";
                 ?></li><?php
             }
             ?></ul><?php
