@@ -112,10 +112,33 @@ if (isset($_POST['update'])){
                             }
 
                             ?>
+                         
                             <tr>
                                 <td>
                                     </td>
                                     <td style="text-align: right;">Totaal (Ex: BTW):</td>
+                                <td style="text-align: left;"><?php print("€" . round(($total-($total*0.21)),2));?></td>
+                                    <td></td>
+
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            <tr>
+                                <td>
+                                    </td>
+                                    <td style="text-align: right;">BTW:</td>
+                                <td style="text-align: left;"><?php print("€" . ($total-(round(($total-($total*0.21)),2))));?></td>
+                                    <td></td>
+
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                <td>
+                                    </td>
+                                    <td style="text-align: right;">Totaal:</td>
                                 <td style="text-align: left;"><?php print("€" . $total);?></td>
                                     <td></td>
 
@@ -142,7 +165,7 @@ if (isset($_POST['update'])){
                             <?php
                         }else{
                              ?>
-                            <caption><a class="btn btn-primary float-right" href="betalen.php">Door naar betalen</a></caption>
+                            <caption><a class="btn btn-primary float-right" href=<?php print("betalen.php?bedrag=". $total)?>>Door naar betalen</a></caption>
 
 
                         <?php
