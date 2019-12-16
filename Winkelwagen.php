@@ -121,7 +121,18 @@ if (isset($_POST['update'])){
                                 <?php
                             
                                $total = $total + ( $value['aantal'] * round(($value['price'] * $omrekenWaarde), 2));
-                                            }
+                            }
+
+                            if (isset($_GET['knopje'])) {
+                                $code = "KERST2019";
+                                $ingevoerdeCode = $_GET['kortingscode'];
+                                if ($code == $ingevoerdeCode) {
+                                    $total = $total * 0.9;
+                                    $total=number_format($total,2);
+
+                                }
+
+                            }
 
                             ?>
                             <tr>
@@ -154,14 +165,15 @@ if (isset($_POST['update'])){
                             <?php
                         }else{
                              ?>
-                            <caption><a class='btn btn-primary text-uppercase align-center' href="afrekenen.php?">AFREKENEN</a><a class="btn btn-danger float-right" href="Winkelwagen.php?action=deleteall">Verwijder alles</a> <a class='btn btn-light text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a>
+                            <form action="Winkelwagen.php" method="get">
+                             <caption><a class='btn btn-primary text-uppercase align-center' href="afrekenen.php?">AFREKENEN</a><a class="btn btn-danger float-right" href="Winkelwagen.php?action=deleteall">Verwijder alles</a> <a class='btn btn-light text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a>
                                 <br><br><a class="float-left">
                                     <span style="color: black; ">Kortingscode</span><br>
                                     <input type="text" name="kortingscode"><br><br>
-                                    <button type="submit" class="btn btn-primary">VOEG TOE</button>
+                                    <button type="submit" class="btn btn-primary" name="knopje">VOEG TOE</button>
                                     <br><br>
                                 </a></caption>
-
+                            </form>
 
 
 

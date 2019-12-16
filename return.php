@@ -1,7 +1,11 @@
 <?php
 include_once 'header.php';
+if (logged_in() == true) {
+    $session_user_id = $_SESSION['user_id'];
+    $user_data = user_data($con, $session_user_id);
 
-email($_POST['email'], 'Activeer uw account', "Hello " . $_POST['first_name'] . ",\n\nHieronder ziet u uw bestelling:\n\n- WorldWideImporters");
+    email($user_data['email'], 'Bestelling succesvol', "Hello " . $user_data['first_name'] . ",\n\nHieronder ziet u uw bestelling:\n\n- WorldWideImporters");
+}
 
 ?>
 <html>
