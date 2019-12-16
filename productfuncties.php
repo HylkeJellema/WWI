@@ -253,7 +253,7 @@ function logged_in_redirect() {
 }
 
 function email($to, $subject, $body){
-    mail($to, $subject, $body, 'From: wilslooten@gmail.com');
+    mail($to, $subject, $body, 'From: wwi@zoho.eu');
 }
 
 function check_activate($con, $email, $email_code)

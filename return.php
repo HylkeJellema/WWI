@@ -4,7 +4,7 @@ if (logged_in() == true) {
     $session_user_id = $_SESSION['user_id'];
     $user_data = user_data($con, $session_user_id);
 
-    email($user_data['email'], 'Bestelling succesvol', "Hello " . $_POST['first_name'] . ",\n\nHieronder ziet u uw bestelling:\n\n- WorldWideImporters");
+    email($user_data['email'], 'Bestelling succesvol', "Hello " . $user_data['first_name'] . ",\n\nHieronder ziet u uw bestelling:\n\n- WorldWideImporters");
 }
 
 ?>
