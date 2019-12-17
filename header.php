@@ -15,8 +15,8 @@ $omrekenWaarde = 0.91;
 
     </a>
         <form class="navbar-nav mr-auto" action="Lijstpagina.php?">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Zoeken" aria-label="Search" name="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoeken</button>
         </form>
     <?php
     if (logged_in() == true) {
@@ -24,14 +24,14 @@ $omrekenWaarde = 0.91;
         $user_data = user_data($con, $session_user_id);
         ?>
                 <a class="span">Hello, <?php echo $user_data['first_name']?>!</a>
-                <a class="btn btn-lg btn-outline-primary" href="logout.php" style="margin-left: 20px;">Log uit</a>
+                <a class="btn btn btn-outline-primary" href="logout.php" style="margin-left: 20px;">Uitloggen</a>
                 <a href="logout.php" style="margin-right: 18px; padding-top: 10px">
                     <img src="imgs/persoon.png" height="60" width="60">
                 </a>
         <?php
     } else {
         ?>
-        <a class="btn btn-lg btn-outline-primary" href="login.php" style="margin-left: 20px">Login</a>
+        <a class="btn btn btn-outline-primary" href="login.php" style="margin-left: 20px">Inloggen</a>
         <a href="login.php" style="margin-right: 10px">
             <img src="imgs/persoon.png" height="60" width="60">
         </a>

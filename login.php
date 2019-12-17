@@ -68,7 +68,7 @@ if (empty($_POST) == false) {
                                     <br><br>
                                 </div>
                                 <div class="col-md-5">
-                                    <a class="btn btn-lg btn-outline-primary text-uppercase" href="register.php">Register</a>
+                                    <a class="btn btn btn-outline-primary text-uppercase" href="register.php">Register</a>
                                 </div>
                             </ul>
                         </form>
