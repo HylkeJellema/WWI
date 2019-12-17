@@ -6,7 +6,7 @@ if (empty($_POST) == false) {
     $required_fields = array('username', 'password', 'password_again', 'first_name', 'email', 'plaats', 'postcode', 'huisnummer');
     foreach($_POST as $key => $value){
         if(empty($value) && in_array($key, $required_fields) == true){
-            $errors[] = 'Fields marked with an asterisk are required';
+            $errors[] = 'Velden die gemarkeerd zijn met een sterretje zijn verplicht.';
             break 1;
         }
     }
