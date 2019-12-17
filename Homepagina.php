@@ -17,7 +17,7 @@ $zoekresultaten = mysqli_query($con, $sql);
 ?>
 
 
-<div class="text-center" style="margin-top: 10px">
+<div class="text-center">
 <a href="#"><img src="imgs/kortingsbanner.png" style="width: 100%;"></a>
 </div>
 
