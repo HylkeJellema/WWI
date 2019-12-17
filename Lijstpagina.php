@@ -130,7 +130,7 @@ include_once 'header.php';
                             ?>
                             <div class="form-inline">
                                 <div class="card" style="alignment: center; margin: 1%; width: 90%; border-color: ghostwhite;">
-                                    <img class="card-ig-top" src="imgs/geenproducten.png" alt="Card image cap">
+                                    <img class="card-ig-top" src="imgs/geenproducten.png" alt="Card image cap" style="width: 100%; height: 100%;">
                                     <div class="card-body foutmeldingen">
                                         <p>Er zijn helaas geen producten gevonden.</p>
                                     </div>
