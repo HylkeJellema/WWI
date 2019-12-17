@@ -80,7 +80,7 @@ $voorraad = VoorraadOphalen($con);
                                     <div class="form-group">
                                         <select class="custom-select text-center" id="aantal" name="aantal">
                                             <?php
-                                            for ($i = 1; $i <= $voorraad['voorraad'] && $i < 100; $i++){
+                                            for ($i = 1; $i < 100; $i++){
                                                 print( "<option value='$i'>$i</option>");
                                             }
                                             ?>
@@ -108,23 +108,9 @@ $voorraad = VoorraadOphalen($con);
                             </div>
                         </div>
                         <hr>
-                        <?php
-                            if ($voorraad['voorraad']>0){
-                        ?>
                         <button value="<?php echo $product['nummer'] ?>" id="btnAddToCart" name="btnAddToCart" type="submit" class="btn btn-lg btn-outline-primary text-uppercase">
                             Aan mand toevoegen
                         </button>
-                        <?php
-                            } else {
-                        ?>
-                        <div>
-                            <a class='btn btn-lg btn-light text-uppercase align-center' style="background: lightskyblue" href="Lijstpagina.php?">
-                                Verder winkelen
-                            </a>
-                        </div>
-                        <?php
-                            }
-                        ?>
                     </form>
                 </dl>
             </article>

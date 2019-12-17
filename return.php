@@ -7,6 +7,7 @@ if (logged_in() == true && !(empty($_SESSION['cart']))) {
     $data = "";
     $totalprice = 0;
     foreach ($_SESSION['cart'] as $arr){
+        voorraad_update($con, $arr['id'], $arr['aantal']);
         $data .= "Naam: ".$arr['name'];
         $data .= "\n";
         $data .= "Aantal: ". $arr['aantal'];
@@ -15,7 +16,7 @@ if (logged_in() == true && !(empty($_SESSION['cart']))) {
         $data .= "\n";
         $totalprice = $totalprice + ($arr['price'] * $arr['aantal']);
     }
-    email($user_data['email'], 'Bestelling succesvol', "Hello " . $user_data['first_name'] . ",\n\nHieronder ziet u uw bestelling:\n\n" . $data . "\n\n Totaal: €".$totalprice . "\n\n Aflever adres: \n".$user_data['plaats']. "\n".$user_data['postcode']."\n".$user_data['straatnaam']. " ".$user_data['huisnummer']."\n\n- WorldWideImporters");
+    email($user_data['email'], 'Bestelling succesvol', "Hallo " . $user_data['first_name'] . ",\n\nHieronder ziet u uw bestelling:\n\n" . $data . "\n\n Totaal: €".$totalprice . "\n\n Aflever adres: \n".$user_data['plaats']. "\n".$user_data['postcode']."\n".$user_data['straatnaam']. " ".$user_data['huisnummer']."\n\nDe producten worden zo snel mogelijk opgestuurd.\n\n- WorldWideImporters");
 } else {
     header("Location: Homepagina.php");
 }

@@ -101,7 +101,7 @@ if (isset($_POST['update'])){
                                         <td>
                                             <select class="custom-select text-center" id="aantal" name="aantal">
                                                 <?php
-                                                for ($i = 1; $i <= getProductVoorraad($con, 'SELECT QuantityOnHand FROM stockitemholdings WHERE StockItemID = ?', $value['id']) && $i < 100; $i++){
+                                                for ($i = 1; $i < 100; $i++){
                                                     if ($i == $value['aantal']) {
                                                         echo( "<option value='$i' selected>$i</option>");
                                                     }else{
@@ -113,7 +113,7 @@ if (isset($_POST['update'])){
                                             <input type="hidden" value="<?php echo $value['id'] ?>" name="updateID">
                                         </td>
 
-                                        <td><input class="btn btn-primary float-left" href="Winkelwagen.php" type="submit" value="Update" name="update"></input></caption></td>
+                                        <td><input class="btn btn-primary float-left" type="submit" value="Update" name="update" ></caption></td>
 
                                     </form>
                                 </tr>
@@ -121,18 +121,18 @@ if (isset($_POST['update'])){
                                 <?php
                             
                                $total = $total + ( $value['aantal'] * round(($value['price'] * $omrekenWaarde), 2));
-                            }
 
-                            if (isset($_GET['knopje'])) {
+                            }
+                            /*if (isset($_POST['kortingscode'])) {
                                 $code = "KERST2019";
-                                $ingevoerdeCode = $_GET['kortingscode'];
+                                $ingevoerdeCode = $_POST['kortingscode'];
                                 if ($code == $ingevoerdeCode) {
                                     $total = $total * 0.9;
                                     $total=number_format($total,2);
 
                                 }
 
-                            }
+                            }*/
 
                             ?>
                             <tr>
@@ -168,14 +168,17 @@ if (isset($_POST['update'])){
                             <form action="Winkelwagen.php" method="get">
                                 <caption><a class='btn btn-primary text-uppercase align-center' href="afrekenen.php?">AFREKENEN</a><a class="btn btn-danger float-right" href="Winkelwagen.php?action=deleteall">Verwijder alles</a> <a class='btn btn-light text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a>
                                     <br><br>
-<!--                                    <a class="float-left">-->
-<!--                                        <span style="color: black; ">Kortingscode</span><br>-->
-<!--                                        <input type="text" name="kortingscode"><br><br>-->
-<!--                                        <button type="submit" class="btn btn-primary" name="knopje">VOEG TOE</button>-->
-<!--                                        <br><br>-->
-<!--                                    </a>-->
+
                                 </caption>
                             </form>
+<!--                             <form action="Winkelwagen.php" method="post">-->
+<!--                             <a class="float-left">-->
+<!--                                 <span style="color: black; ">Kortingscode</span><br>-->
+<!--                                 <input type="text" name="kortingscode"><br><br>-->
+<!--                                 <button type="submit" class="btn btn-primary" name="kortingscode">VOEG TOE</button>-->
+<!--                                 <br><br>-->
+<!--                             </a>-->
+<!--                             </form>-->
 
 
 

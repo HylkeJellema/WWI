@@ -322,7 +322,7 @@ function activate($con, $email, $email_code) {
 
     if ($check == true){
         $email = mysqli_real_escape_string($con, $email);
-        $statement = mysqli_prepare($con, "UPDATE users sET active = 1 WHERE email = ?");
+        $statement = mysqli_prepare($con, "UPDATE users SET active = 1 WHERE email = ?");
         mysqli_stmt_bind_param($statement, 's', $email);
         mysqli_stmt_execute($statement);
         mysqli_stmt_bind_result($statement, $updateActive);
@@ -332,7 +332,19 @@ function activate($con, $email, $email_code) {
     } else {
         return false;
     }
+}
 
+function voorraad_update($con, $id, $aantal) {
+    $statement = mysqli_prepare($con, "SELECT QuantityOnHand FROM stockitemholdings WHERE StockItemID = ?");
+    mysqli_stmt_bind_param($statement, 'i', $id);
+    mysqli_stmt_execute($statement);
+    mysqli_stmt_bind_result($statement, $voorraad);
+    mysqli_stmt_fetch($statement);
+    mysqli_stmt_close($statement);
+    $statement2 = mysqli_prepare($con, "UPDATE stockitemholdings SET QuantityOnHand = (? - ?) WHERE StockItemID = ?");
+    mysqli_stmt_bind_param($statement2, 'iii', $voorraad, $aantal, $id);
+    mysqli_stmt_execute($statement2);
+    mysqli_stmt_close($statement2);
 }
 
 ?>
