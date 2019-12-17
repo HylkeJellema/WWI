@@ -1,5 +1,36 @@
 <?php
 
+function validateEmail($email)
+{
+    // SET INITIAL RETURN VARIABLES
+
+        $emailIsValid = FALSE;
+
+    // MAKE SURE AN EMPTY STRING WASN'T PASSED
+
+        if (!empty($email))
+        {
+            // GET EMAIL PARTS
+
+                $domain = ltrim(stristr($email, '@'), '@') . '.';
+                $user   = stristr($email, '@', TRUE);
+
+            // VALIDATE EMAIL ADDRESS
+
+                if
+                (
+                    !empty($user) &&
+                    !empty($domain) &&
+                    checkdnsrr($domain)
+                )
+                {$emailIsValid = TRUE;}
+        }
+
+    // RETURN RESULT
+
+        return $emailIsValid;
+}
+
 function MaakVerbinding(){
     //Verander dit als je offline wilt prutsen
     $offline = true;
@@ -108,11 +139,11 @@ function VoorraadOphalen($connection)
 
 function user_data($connection, $user_session_id) {
 
-    $stmt = mysqli_prepare($connection, "SELECT user_id, username, password, first_name, last_name, email FROM users WHERE user_id = ?");
+    $stmt = mysqli_prepare($connection, "SELECT user_id, username, password, first_name, last_name, email, plaats, postcode, straatnaam, huisnummer FROM users WHERE user_id = ?");
     mysqli_stmt_bind_param($stmt, "s", $user_session_id);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_store_result($stmt);
-    mysqli_stmt_bind_result($stmt,$id, $username, $password, $first_name, $last_name, $email);
+    mysqli_stmt_bind_result($stmt,$id, $username, $password, $first_name, $last_name, $email, $plaats, $postcode, $straatnaam, $huisnummer);
     while (mysqli_stmt_fetch($stmt)) {
         $session_user_id = $id;
         $username = $username;
@@ -120,6 +151,10 @@ function user_data($connection, $user_session_id) {
         $first_name = $first_name;
         $last_name = $last_name;
         $email = $email;
+        $plaats = $plaats;
+        $postcode = $postcode;
+        $straatnaam = $straatnaam;
+        $huisnummer = $huisnummer;
     }
 
     $gegevens = array();
@@ -130,6 +165,10 @@ function user_data($connection, $user_session_id) {
     $gegevens['first_name'] = $first_name;
     $gegevens['last_name'] = $last_name;
     $gegevens['email'] = $email;
+    $gegevens['plaats'] = $plaats;
+    $gegevens['postcode'] = $postcode;
+    $gegevens['straatnaam'] = $straatnaam;
+    $gegevens['huisnummer'] = $huisnummer;
 
     mysqli_stmt_free_result($stmt); // resultset opschonen
     mysqli_stmt_close($stmt); // statement opruimen
@@ -225,11 +264,12 @@ function register_user($con, $register_data) {
     $email_code = $register_data['email_code'];
     $plaats = $register_data['plaats'];
     $postcode = $register_data['postcode'];
+    $straatnaam = $register_data['straatnaam'];
     $huisnummer = $register_data['huisnummer'];
 
 
     $stmt = mysqli_prepare($con, "INSERT INTO users (username, password, first_name, last_name, email, email_code, plaats, postcode, huisnummer) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    mysqli_stmt_bind_param($stmt, "sssssssss", $username, $password, $first_name, $last_name, $email, $email_code, $plaats, $postcode, $huisnummer);
+    mysqli_stmt_bind_param($stmt, "ssssssssss", $username, $password, $first_name, $last_name, $email, $email_code, $plaats, $postcode, $straatnaam, $huisnummer);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 

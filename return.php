@@ -1,12 +1,25 @@
 <?php
 include_once 'header.php';
-if (logged_in() == true) {
+
+if (logged_in() == true && !(empty($_SESSION['cart']))) {
     $session_user_id = $_SESSION['user_id'];
     $user_data = user_data($con, $session_user_id);
-
-    email($user_data['email'], 'Bestelling succesvol', "Hello " . $user_data['first_name'] . ",\n\nHieronder ziet u uw bestelling:\n\n- WorldWideImporters");
+    $data = "";
+    $totalprice = 0;
+    foreach ($_SESSION['cart'] as $arr){
+        $data .= "Naam: ".$arr['name'];
+        $data .= "\n";
+        $data .= "Aantal: ". $arr['aantal'];
+        $data .= "\n";
+        $data .= "Prijs: €".$arr['price'];
+        $data .= "\n";
+        $totalprice = $totalprice + ($arr['price'] * $arr['aantal']);
+    }
+    email($user_data['email'], 'Bestelling succesvol', "Hello " . $user_data['first_name'] . ",\n\nHieronder ziet u uw bestelling:\n\n" . $data . "\n\n Totaal: €".$totalprice . "\n\n Aflever adres: \n".$user_data['plaats']. "\n".$user_data['postcode']."\n".$user_data['straatnaam']. " ".$user_data['huisnummer']."\n\n- WorldWideImporters");
+} else {
+    header("Location: Homepagina.php");
 }
-
+unset($_SESSION['cart']);
 ?>
 <html>
 <head></head>
@@ -27,5 +40,6 @@ if (logged_in() == true) {
     </div>
 </div>
 </body>
+
 
 </html>

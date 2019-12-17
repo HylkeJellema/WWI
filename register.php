@@ -24,17 +24,21 @@ if (empty($_POST) == false) {
         if($_POST['password'] !== $_POST['password_again']){
             $errors[] = 'Uw wachtwoorden komen niet overeen.';
         }
-        if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == false) {
+        if(validateEmail($_POST['email']) == false) {
             $errors[] = 'Een geldige email is vereist.';
         }
         if(email_exists($con, $_POST['email']) == true) {
             $errors[] = 'Sorry, de email \'' . $_POST['email'] . '\' is al in gebruik.';
         }
         if(preg_match("/\\s/", $_POST['postcode']) == true) {
-            $errors[] = 'Uw postcode mag geen spaties bevatten';
+            $errors[] = 'Uw postcode mag geen spaties bevatten.';
+        }
+        if (preg_match("/^[0-9#+]+$/", $_POST['straatnaam']) == true){
+            $errors[] = "Uw woonplaats mag geen speciale tekens bevatten.";
         }
     }
 }
+
 
 
 ?>
@@ -66,6 +70,7 @@ if (empty($_POST) == false) {
                     'email_code' => md5(($_POST['username'] + microtime())),
                     'plaats' => $_POST['plaats'],
                     'postcode' => $_POST['postcode'],
+                    'straatnaam' => $_POST['straatnaam'],
                     'huisnummer' => $_POST['huisnummer']
                 );
 
@@ -114,6 +119,10 @@ if (empty($_POST) == false) {
                             <li>
                                 Postcode*:<br>
                                 <input class="form-control" type="text" name="postcode">
+                            </li>
+                            <li>
+                                Straatnaam*:<br>
+                                <input class="form-control" type="text" name="straatnaam">
                             </li>
                             <li>
                                 Huisnummer en toevoeging*:<br>
