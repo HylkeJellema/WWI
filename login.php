@@ -64,11 +64,11 @@ if (empty($_POST) == false) {
                                     <br><br>
                                 </div>
                                 <div class="col-md-5">
-                                    <input class="btn btn-outline-secondary" type="submit" value="Log in   ">
+                                    <input class="btn btn-outline-success" type="submit" value="Log in   ">
                                     <br><br>
                                 </div>
                                 <div class="col-md-5">
-                                    <a class="btn btn btn-outline-primary text-uppercase" href="register.php">Register</a>
+                                    <a class="btn btn-outline-success text-uppercase" href="register.php">Register</a>
                                 </div>
                             </ul>
                         </form>

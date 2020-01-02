@@ -130,7 +130,7 @@ if (empty($_POST) == false) {
                             </li>
                             <br>
                             <li>
-                                <input class="btn btn-primary" type="submit" value="Register">
+                                <input class="btn btn-success" type="submit" value="Register">
                             </li>
                         </ul>
                     </form>

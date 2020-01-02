@@ -96,7 +96,7 @@ if (isset($_POST['update'])){
                                         <td><?php echo $value['aantal']?></td>
                                         <td>€<?php echo round(($value['price'] * $omrekenWaarde), 2); ?></td>
 
-                                        <td><a class="btn btn-danger" href="Winkelwagen.php?action=delete&id=<?php echo $value['id']; ?>">Verwijder</a></td>
+                                        <td><a class="btn btn-light" href="Winkelwagen.php?action=delete&id=<?php echo $value['id']; ?>">Verwijder</a></td>
 
                                         <td>
                                             <select class="custom-select text-center" id="aantal" name="aantal">
@@ -113,7 +113,7 @@ if (isset($_POST['update'])){
                                             <input type="hidden" value="<?php echo $value['id'] ?>" name="updateID">
                                         </td>
 
-                                        <td><input class="btn btn-primary float-left" type="submit" value="Update" name="update" ></caption></td>
+                                        <td><input class="btn btn-success float-left" type="submit" value="Update" name="update" ></caption></td>
 
                                     </form>
                                 </tr>
@@ -159,27 +159,28 @@ if (isset($_POST['update'])){
                                 <div style="padding-top: 100px; padding-bottom: 100px;"><a href=''
                                                                                            style='padding-bottom: 100px'>
                                         <div class="col text-center">
-                                            <a class='btn btn-lg btn-light text-uppercase align-center' style="background: lightskyblue" href="Lijstpagina.php?">Verder winkelen</a>
+                                            <a class='btn btn-success text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a>
                                         </div>
                             </div>
                             <?php
                         }else{
                              ?>
                             <form action="Winkelwagen.php" method="get">
-                                <caption><a class='btn btn-primary text-uppercase align-center' href="afrekenen.php?">AFREKENEN</a><a class="btn btn-danger float-right" href="Winkelwagen.php?action=deleteall">Verwijder alles</a> <a class='btn btn-light text-uppercase align-center' href="Lijstpagina.php?">Verder winkelen</a>
-                                    <br><br>
-<<<<<<< Updated upstream
+                                <caption>
+                                    <a class='btn btn-success text-uppercase float-right' href="afrekenen.php?">AFREKENEN</a>
+                                    <a class="btn btn-light float-left" href="Winkelwagen.php?action=deleteall">Verwijder alles</a>
+                                    <a class='btn btn-light text-uppercase align-center' href="Lijstpagina.php?" style="margin-left: 5px;">Verder winkelen</a>
+                                    <br>
+                                    <br>
+<!--                                    <a class="float-left">-->
+<!--                                        <span style="color: black; ">Kortingscode</span><br>-->
+<!--                                        <input type="text" name="kortingscode"><br><br>-->
+<!--                                        <button type="submit" class="btn btn-primary" name="knopje">VOEG TOE</button>-->
+<!--                                        <br><br>-->
+<!--                                    </a>-->
+<!--                                </caption>-->
+<!--                            </form>-->
 
-=======
-                                    <a class="float-left">
-                                        <span style="color: black; ">Kortingscode</span><br>
-                                        <input type="text" name="kortingscode"><br><br>
-                                        <button type="submit" class="btn btn-primary" name="knopje">VOEG TOE</button>
-                                        <br><br>
-                                    </a>
->>>>>>> Stashed changes
-                                </caption>
-                            </form>
 <!--                             <form action="Winkelwagen.php" method="post">-->
 <!--                             <a class="float-left">-->
 <!--                                 <span style="color: black; ">Kortingscode</span><br>-->

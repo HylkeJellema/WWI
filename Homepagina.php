@@ -51,7 +51,7 @@ $zoekresultaten = mysqli_query($con, $sql);
                             ?>
                         </p>
                         <?php
-                        echo "<a class='btn btn-outline-info mt-auto' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
+                        echo "<a class='btn btn-outline-success mt-auto' href='Product.php?id=" . $row['StockItemID'] . "'>Meer details</a>";
                         ?>
                     </div>
                 </div>

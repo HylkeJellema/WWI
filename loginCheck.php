@@ -14,7 +14,7 @@ include_once 'header.php';
                         <div class="col-md-5" style="width:50rem">
                             Log in of registreer alstublieft.
                         </div><br>
-                        <a class="btn btn-lg btn-outline-primary" href="login.php" style="margin-left: 20px">Naar inloggen</a>
+                        <a class="btn btn-outline-success" href="login.php" style="margin-left: 20px">Naar inloggen</a>
                     </div>
                 </div><br>
             </div>

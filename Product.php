@@ -108,7 +108,7 @@ $voorraad = VoorraadOphalen($con);
                             </div>
                         </div>
                         <hr>
-                        <button value="<?php echo $product['nummer'] ?>" id="btnAddToCart" name="btnAddToCart" type="submit" class="btn btn-lg btn-outline-primary text-uppercase">
+                        <button value="<?php echo $product['nummer'] ?>" id="btnAddToCart" name="btnAddToCart" type="submit" class="btn btn-lg btn-outline-success text-uppercase">
                             Aan mand toevoegen
                         </button>
                     </form>
