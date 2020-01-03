@@ -3,9 +3,16 @@
 </head>
 <?php
 include_once 'header.php';
+//eenmalig header toevoegen
 $con = MaakVerbinding();
+//hiermeer wordt verbinding met de database tot stand gebracht
 $product = ProductOphalen($con);
+//hiermee wordt StockItemID, StockItemName, RecommendedRetailPrice,
+// SearchDetails, IsChillerStock, Photo uit de database opgehaald
 $voorraad = VoorraadOphalen($con);
+//hiermee wordt QuantityOnHand opgehaald
+//alle functies staan in productfuncties.php
+
 ?>
 
 <body>
@@ -20,7 +27,10 @@ $voorraad = VoorraadOphalen($con);
                     } else {
                         echo '<img src="imgs/ImageComingSoon.jpg" width="320" height="240" style="padding-bottom: 15px;">';
                     }
+                    //Wanneer de rij in de database niet leeg is wordt de desbetreffende foto laten zien.
+                    //anders wordt er een tijdelijke afbeelding laten zien.
                     ?>
+
                 </a>
                 <br>
                 <video width="320" height="240" controls>
@@ -49,6 +59,7 @@ $voorraad = VoorraadOphalen($con);
                         <dd>Dit product bij 2-5 graden bewaren</dd>
                         <?php
                         }
+                    //Als het een gekoeld product is wordt deze tekst weergegeven.
                     ?>
                 </dl>
                 <dl class="param param-feature">
@@ -57,12 +68,14 @@ $voorraad = VoorraadOphalen($con);
                     <dl class="param param-feature">
                         <?php
                             if ($voorraad['voorraad'] > 0){
+                                //als de voorraad groter is dan 0 word er een bericht van gratis levering laten zien.
                         ?>
                         <div class="alert alert-success">
                             <strong>Gratis levering in heel Nederland!</strong> voor 23:59 besteld, morgen in huis.
                         </div>
                         <?php
                             } else {
+                                //Anders staat er dat de leverdatum onbekend is.
                         ?>
                         <div class="alert alert-warning">
                             <strong>Leverdatum onbekend.</strong>
@@ -83,6 +96,7 @@ $voorraad = VoorraadOphalen($con);
                                             for ($i = 1; $i < 100; $i++){
                                                 print( "<option value='$i'>$i</option>");
                                             }
+                                            //Hierdoor kun je maximaal 100 producten selecteren en in de winkelmand plaatsen.
                                             ?>
                                         </select>
                                     </div>
@@ -92,6 +106,7 @@ $voorraad = VoorraadOphalen($con);
                                 <strong><?php ($voorraad['voorraad'] . " "); ?></strong>
                                 <?php
                                     if ($voorraad['voorraad'] > 0){
+                                        //Voorraad wordt gechecked
                                 ?>
                                 <div class="alert alert-success">
                                     <strong>Op voorraad✔</strong>
@@ -110,6 +125,7 @@ $voorraad = VoorraadOphalen($con);
                         <hr>
                         <button value="<?php echo $product['nummer'] ?>" id="btnAddToCart" name="btnAddToCart" type="submit" class="btn btn-lg btn-outline-success text-uppercase">
                             Aan mand toevoegen
+                            <?php //hiermee wordt met behulp van een button het juiste product naar de winkelmand doorverwezen. ?>
                         </button>
                     </form>
                 </dl>
@@ -121,6 +137,7 @@ $voorraad = VoorraadOphalen($con);
 <?php
 
     SluitVerbinding($con);
+    //Database connectie wordt gesloten
 ?>
 
 </html>
