@@ -34,8 +34,8 @@ try {
             "value" => $_GET["bedrag"] // You must send the correct number of decimals, thus we enforce the use of strings
         ],
         "description" => "Order #{$orderId}",
-        "redirectUrl" => "http://e45c8e68.ngrok.io/WWI/return.php",
-        "webhookUrl" => "http://e45c8e68.ngrok.io",
+        "redirectUrl" => "",//tunnesl ngrok link +/afrekenen
+        "webhookUrl" => "",//tunnel ngrok link
         "metadata" => [
             "order_id" => $orderId,
         ],

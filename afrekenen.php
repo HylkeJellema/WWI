@@ -1,51 +1,7 @@
 <?php
-include_once 'header.php';
+include_once 'header.php'; //betrekt header.php
 login_check();
 $con = MaakVerbinding();
-
-//maakt winkelwagen array aan als er niets in staat
-if (empty($_SESSION['cart'])){
-    $_SESSION['cart'] = array();
-}
-
-//Controleert of er wat in winkelwagen wordt gezet en zet nodige gegevens in de winkelwagen array
-if (isset($_POST['btnAddToCart'])){
-    $productId = $_POST['btnAddToCart'];
-    if (!in_array($productId, $_SESSION['cart'])){
-        $con = MaakVerbinding();
-        $queryProduct = "SELECT StockItemID, StockItemName, RecommendedRetailPrice, SearchDetails FROM stockitems WHERE StockItemID = ?";
-        $product = getProduct($con, $queryProduct, $productId);
-        $queryVoorraad = "select quantityonhand from stockitemholdings where stockitemid = ?";
-        $productVoorraad = getProductVoorraad($con, $queryVoorraad, $productId);
-        $_SESSION['cart'][$productId] = array(
-            'id' => $productId,
-            'name' => $product['productNaam'],
-            'price' => $product['productPrijs'],
-            'voorraad' => $productVoorraad['voorraad'],
-            'aantal' => $_POST['aantal'],
-        );
-
-    }
-}
-
-//Functie om winkelwagen leeg te maken
-if (isset($_GET['action'])) {
-    if ($_GET['action'] == "deleteall"){
-        unset($_SESSION['cart']);
-    }elseif ($_GET['action'] == "delete" ){
-        unset($_SESSION['cart'][$_GET['id']]);
-    }
-}
-
-//aantal in winkelwagen updaten
-if (isset($_POST['update'])){
-    foreach ($_SESSION['cart'] as $key => $value) {
-
-        if ($value['id'] == $_POST['updateID']) {
-            $_SESSION['cart'][$key]['aantal'] = $_POST['aantal'];
-        }
-    }
-}
 
 ?>
 

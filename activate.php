@@ -1,13 +1,13 @@
 <?php
-include 'header.php';
-logged_in_redirect();
+include 'header.php'; //betrekt header.php
+logged_in_redirect(); //redirect gebruiker als hij ingelogd is
 ?>
 <html>
     <head></head>
     <body>
         <?php
 
-        if(isset($_GET['succes']) == true && empty($_GET['succes']) == true){
+        if(isset($_GET['succes']) == true && empty($_GET['succes']) == true){ //kijkt of de gebruiker succesvol is geactiveerd
             ?>
             <div class="container">
                 <div class="card" style="padding-left: 20px; margin-top: 10px">
@@ -24,14 +24,14 @@ logged_in_redirect();
                 </div>
             </div>
             <?php
-        } elseif (isset($_GET['email'], $_GET['email_code']) == true) {
+        } elseif (isset($_GET['email'], $_GET['email_code']) == true) { //kijkt of de email en de email code bestaan
 
             $email      = trim($_GET['email']);
             $email_code = trim($_GET['email_code']);
 
-            if (email_exists($con, $email) == false) {
+            if (email_exists($con, $email) == false) { //checkt of email bestaat
                 $errors[] = 'Oops, er is iets fout gegaan en we konden het email adres niet vinden';
-            } elseif(activate($con, $email, $email_code) == false) {
+            } elseif(activate($con, $email, $email_code) == false) { //kijkt of email op actief is gezet
                 $errors[] = 'Er zijn problemen opgetreden die ervoor zorgen dat uw account niet geactiveerd kan worden.';
             }
 

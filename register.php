@@ -2,38 +2,38 @@
 //include 'init.php';
 include_once 'header.php';
 
-if (empty($_POST) == false) {
+if (empty($_POST) == false) { //kijkt of er op de registreer knop is geklikt
     $required_fields = array('username', 'password', 'password_again', 'first_name', 'email', 'plaats', 'postcode', 'huisnummer');
     foreach($_POST as $key => $value){
-        if(empty($value) && in_array($key, $required_fields) == true){
+        if(empty($value) && in_array($key, $required_fields) == true){ //kijkt of aangegeven velden zijn ingevuld
             $errors[] = 'Velden die gemarkeerd zijn met een sterretje zijn verplicht.';
             break 1;
         }
     }
 
     if (empty($errors) == true){
-        if(user_exists($con, $_POST['username']) == true){
+        if(user_exists($con, $_POST['username']) == true){ //kijkt of username bestaat
             $errors[] = 'Sorry, de gebruikersnaam \'' . $_POST['username'] . '\' is al in gebruik.';
         }
-        if(preg_match("/\\s/", $_POST['username']) == true){
+        if(preg_match("/\\s/", $_POST['username']) == true){ //kijkt of er spaties in de username zitten
             $errors[] = 'Uw gebruikersnaam mag geen spaties bevatten.';
         }
-        if(strlen($_POST['password']) < 9){
+        if(strlen($_POST['password']) < 9){ //kijkt of het wachtwoord minimaal 8 karakters lang is
             $errors[] = 'Uw wachtwoord moet minstens 8 karakters lang zijn.';
         }
-        if($_POST['password'] !== $_POST['password_again']){
+        if($_POST['password'] !== $_POST['password_again']){ //kijkt of de 2 opgegeven wachtwoorden overeen komen
             $errors[] = 'Uw wachtwoorden komen niet overeen.';
         }
-        if(validateEmail($_POST['email']) == false) {
+        if(validateEmail($_POST['email']) == false) { //kijkt of de email wel bestaat
             $errors[] = 'Een geldige email is vereist.';
         }
-        if(email_exists($con, $_POST['email']) == true) {
+        if(email_exists($con, $_POST['email']) == true) { //kijkt of de email al bestaat
             $errors[] = 'Sorry, de email \'' . $_POST['email'] . '\' is al in gebruik.';
         }
-        if(preg_match("/\\s/", $_POST['postcode']) == true) {
+        if(preg_match("/\\s/", $_POST['postcode']) == true) { //kijkt of de postcode spaties bevat
             $errors[] = 'Uw postcode mag geen spaties bevatten.';
         }
-        if (preg_match("/^[0-9#+]+$/", $_POST['straatnaam']) == true){
+        if (preg_match("/^[0-9#+]+$/", $_POST['straatnaam']) == true){ //kijkt of de woonplaats speciale tekens bevat
             $errors[] = "Uw woonplaats mag geen speciale tekens bevatten.";
         }
     }
@@ -50,7 +50,7 @@ if (empty($_POST) == false) {
         <div class="card" style="padding-left: 40px; margin-top: 10px">
             <h1>Register</h1>
             <?php
-            if (isset($_GET['succes']) && empty($_GET['succes'])) {
+            if (isset($_GET['succes']) && empty($_GET['succes'])) { //kijkt of het registreren succesvol is gelukt
                echo 'You\'ve been registered succesfully! Please check your email to activate your account.';
                ?>
             <div>
@@ -60,8 +60,8 @@ if (empty($_POST) == false) {
 
             <?php
             } else {
-            if (empty($_POST) == false && empty($errors) == true) {
-                $register_data = array(
+            if (empty($_POST) == false && empty($errors) == true) { //kijkt of er geen errors zijn
+                $register_data = array( //maakt array met gebruiker gegevens
                     'username' => $_POST['username'],
                     'password' => md5($_POST['password']),
                     'first_name' => $_POST['first_name'],
@@ -74,11 +74,11 @@ if (empty($_POST) == false) {
                     'huisnummer' => $_POST['huisnummer']
                 );
 
-                register_user($con, $register_data);
+                register_user($con, $register_data); //registreert gebruiker en zet informatie in database
                 header('Location: register.php?succes');
                 exit();
 
-            } elseif (empty($errors) == false) {
+            } elseif (empty($errors) == false) { //kijkt of errors niet leeg is
                 echo output_errors($errors);
             }
 

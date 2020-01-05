@@ -1,6 +1,6 @@
 <?php
-include ("init.php");
-$omrekenWaarde = 0.91;
+include ("init.php"); //betrekt init.php
+$omrekenWaarde = 0.91; //valuta van euro
 ?>
 <html>
 <header>
@@ -19,9 +19,9 @@ $omrekenWaarde = 0.91;
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoeken</button>
         </form>
     <?php
-    if (logged_in() == true) {
-        $session_user_id = $_SESSION['user_id'];
-        $user_data = user_data($con, $session_user_id);
+    if (logged_in() == true) { //checkt of er ingelogd is
+        $session_user_id = $_SESSION['user_id']; //zet de sessie id in een variabele
+        $user_data = user_data($con, $session_user_id); //zet de gebruikers gegevens in variabele
         ?>
                 <a class="span">Hello, <?php echo $user_data['first_name']?>!</a>
                 <a class="btn btn btn-outline-primary" href="logout.php" style="margin-left: 20px;">Uitloggen</a>

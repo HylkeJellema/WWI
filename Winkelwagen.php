@@ -1,22 +1,22 @@
 <?php
 
-include_once 'header.php';
+include_once 'header.php'; //betrekt header.php
 
 //maakt winkelwagen array aan als er niets in staat
-if (empty($_SESSION['cart'])){
-    $_SESSION['cart'] = array();
+if (empty($_SESSION['cart'])){ //kijkt of sessie 'cart' leeg is
+    $_SESSION['cart'] = array(); //maakt een array aan
 }
 
 //Controleert of er wat in winkelwagen wordt gezet en zet nodige gegevens in de winkelwagen array
-if (isset($_POST['btnAddToCart'])){
-    $productId = $_POST['btnAddToCart'];
-    if (!in_array($productId, $_SESSION['cart'])){
+if (isset($_POST['btnAddToCart'])){ //kijkt of toevoegen aan winkelmand is aangeklikt
+    $productId = $_POST['btnAddToCart']; //haalt product id vanuit de post en zet het in in variabele
+    if (!in_array($productId, $_SESSION['cart'])){ //kijkt of het product nog niet in winkelmand zit
         $con = MaakVerbinding();
-        $queryProduct = "SELECT StockItemID, StockItemName, RecommendedRetailPrice, SearchDetails FROM stockitems WHERE StockItemID = ?";
+        $queryProduct = "SELECT StockItemID, StockItemName, RecommendedRetailPrice, SearchDetails FROM stockitems WHERE StockItemID = ?"; //haalt gegevens op vanuit database waar stockitem gelijk is aan meegegeven product id
         $product = getProduct($con, $queryProduct, $productId);
-        $queryVoorraad = "select quantityonhand from stockitemholdings where stockitemid = ?";
+        $queryVoorraad = "select quantityonhand from stockitemholdings where stockitemid = ?"; //haalt voorraad gegevens op vanuit de database waar stockitemid gelijk is aan meegegeven id
         $productVoorraad = getProductVoorraad($con, $queryVoorraad, $productId);
-        $_SESSION['cart'][$productId] = array(
+        $_SESSION['cart'][$productId] = array( //maakt array aan met toegevoegde producten
             'id' => $productId,
             'name' => $product['productNaam'],
             'price' => $product['productPrijs'],
@@ -30,9 +30,9 @@ if (isset($_POST['btnAddToCart'])){
 //Functie om winkelwagen leeg te maken
 if (isset($_GET['action'])) {
     if ($_GET['action'] == "deleteall"){
-        unset($_SESSION['cart']);
+        unset($_SESSION['cart']); //maakt sessie array leeg
     }elseif ($_GET['action'] == "delete" ){
-        unset($_SESSION['cart'][$_GET['id']]);
+        unset($_SESSION['cart'][$_GET['id']]); //haalt één product uit array met desbetreffende id
     }
 }
 
@@ -101,7 +101,7 @@ if (isset($_POST['update'])){
                                         <td>
                                             <select class="custom-select text-center" id="aantal" name="aantal">
                                                 <?php
-                                                for ($i = 1; $i < 100; $i++){
+                                                for ($i = 1; $i < 100; $i++){ //aantal selecteren van 1-100
                                                     if ($i == $value['aantal']) {
                                                         echo( "<option value='$i' selected>$i</option>");
                                                     }else{
@@ -123,17 +123,6 @@ if (isset($_POST['update'])){
                                $total = $total + ( $value['aantal'] * round(($value['price'] * $omrekenWaarde), 2));
 
                             }
-                            /*if (isset($_POST['kortingscode'])) {
-                                $code = "KERST2019";
-                                $ingevoerdeCode = $_POST['kortingscode'];
-                                if ($code == $ingevoerdeCode) {
-                                    $total = $total * 0.9;
-                                    $total=number_format($total,2);
-
-                                }
-
-                            }*/
-
                             ?>
                             <tr>
                                 <td>
@@ -152,7 +141,7 @@ if (isset($_POST['update'])){
 
 
 
-                         if (empty($_SESSION['cart'])) {
+                         if (empty($_SESSION['cart'])) { //kijkt of winkelwagen leeg is
                             ?>
                             <div style='padding-top: 200px;'>
                                 <h1 style="text-align: center">Winkelwagen is leeg</h1></div>
@@ -172,26 +161,6 @@ if (isset($_POST['update'])){
                                     <a class='btn btn-light text-uppercase align-center' href="Lijstpagina.php?" style="margin-left: 5px;">Verder winkelen</a>
                                     <br>
                                     <br>
-<!--                                    <a class="float-left">-->
-<!--                                        <span style="color: black; ">Kortingscode</span><br>-->
-<!--                                        <input type="text" name="kortingscode"><br><br>-->
-<!--                                        <button type="submit" class="btn btn-primary" name="knopje">VOEG TOE</button>-->
-<!--                                        <br><br>-->
-<!--                                    </a>-->
-<!--                                </caption>-->
-<!--                            </form>-->
-
-<!--                             <form action="Winkelwagen.php" method="post">-->
-<!--                             <a class="float-left">-->
-<!--                                 <span style="color: black; ">Kortingscode</span><br>-->
-<!--                                 <input type="text" name="kortingscode"><br><br>-->
-<!--                                 <button type="submit" class="btn btn-primary" name="kortingscode">VOEG TOE</button>-->
-<!--                                 <br><br>-->
-<!--                             </a>-->
-<!--                             </form>-->
-
-
-
                         <?php
                             }
                         ?>
