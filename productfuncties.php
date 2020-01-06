@@ -280,7 +280,7 @@ function register_user($con, $register_data) { //geef connectie en registratie g
     $huisnummer = $register_data['huisnummer'];
 
 
-    $stmt = mysqli_prepare($con, "INSERT INTO users (username, password, first_name, last_name, email, email_code, plaats, postcode, huisnummer) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); //query die gegevens in de database zet
+    $stmt = mysqli_prepare($con, "INSERT INTO users (username, password, first_name, last_name, email, email_code, plaats, postcode, straatnaam, huisnummer) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     mysqli_stmt_bind_param($stmt, "ssssssssss", $username, $password, $first_name, $last_name, $email, $email_code, $plaats, $postcode, $straatnaam, $huisnummer);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
