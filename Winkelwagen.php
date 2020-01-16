@@ -119,9 +119,25 @@ if (isset($_POST['update'])){
                                 </tr>
 
                                 <?php
-                            
-                               $total = $total + ( $value['aantal'] * round(($value['price'] * $omrekenWaarde), 2));
 
+                               $total = $total + ( $value['aantal'] * round(($value['price'] * $omrekenWaarde), 2));
+                                if(isset($_GET['knopje'])){
+                                    if ($_GET["kortingscode"]!=""){
+                                        include 'kortingscodefuncties.php';
+                                        $korting=kortingCheck($_GET["kortingscode"]);
+                                        $toegevoegdekorting=$korting;
+                                        $korting=$korting/100;
+                                        $korting=1-$korting;
+                                        $total=($total*$korting);
+                                        $total=round($total,2);
+
+                                    } else {
+                                        $toegevoegdekorting='';
+                                    }
+
+                                } else {
+                                    $toegevoegdekorting='';
+                                }
                             }
                             ?>
                             <tr>
@@ -161,6 +177,13 @@ if (isset($_POST['update'])){
                                     <a class='btn btn-light text-uppercase align-center' href="Lijstpagina.php?" style="margin-left: 5px;">Verder winkelen</a>
                                     <br>
                                     <br>
+                                    <span style="color: black; ">Kortingscode</span><br>
+                                    <input type="text" name="kortingscode"><br>
+                                    <?php if($toegevoegdekorting!=''){
+                                        echo 'De huidig toegevoegde korting bedraagd: ' . $toegevoegdekorting . '%';
+                                    }?><br>
+
+                                    <button type="submit" class="btn btn-primary" name="knopje">VOEG TOE</button>
                         <?php
                             }
                         ?>
