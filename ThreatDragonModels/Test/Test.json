@@ -1,0 +1,21 @@
+{
+  "summary": {
+    "title": "Test",
+    "owner": "Bavirion",
+    "description": "Het reversi spel"
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "Sebastiaan"
+      }
+    ],
+    "diagrams": [
+      {
+        "title": "Threat model",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 0
+      }
+    ]
+  }
+}
